@@ -80,5 +80,96 @@ extension String
     }
 
     
+    //分割字符
+    func split(s:String)->[String]
+    {
+        if s.isEmpty{
+            var x=[String]()
+            for y in self{
+                x.append(String(y))
+            }
+            return x
+        }
+        return self.componentsSeparatedByString(s)
+    }
+    
+    //去掉左右空格
+    func trim()->String
+    {
+        return self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+    }
+    
+    //是否包含字符串
+    func contains(s:String)->Bool
+    {
+
+        let range:NSRange = (self as NSString).rangeOfString(s, options: NSStringCompareOptions.CaseInsensitiveSearch)
+
+        return range.location != NSNotFound;
+    }
+    
+
+    /***
+     通过下标的方式 获取指定范围的字符
+      let string:String = "ABCDEGG"
+       string[0...5] //ABCDE
+       string[1...5] //BCDE 5是结束位置 不是个数 如果是要截取多少个可以  string[startIndex...startIndex+4] //截取五个
+    **/
+    subscript (r: Range<Int>) -> String {
+        get {
+
+ 
+            let startIndex = advance(self.startIndex, r.startIndex)
+            let endIndex = advance(startIndex, r.endIndex - r.startIndex)
+            
+            //return s.substringWithRange(Range(start: startIndex, end: endIndex)); 与下面的效果一样 下面是使用下标的方式获取
+            
+            return self[Range(start: startIndex, end: endIndex)]
+        }
+    }
+    
+
+    /**
+        截取字符串
+        startIndex：开始位置
+        count：截取的个数
+    **/
+    func subString(startIndex:Int,count:Int) -> String
+    {
+        
+        if(startIndex>=self.length())
+        {
+            return "";
+        }
+        
+        
+        let maxCount = (self.length() - startIndex);
+        let endIndex = count > maxCount ? maxCount : count;
+
+        
+        let advanceStartIndex = advance(0, startIndex)
+        let advanceEndIndex = advance(advanceStartIndex,endIndex);
+        
+        return self[Range(start: advanceStartIndex, end: advanceEndIndex)]
+    }
+    
+    //重复字符串
+    func repeat(times: Int) -> String{
+        var result = ""
+        for i in 0...times {
+            result += self
+        }
+        return result
+    }
+    //反转
+    func reverse()-> String{
+        var s=self.split("").reverse()
+        var x=""
+        for y in s{
+            x+=y
+        }
+        return x
+    }
+    
     
 }

@@ -14,13 +14,10 @@ class ViewController: LighBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//     let alertview : SCLAlertViewResponder = SCLAlertView().showSuccess(self, title: "Hello World", subTitle: "This is a more descriptive text.")
-
-       // let  alertView:SCLAlertView = SCLAlertView();
-
- 
         
-        // Do any additional setup after loading the view, typically from a nib.
+        var nae:String="1234567890"
+        
+
     }
     
 
