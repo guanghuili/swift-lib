@@ -1,8 +1,14 @@
 # swift-lib
-swift快速开发框架 集成了网络请求 常用View JSON解析 常用工具等
+###功能介绍
+	 1，SCLAlertView的支持 
+	 2，baseViewController的支持
+	 3，自动托管键盘的支持
+###Requirements
+ 
+ 	iOS 7.0+ / Mac OS X 10.9+
+ 	Xcode 6.1
 
- 1，SCLAlertView的支持 
- 2，baseViewController的支持
- 3，自动托管键盘的支持
+
+
  
  updateing....
