@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 //导航栏
-class NavigationBarView: BetterView
+class LighNavigationBarView: UIView
 {
     
     

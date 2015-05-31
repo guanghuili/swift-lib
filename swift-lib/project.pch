@@ -1,0 +1,16 @@
+//
+//  project.pch
+//  swift-lib
+//
+//  Created by ligh on 15/5/30.
+//  Copyright (c) 2015年 ligh. All rights reserved.
+//
+
+#ifndef swift_lib_project_pch
+#define swift_lib_project_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+
+#endif

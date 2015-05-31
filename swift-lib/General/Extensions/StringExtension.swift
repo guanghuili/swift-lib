@@ -1,6 +1,6 @@
 //
 //  StringExtension.swift
-//  AirQ
+//  ligh
 //
 //  Created by ligh on 14/10/18.
 //  Copyright (c) 2014年 Sprint. All rights reserved.

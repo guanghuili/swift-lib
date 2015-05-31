@@ -143,6 +143,22 @@ extension UIView
     //=================================Frame end===================================//
 
 
+    
+    //从xib中初始化view
+    class func viewFromXIB() -> UIView?
+    {
+        var className:String = self.getClassName()
+        
+        var viewObjectArray = NSBundle.mainBundle().loadNibNamed(className, owner: self, options: nil)
+        
+        if viewObjectArray.count > 0
+        {
+            return viewObjectArray[0] as? UIView
+        }
+        
+        return nil
+    }
+    
     //=================================GestureRecognizer begin(首饰相关的)===================================//
     
     //添加点击事件

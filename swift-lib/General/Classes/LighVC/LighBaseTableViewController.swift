@@ -6,8 +6,14 @@
 //  Copyright (c) 2015年 ligh. All rights reserved.
 //
 
-import Cocoa
 
-class LighBaseTableViewController: LighBaseViewController {
+import UIKit
 
+class LighBaseTableViewController: LighBaseViewController
+{
+    //tableview
+    var tableView:UITableView?;
+    
+    
+    
 }
