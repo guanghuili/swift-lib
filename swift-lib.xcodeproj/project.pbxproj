@@ -72,6 +72,7 @@
 		9103C97F1B1ADDA700AB48F2 /* LighNavigationBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighNavigationBarView.swift; sourceTree = "<group>"; };
 		9103C9801B1ADDA700AB48F2 /* LighNavigationBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LighNavigationBarView.xib; sourceTree = "<group>"; };
 		9103C9831B1AE3BE00AB48F2 /* LighBaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighBaseTableViewController.swift; sourceTree = "<group>"; };
+		9103C99D1B1B1DF800AB48F2 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +122,7 @@
 				9103C9191B19BF8500AB48F2 /* AppDelegate.swift */,
 				9103C91B1B19BF8500AB48F2 /* ViewController.swift */,
 				9103C91D1B19BF8500AB48F2 /* Main.storyboard */,
+				9103C99D1B1B1DF800AB48F2 /* MyPlayground.playground */,
 				9103C9201B19BF8500AB48F2 /* Images.xcassets */,
 				9103C9221B19BF8500AB48F2 /* LaunchScreen.xib */,
 				9103C9171B19BF8500AB48F2 /* Supporting Files */,
@@ -158,6 +160,8 @@
 		9103C9391B19C08B00AB48F2 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				9103C9991B1AEF1300AB48F2 /* SwiftyJSON */,
+				9103C9851B1AED6700AB48F2 /* Alamofire */,
 				9103C9581B1AC50E00AB48F2 /* SCLAlertView */,
 			);
 			path = Vendors;
@@ -256,6 +260,20 @@
 				9103C9831B1AE3BE00AB48F2 /* LighBaseTableViewController.swift */,
 			);
 			path = LighVC;
+			sourceTree = "<group>";
+		};
+		9103C9851B1AED6700AB48F2 /* Alamofire */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Alamofire;
+			sourceTree = "<group>";
+		};
+		9103C9991B1AEF1300AB48F2 /* SwiftyJSON */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SwiftyJSON;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -501,6 +519,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "swift-lib/project-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Debug;
 		};

@@ -18,7 +18,7 @@ class ViewController: LighBaseViewController {
 
        // let  alertView:SCLAlertView = SCLAlertView();
 
-    
+ 
         
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -26,11 +26,8 @@ class ViewController: LighBaseViewController {
 
     @IBAction func show(sender: AnyObject) {
        
-        LighAlertView.showLighAlertView("提示", msg: "确定取消吗？") { buttonIndex in
-                        NSLog("aaa");
-            
-
-        }
+        
+        // With hash
 
     }
 

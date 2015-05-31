@@ -1,6 +1,6 @@
 //
 //  StringExtension.swift
-//  ligh
+//  swift-lib
 //
 //  Created by ligh on 14/10/18.
 //  Copyright (c) 2014年 Sprint. All rights reserved.
@@ -15,13 +15,14 @@ extension String
     //将String 转为NSString类型
     func asNSString() -> NSString
     {
+   
         return self as NSString
     }
     
     //将String 转为Int32类型
-    func intValue() -> Int32
+    func intValue() -> Int?
     {
-        return self.asNSString().intValue
+        return self.toInt();
     }
     
     //将String 转为Double类型
@@ -68,6 +69,14 @@ extension String
     {
         var range:Range<String.Index>? = self.rangeOfString(string)
         return range != nil
+    }
+
+    /**
+        获取字符串字符长度
+    **/
+    func length()->Int
+    {
+        return countElements(self);
     }
 
     
