@@ -6,12 +6,8 @@
 	 4，JSON自动转为Model对象
 	 5，支持SwiftyJSON
 	 6，支持Alamofire
+	 持续更新中....
 ###Requirements
  
  	iOS 7.0+ / Mac OS X 10.9+
  	Xcode 6.3
-
-
-
- 
- updateing....
