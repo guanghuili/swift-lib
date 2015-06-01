@@ -35,6 +35,7 @@
 		917A3F941B1C241D000A2A44 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917A3F931B1C241D000A2A44 /* Order.swift */; };
 		917A3FB51B1C5F47000A2A44 /* JSONModelParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917A3FB31B1C5F47000A2A44 /* JSONModelParser.swift */; };
 		917A3FB71B1C6CC4000A2A44 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 917A3FB61B1C6CC4000A2A44 /* SwiftyJSON.framework */; };
+		917A3FBE1B1C70CA000A2A44 /* AlamofireExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917A3FBD1B1C70CA000A2A44 /* AlamofireExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		917A3F931B1C241D000A2A44 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		917A3FB31B1C5F47000A2A44 /* JSONModelParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONModelParser.swift; sourceTree = "<group>"; };
 		917A3FB61B1C6CC4000A2A44 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = "<group>"; };
+		917A3FBD1B1C70CA000A2A44 /* AlamofireExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 		9103C9161B19BF8500AB48F2 /* swift-lib */ = {
 			isa = PBXGroup;
 			children = (
+				917A3FBC1B1C70B8000A2A44 /* HTTP */,
 				917A3F8E1B1C1F3E000A2A44 /* Models */,
 				917A3F841B1C0E82000A2A44 /* UI */,
 				9103C9501B1AC42600AB48F2 /* General */,
@@ -316,6 +319,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		917A3FBC1B1C70B8000A2A44 /* HTTP */ = {
+			isa = PBXGroup;
+			children = (
+				917A3FBD1B1C70CA000A2A44 /* AlamofireExtensions.swift */,
+			);
+			path = HTTP;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -432,6 +443,7 @@
 				917A3FB51B1C5F47000A2A44 /* JSONModelParser.swift in Sources */,
 				9103C91A1B19BF8500AB48F2 /* AppDelegate.swift in Sources */,
 				917A3F8D1B1C0F93000A2A44 /* NSObectExtension.swift in Sources */,
+				917A3FBE1B1C70CA000A2A44 /* AlamofireExtensions.swift in Sources */,
 				9103C97A1B1ADBD700AB48F2 /* UIDeviceExtension.swift in Sources */,
 				9103C96B1B1AC52800AB48F2 /* LighAlertView.swift in Sources */,
 				9103C9671B1AC50E00AB48F2 /* SCLButton.m in Sources */,

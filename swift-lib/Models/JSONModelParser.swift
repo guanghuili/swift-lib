@@ -4,6 +4,10 @@
 //
 //  Created by ligh on 15/6/1.
 //  Copyright (c) 2015年 ligh. All rights reserved.
+//使用方式
+//var dict:NSMutableDictionary = ["userName":"a","age":"1","order":["orderID":"aabrfdfsdfsdf"]]
+//let user = JSONModelParser.sharedManager.swiftObjWithDict(dict,cls:User.self) as! User;
+//println(user.age)
 //
 
 import Foundation
@@ -61,7 +65,7 @@ class JSONModelParser {
             
                     let type = "\(value?.classForCoder)" // $$$$$ 取出某一个对象所属的类
                     
-                    
+                
                     if type.contains("NSDictionary")
                     {
                         
