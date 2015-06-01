@@ -13,10 +13,12 @@ class ViewController: LighBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+     
+        var dict:NSMutableDictionary = ["userName":"a","age":"1","order":["orderID":"aabrfdfsdfsdf"]]
         
-        
-        var nae:String="1234567890"
-        
+        let user = JSONModelParser.sharedManager.swiftObjWithDict(dict,cls:User.self) as! User;
+       
+        println(user.age)
 
     }
     

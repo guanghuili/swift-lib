@@ -83,10 +83,12 @@ class LighBaseViewController : UIViewController,UITextFieldDelegate
         return UIDevice.lessthanIOS7() ? 44 : 64
     }
     
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        self.endEditing()
+    
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+         self.endEditing()
     }
     
+  
     /*******************************ContentView  NavigationBarView end**********************************/
     
     
@@ -158,7 +160,7 @@ class LighBaseViewController : UIViewController,UITextFieldDelegate
         keyboardRect =   self.view.convertRect(keyboardRect, toView: self.view)
         
         
-        var editingViewSuperView:UIView? = editingTextFieldOrTextView?.superview?
+        var editingViewSuperView:UIView? = editingTextFieldOrTextView?.superview
         var textViewRect:CGRect = editingViewSuperView!.convertRect(editingTextFieldOrTextView!.frame, toView: self.view)
         var offsetY:CGFloat = (textViewRect.origin.y + textViewRect.size.height) - keyboardRect.origin.y
 
@@ -184,7 +186,7 @@ class LighBaseViewController : UIViewController,UITextFieldDelegate
         if (editingTextFieldOrTextView is UITextField)
         {
 
-            var textFiled:UITextField = editingTextFieldOrTextView as UITextField
+            var textFiled:UITextField = editingTextFieldOrTextView as! UITextField
             
             if (textFiled.delegate == nil)
             {
@@ -199,7 +201,7 @@ class LighBaseViewController : UIViewController,UITextFieldDelegate
         } else if(editingTextFieldOrTextView is UITextView)
         {
             
-            var textView:UITextView = editingTextFieldOrTextView as UITextView
+            var textView:UITextView = editingTextFieldOrTextView as! UITextView
             
             if (textView.returnKeyType == UIReturnKeyType.Default)
             {

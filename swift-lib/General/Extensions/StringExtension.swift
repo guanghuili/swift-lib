@@ -76,7 +76,7 @@ extension String
     **/
     func length()->Int
     {
-        return countElements(self);
+        return count(self);
     }
 
     
@@ -154,15 +154,18 @@ extension String
     }
     
     //重复字符串
-    func repeat(times: Int) -> String{
+    func repeat(times: Int) -> String
+    {
         var result = ""
         for i in 0...times {
             result += self
         }
         return result
     }
+    
     //反转
-    func reverse()-> String{
+    func reverse()-> String
+    {
         var s=self.split("").reverse()
         var x=""
         for y in s{
