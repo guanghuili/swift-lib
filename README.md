@@ -3,6 +3,7 @@
 	 1，SCLAlertView的支持 
 	 2，baseViewController的支持
 	 3，自动托管键盘的支持
+	 4，JSON自动转为Model对象
 ###Requirements
  
  	iOS 7.0+ / Mac OS X 10.9+
