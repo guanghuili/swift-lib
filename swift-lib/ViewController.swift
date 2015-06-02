@@ -15,20 +15,13 @@ class ViewController: LighBaseViewController {
         super.viewDidLoad()
       
 
-                
-        LighHttpRequestManager.requestObject(self.contentView, method: .GET, url: "http://m.weather.com.cn/data/101110101.html", parameters: nil, clazz: Weather.self) { (httpResult) -> Void in
+        let imgaeView:UIImageView =  UIImageView(frame: self.contentView.frame);
+//        
+//        imgaeView.sd_setImageWithURL(NSURL(string: "http://b.hiphotos.baidu.com/image/pic/item/30adcbef76094b365d14aceca1cc7cd98d109d29.jpg"))
+        self.contentView.addSubview(imgaeView);
+        
 
-                    
-                    let result:LighHTTPResult = httpResult! as LighHTTPResult;
-                    let weather:Weather = result.dataObj! as! Weather;
-                    
-                    
-                    println(weather.city)
-        }
-                
-        
-   
-        
+        imgaeView.setImagePath("http://img3.fengniao.com/travel/2_960/1623.jpg")
     
     
     }

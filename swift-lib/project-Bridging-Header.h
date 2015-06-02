@@ -17,5 +17,7 @@
 
 #import "LighIndicatorView.h"
 
+#import "UIImageView+WebCache.h"
+
 
 #endif
