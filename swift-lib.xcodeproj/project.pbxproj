@@ -28,14 +28,20 @@
 		9103C9821B1ADDA700AB48F2 /* LighNavigationBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9103C9801B1ADDA700AB48F2 /* LighNavigationBarView.xib */; };
 		9103C9841B1AE3BE00AB48F2 /* LighBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9103C9831B1AE3BE00AB48F2 /* LighBaseTableViewController.swift */; };
 		917A3F7A1B1BF923000A2A44 /* Alamofire-SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917A3F791B1BF923000A2A44 /* Alamofire-SwiftyJSON.swift */; };
-		917A3F821B1BFB72000A2A44 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 917A3F801B1BFB69000A2A44 /* Alamofire.framework */; };
-		917A3F831B1BFB72000A2A44 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 917A3F801B1BFB69000A2A44 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		917A3F8D1B1C0F93000A2A44 /* NSObectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917A3F8C1B1C0F93000A2A44 /* NSObectExtension.swift */; };
 		917A3F921B1C234D000A2A44 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917A3F911B1C234D000A2A44 /* User.swift */; };
 		917A3F941B1C241D000A2A44 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917A3F931B1C241D000A2A44 /* Order.swift */; };
 		917A3FB51B1C5F47000A2A44 /* JSONModelParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917A3FB31B1C5F47000A2A44 /* JSONModelParser.swift */; };
-		917A3FB71B1C6CC4000A2A44 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 917A3FB61B1C6CC4000A2A44 /* SwiftyJSON.framework */; };
 		917A3FBE1B1C70CA000A2A44 /* AlamofireExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917A3FBD1B1C70CA000A2A44 /* AlamofireExtensions.swift */; };
+		91BD59DE1B1D5710002CF727 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91BD59DD1B1D5710002CF727 /* Info.plist */; };
+		91BD59E21B1D5EDC002CF727 /* LighHTTPResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD59E11B1D5EDC002CF727 /* LighHTTPResult.swift */; };
+		91BD59E41B1D7D8F002CF727 /* LighHttpRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD59E31B1D7D8F002CF727 /* LighHttpRequestManager.swift */; };
+		91BD59EA1B1D89FE002CF727 /* AMTumblrHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BD59E71B1D89FE002CF727 /* AMTumblrHud.m */; };
+		91BD59EB1B1D89FE002CF727 /* GradientProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BD59E91B1D89FE002CF727 /* GradientProgressView.m */; };
+		91BD59F01B1D90C6002CF727 /* LighIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BD59EE1B1D90C6002CF727 /* LighIndicatorView.m */; };
+		91BD59F11B1D90C6002CF727 /* LighIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91BD59EF1B1D90C6002CF727 /* LighIndicatorView.xib */; };
+		91C04E961B1D56AC0059A84A /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 917A3FB61B1C6CC4000A2A44 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		91C04E981B1D56AC0059A84A /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 91C04E931B1D56A30059A84A /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +61,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				917A3F831B1BFB72000A2A44 /* Alamofire.framework in Embed Frameworks */,
+				91C04E961B1D56AC0059A84A /* SwiftyJSON.framework in Embed Frameworks */,
+				91C04E981B1D56AC0059A84A /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -64,7 +71,6 @@
 
 /* Begin PBXFileReference section */
 		9103C9141B19BF8500AB48F2 /* swift-lib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swift-lib.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9103C9181B19BF8500AB48F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9103C9191B19BF8500AB48F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9103C91B1B19BF8500AB48F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9103C91E1B19BF8500AB48F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -98,13 +104,23 @@
 		9103C99D1B1B1DF800AB48F2 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		917A3F781B1BF923000A2A44 /* Alamofire-SwiftyJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Alamofire-SwiftyJSON.h"; sourceTree = "<group>"; };
 		917A3F791B1BF923000A2A44 /* Alamofire-SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire-SwiftyJSON.swift"; sourceTree = "<group>"; };
-		917A3F801B1BFB69000A2A44 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
 		917A3F8C1B1C0F93000A2A44 /* NSObectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObectExtension.swift; sourceTree = "<group>"; };
 		917A3F911B1C234D000A2A44 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		917A3F931B1C241D000A2A44 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		917A3FB31B1C5F47000A2A44 /* JSONModelParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONModelParser.swift; sourceTree = "<group>"; };
 		917A3FB61B1C6CC4000A2A44 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = "<group>"; };
 		917A3FBD1B1C70CA000A2A44 /* AlamofireExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireExtensions.swift; sourceTree = "<group>"; };
+		91BD59DD1B1D5710002CF727 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		91BD59E11B1D5EDC002CF727 /* LighHTTPResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighHTTPResult.swift; sourceTree = "<group>"; };
+		91BD59E31B1D7D8F002CF727 /* LighHttpRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighHttpRequestManager.swift; sourceTree = "<group>"; };
+		91BD59E61B1D89FE002CF727 /* AMTumblrHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMTumblrHud.h; sourceTree = "<group>"; };
+		91BD59E71B1D89FE002CF727 /* AMTumblrHud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMTumblrHud.m; sourceTree = "<group>"; };
+		91BD59E81B1D89FE002CF727 /* GradientProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientProgressView.h; sourceTree = "<group>"; };
+		91BD59E91B1D89FE002CF727 /* GradientProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientProgressView.m; sourceTree = "<group>"; };
+		91BD59ED1B1D90C6002CF727 /* LighIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LighIndicatorView.h; sourceTree = "<group>"; };
+		91BD59EE1B1D90C6002CF727 /* LighIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LighIndicatorView.m; sourceTree = "<group>"; };
+		91BD59EF1B1D90C6002CF727 /* LighIndicatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LighIndicatorView.xib; sourceTree = "<group>"; };
+		91C04E931B1D56A30059A84A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,8 +128,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				917A3FB71B1C6CC4000A2A44 /* SwiftyJSON.framework in Frameworks */,
-				917A3F821B1BFB72000A2A44 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,7 +181,7 @@
 		9103C9171B19BF8500AB48F2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				9103C9181B19BF8500AB48F2 /* Info.plist */,
+				91BD59DD1B1D5710002CF727 /* Info.plist */,
 				9103C94B1B19C17C00AB48F2 /* project.pch */,
 				9103C94C1B19C52100AB48F2 /* project-Bridging-Header.h */,
 			);
@@ -194,6 +208,7 @@
 		9103C9391B19C08B00AB48F2 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				91BD59E51B1D89FE002CF727 /* AMTumblrHud */,
 				917A3F881B1C0EE0000A2A44 /* SwiftyJSON */,
 				917A3F7F1B1BFB57000A2A44 /* Alamofire */,
 				917A3F771B1BF8E5000A2A44 /* Alamofire-SwiftyJSON */,
@@ -215,6 +230,7 @@
 		9103C9521B1AC45C00AB48F2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				91BD59EC1B1D90BB002CF727 /* Loading */,
 				9103C9691B1AC52800AB48F2 /* AlertView */,
 			);
 			path = Views;
@@ -289,7 +305,7 @@
 		917A3F7F1B1BFB57000A2A44 /* Alamofire */ = {
 			isa = PBXGroup;
 			children = (
-				917A3F801B1BFB69000A2A44 /* Alamofire.framework */,
+				91C04E931B1D56A30059A84A /* Alamofire.framework */,
 			);
 			path = Alamofire;
 			sourceTree = "<group>";
@@ -323,8 +339,31 @@
 			isa = PBXGroup;
 			children = (
 				917A3FBD1B1C70CA000A2A44 /* AlamofireExtensions.swift */,
+				91BD59E11B1D5EDC002CF727 /* LighHTTPResult.swift */,
+				91BD59E31B1D7D8F002CF727 /* LighHttpRequestManager.swift */,
 			);
 			path = HTTP;
+			sourceTree = "<group>";
+		};
+		91BD59E51B1D89FE002CF727 /* AMTumblrHud */ = {
+			isa = PBXGroup;
+			children = (
+				91BD59E61B1D89FE002CF727 /* AMTumblrHud.h */,
+				91BD59E71B1D89FE002CF727 /* AMTumblrHud.m */,
+				91BD59E81B1D89FE002CF727 /* GradientProgressView.h */,
+				91BD59E91B1D89FE002CF727 /* GradientProgressView.m */,
+			);
+			path = AMTumblrHud;
+			sourceTree = "<group>";
+		};
+		91BD59EC1B1D90BB002CF727 /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				91BD59ED1B1D90C6002CF727 /* LighIndicatorView.h */,
+				91BD59EE1B1D90C6002CF727 /* LighIndicatorView.m */,
+				91BD59EF1B1D90C6002CF727 /* LighIndicatorView.xib */,
+			);
+			path = Loading;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -411,6 +450,8 @@
 				9103C91F1B19BF8500AB48F2 /* Main.storyboard in Resources */,
 				9103C9241B19BF8500AB48F2 /* LaunchScreen.xib in Resources */,
 				9103C9821B1ADDA700AB48F2 /* LighNavigationBarView.xib in Resources */,
+				91BD59F11B1D90C6002CF727 /* LighIndicatorView.xib in Resources */,
+				91BD59DE1B1D5710002CF727 /* Info.plist in Resources */,
 				9103C9211B19BF8500AB48F2 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,12 +476,15 @@
 				9103C91C1B19BF8500AB48F2 /* ViewController.swift in Sources */,
 				9103C9681B1AC50E00AB48F2 /* UIImage+ImageEffects.m in Sources */,
 				917A3F941B1C241D000A2A44 /* Order.swift in Sources */,
+				91BD59EB1B1D89FE002CF727 /* GradientProgressView.m in Sources */,
 				9103C97E1B1ADBD700AB48F2 /* UIViewExtension.swift in Sources */,
 				9103C9841B1AE3BE00AB48F2 /* LighBaseTableViewController.swift in Sources */,
+				91BD59E21B1D5EDC002CF727 /* LighHTTPResult.swift in Sources */,
 				917A3F921B1C234D000A2A44 /* User.swift in Sources */,
 				9103C9651B1AC50E00AB48F2 /* SCLAlertViewResponder.m in Sources */,
 				9103C9711B1AD9F100AB48F2 /* LighBaseViewController.swift in Sources */,
 				917A3FB51B1C5F47000A2A44 /* JSONModelParser.swift in Sources */,
+				91BD59EA1B1D89FE002CF727 /* AMTumblrHud.m in Sources */,
 				9103C91A1B19BF8500AB48F2 /* AppDelegate.swift in Sources */,
 				917A3F8D1B1C0F93000A2A44 /* NSObectExtension.swift in Sources */,
 				917A3FBE1B1C70CA000A2A44 /* AlamofireExtensions.swift in Sources */,
@@ -448,8 +492,10 @@
 				9103C96B1B1AC52800AB48F2 /* LighAlertView.swift in Sources */,
 				9103C9671B1AC50E00AB48F2 /* SCLButton.m in Sources */,
 				9103C97B1B1ADBD700AB48F2 /* StringExtension.swift in Sources */,
+				91BD59E41B1D7D8F002CF727 /* LighHttpRequestManager.swift in Sources */,
 				9103C9641B1AC50E00AB48F2 /* SCLAlertView.m in Sources */,
 				9103C9811B1ADDA700AB48F2 /* LighNavigationBarView.swift in Sources */,
+				91BD59F01B1D90C6002CF727 /* LighIndicatorView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -41,9 +41,7 @@ class JSONModelParser {
         
         /// 取出模型类字典
         let dictInfo = GetAllModelInfo(cls)
-    //    println(dictInfo)
-        
- 
+
         /// 实例化对象
         var obj:AnyObject = cls.alloc()
         
@@ -54,10 +52,10 @@ class JSONModelParser {
             {
                 
                 /// 如果是基本数据类型直接kvc
-                if v.isEmpty && !(value === NSNull())
+                if v.isEmpty && value !== nil && (value !== NSNull())
                 {
-                   
-                    obj.setValue(value, forKey: k)
+                   println(k)
+                  obj.setValue(value, forKey: k)
                     
                     
                 }else {
@@ -241,7 +239,6 @@ class JSONModelParser {
         
         let ivars = class_copyIvarList(cls, &count)
         
-        println("有 \(count) 个属性")
         
         for i in 0..<count{
             /// 必须再强转成Int否则不能用来做下标

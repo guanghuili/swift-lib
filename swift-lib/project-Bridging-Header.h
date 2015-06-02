@@ -12,5 +12,10 @@
 #import "SCLAlertView.h"
 #import "SCLAlertViewResponder.h"
 
+#import "GradientProgressView.h"
+#import "AMTumblrHud.h"
+
+#import "LighIndicatorView.h"
+
 
 #endif

@@ -11,14 +11,22 @@ import UIKit
 class User:NSObject,JSONModelParserProtocol
 {
 //   
-//    var userName:String?
-//    var order:Order!
+    var userName:String?
+    var order:Order!
+    var orders:Array<Order>!
     var age:Int = 0
 
     
    static func JSONKeyByClassMapping() -> [String:String]?
    {
-        return ["order":"\(Order.self)"]
+        return ["order":"\(Order.self)","orders":"\(Order.self)"]
    }
     
+}
+
+
+class Weather:NSObject
+{
+    var city_en:String?
+    var city:String?
 }

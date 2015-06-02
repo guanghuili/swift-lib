@@ -7,15 +7,30 @@
 //
 
 import UIKit
-
+import Alamofire
 
 class ViewController: LighBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-     
+      
 
+                
+        LighHttpRequestManager.requestObject(self.contentView, method: .GET, url: "http://m.weather.com.cn/data/101110101.html", parameters: nil, clazz: Weather.self) { (httpResult) -> Void in
 
+                    
+                    let result:LighHTTPResult = httpResult! as LighHTTPResult;
+                    let weather:Weather = result.dataObj! as! Weather;
+                    
+                    
+                    println(weather.city)
+        }
+                
+        
+   
+        
+    
+    
     }
     
 
