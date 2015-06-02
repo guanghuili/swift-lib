@@ -15,6 +15,8 @@
 	 	托管Alamofire
 	 	支持自定义请求最大数量
 	 	支持loading提示
+	9 增加SDWebImage的支持
+		为UIImageView添加扩展方法 支持加载网络图 并支持显示加载进度
 	 持续更新中....
 ###Requirements
  
