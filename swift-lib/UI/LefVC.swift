@@ -13,9 +13,14 @@ class LefVC: LighBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.view.backgroundColor = UIColor.redColor()
+        self.setNavigationBarTitle("左侧菜单")
+
     }
 
+
+    @IBAction func push(sender: AnyObject)
+    {
+        self.navigationController?.pushViewController(ViewController(), animated: true)
+    }
 
 }

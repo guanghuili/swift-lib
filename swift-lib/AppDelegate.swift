@@ -17,15 +17,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, willFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
      
         UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: false)
+     
+        let rightSideNavController =  LefVC(nibName:"LefVC", bundle:nil)
         
-        let rightSideNavController = UINavigationController(rootViewController: LefVC())
+            rightSideNavController.restorationIdentifier = "ExampleRightNavigationControllerRestorationKey"
+        
+        let leftSideNavController =  LefVC(nibName:"LefVC", bundle:nil)
+        
+        
         rightSideNavController.restorationIdentifier = "ExampleRightNavigationControllerRestorationKey"
         
-        let leftSideNavController = UINavigationController(rootViewController: LefVC())
-        rightSideNavController.restorationIdentifier = "ExampleRightNavigationControllerRestorationKey"
         
-        
-        let navigationController = UINavigationController(rootViewController: ViewController())
+        let navigationController = ViewController()
         navigationController.restorationIdentifier = "ExampleLeftNavigationControllerRestorationKey"
 
         
@@ -49,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tintColor = UIColor(red: 29 / 255, green: 173 / 255, blue: 234 / 255, alpha: 1.0)
         self.window?.tintColor = tintColor
         
-        self.window?.rootViewController = draw
+        self.window?.rootViewController = SloppySwiperNavigationController(rootViewController: self.draw!)
         
         return true
     }

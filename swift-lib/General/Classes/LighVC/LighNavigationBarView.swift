@@ -13,6 +13,7 @@ import UIKit
 class LighNavigationBarView: UIView
 {
     
+    @IBOutlet weak var titleLabel: UILabel!
     
     
 }

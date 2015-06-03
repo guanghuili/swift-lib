@@ -34,6 +34,11 @@
 		911FCA561B1EAF8D00A970A3 /* LefVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911FCA541B1EAF8D00A970A3 /* LefVC.swift */; };
 		911FCA571B1EAF8D00A970A3 /* LefVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 911FCA551B1EAF8D00A970A3 /* LefVC.xib */; };
 		911FCA5A1B1EC4E900A970A3 /* ExampleDrawerVisualStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911FCA591B1EC4E900A970A3 /* ExampleDrawerVisualStateManager.swift */; };
+		911FCA751B1EE4C900A970A3 /* SloppySwiper.m in Sources */ = {isa = PBXBuildFile; fileRef = 911FCA6E1B1EE4C900A970A3 /* SloppySwiper.m */; };
+		911FCA761B1EE4C900A970A3 /* SloppySwiperNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 911FCA701B1EE4C900A970A3 /* SloppySwiperNavigationController.m */; };
+		911FCA771B1EE4C900A970A3 /* SSWAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 911FCA721B1EE4C900A970A3 /* SSWAnimator.m */; };
+		911FCA781B1EE4C900A970A3 /* SSWDirectionalPanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 911FCA741B1EE4C900A970A3 /* SSWDirectionalPanGestureRecognizer.m */; };
+		911FCA7C1B1EE7EF00A970A3 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911FCA7B1B1EE7EF00A970A3 /* UIViewControllerExtension.swift */; };
 		917A3F7A1B1BF923000A2A44 /* Alamofire-SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917A3F791B1BF923000A2A44 /* Alamofire-SwiftyJSON.swift */; };
 		917A3F8D1B1C0F93000A2A44 /* NSObectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917A3F8C1B1C0F93000A2A44 /* NSObectExtension.swift */; };
 		917A3F921B1C234D000A2A44 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917A3F911B1C234D000A2A44 /* User.swift */; };
@@ -134,6 +139,15 @@
 		911FCA541B1EAF8D00A970A3 /* LefVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LefVC.swift; sourceTree = "<group>"; };
 		911FCA551B1EAF8D00A970A3 /* LefVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LefVC.xib; sourceTree = "<group>"; };
 		911FCA591B1EC4E900A970A3 /* ExampleDrawerVisualStateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleDrawerVisualStateManager.swift; sourceTree = "<group>"; };
+		911FCA6D1B1EE4C900A970A3 /* SloppySwiper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SloppySwiper.h; sourceTree = "<group>"; };
+		911FCA6E1B1EE4C900A970A3 /* SloppySwiper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SloppySwiper.m; sourceTree = "<group>"; };
+		911FCA6F1B1EE4C900A970A3 /* SloppySwiperNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SloppySwiperNavigationController.h; sourceTree = "<group>"; };
+		911FCA701B1EE4C900A970A3 /* SloppySwiperNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SloppySwiperNavigationController.m; sourceTree = "<group>"; };
+		911FCA711B1EE4C900A970A3 /* SSWAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSWAnimator.h; sourceTree = "<group>"; };
+		911FCA721B1EE4C900A970A3 /* SSWAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSWAnimator.m; sourceTree = "<group>"; };
+		911FCA731B1EE4C900A970A3 /* SSWDirectionalPanGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSWDirectionalPanGestureRecognizer.h; sourceTree = "<group>"; };
+		911FCA741B1EE4C900A970A3 /* SSWDirectionalPanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSWDirectionalPanGestureRecognizer.m; sourceTree = "<group>"; };
+		911FCA7B1B1EE7EF00A970A3 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		917A3F781B1BF923000A2A44 /* Alamofire-SwiftyJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Alamofire-SwiftyJSON.h"; sourceTree = "<group>"; };
 		917A3F791B1BF923000A2A44 /* Alamofire-SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire-SwiftyJSON.swift"; sourceTree = "<group>"; };
 		917A3F8C1B1C0F93000A2A44 /* NSObectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObectExtension.swift; sourceTree = "<group>"; };
@@ -274,6 +288,7 @@
 		9103C9391B19C08B00AB48F2 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				911FCA6C1B1EE49D00A970A3 /* SloppySwiper */,
 				911FCA4A1B1EAE9A00A970A3 /* DrawerController */,
 				91BD5A001B1DBAE3002CF727 /* SDWebImage */,
 				91BD59E51B1D89FE002CF727 /* AMTumblrHud */,
@@ -321,6 +336,7 @@
 				9103C9791B1ADBD700AB48F2 /* UIViewExtension.swift */,
 				917A3F8C1B1C0F93000A2A44 /* NSObectExtension.swift */,
 				91BD5A321B1DBC6C002CF727 /* UIimageViewExtension.swift */,
+				911FCA7B1B1EE7EF00A970A3 /* UIViewControllerExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -373,6 +389,21 @@
 				911FCA4F1B1EAED400A970A3 /* DrawerVisualState.swift */,
 			);
 			path = DrawerController;
+			sourceTree = "<group>";
+		};
+		911FCA6C1B1EE49D00A970A3 /* SloppySwiper */ = {
+			isa = PBXGroup;
+			children = (
+				911FCA6D1B1EE4C900A970A3 /* SloppySwiper.h */,
+				911FCA6E1B1EE4C900A970A3 /* SloppySwiper.m */,
+				911FCA6F1B1EE4C900A970A3 /* SloppySwiperNavigationController.h */,
+				911FCA701B1EE4C900A970A3 /* SloppySwiperNavigationController.m */,
+				911FCA711B1EE4C900A970A3 /* SSWAnimator.h */,
+				911FCA721B1EE4C900A970A3 /* SSWAnimator.m */,
+				911FCA731B1EE4C900A970A3 /* SSWDirectionalPanGestureRecognizer.h */,
+				911FCA741B1EE4C900A970A3 /* SSWDirectionalPanGestureRecognizer.m */,
+			);
+			path = SloppySwiper;
 			sourceTree = "<group>";
 		};
 		917A3F771B1BF8E5000A2A44 /* Alamofire-SwiftyJSON */ = {
@@ -620,25 +651,30 @@
 				91BD5A2F1B1DBAF9002CF727 /* UIImageView+HighlightedWebCache.m in Sources */,
 				9103C9651B1AC50E00AB48F2 /* SCLAlertViewResponder.m in Sources */,
 				9103C9711B1AD9F100AB48F2 /* LighBaseViewController.swift in Sources */,
+				911FCA761B1EE4C900A970A3 /* SloppySwiperNavigationController.m in Sources */,
 				917A3FB51B1C5F47000A2A44 /* JSONModelParser.swift in Sources */,
 				911FCA501B1EAED400A970A3 /* AnimatedMenuButton.swift in Sources */,
 				91BD59EA1B1D89FE002CF727 /* AMTumblrHud.m in Sources */,
 				9103C91A1B19BF8500AB48F2 /* AppDelegate.swift in Sources */,
 				91BD5A2D1B1DBAF9002CF727 /* UIImage+MultiFormat.m in Sources */,
 				917A3F8D1B1C0F93000A2A44 /* NSObectExtension.swift in Sources */,
+				911FCA771B1EE4C900A970A3 /* SSWAnimator.m in Sources */,
 				91BD5A221B1DBAF9002CF727 /* MKAnnotationView+WebCache.m in Sources */,
 				91BD5A331B1DBC6C002CF727 /* UIimageViewExtension.swift in Sources */,
 				91BD5A231B1DBAF9002CF727 /* NSData+ImageContentType.m in Sources */,
 				91BD5A2B1B1DBAF9002CF727 /* UIButton+WebCache.m in Sources */,
 				91BD5A301B1DBAF9002CF727 /* UIImageView+WebCache.m in Sources */,
+				911FCA7C1B1EE7EF00A970A3 /* UIViewControllerExtension.swift in Sources */,
 				917A3FBE1B1C70CA000A2A44 /* AlamofireExtensions.swift in Sources */,
 				9103C97A1B1ADBD700AB48F2 /* UIDeviceExtension.swift in Sources */,
+				911FCA781B1EE4C900A970A3 /* SSWDirectionalPanGestureRecognizer.m in Sources */,
 				91BD5A2C1B1DBAF9002CF727 /* UIImage+GIF.m in Sources */,
 				911FCA561B1EAF8D00A970A3 /* LefVC.swift in Sources */,
 				91BD5A271B1DBAF9002CF727 /* SDWebImageDownloader.m in Sources */,
 				9103C96B1B1AC52800AB48F2 /* LighAlertView.swift in Sources */,
 				9103C9671B1AC50E00AB48F2 /* SCLButton.m in Sources */,
 				9103C97B1B1ADBD700AB48F2 /* StringExtension.swift in Sources */,
+				911FCA751B1EE4C900A970A3 /* SloppySwiper.m in Sources */,
 				91BD59E41B1D7D8F002CF727 /* LighHttpRequestManager.swift in Sources */,
 				9103C9641B1AC50E00AB48F2 /* SCLAlertView.m in Sources */,
 				9103C9811B1ADDA700AB48F2 /* LighNavigationBarView.swift in Sources */,

@@ -9,15 +9,14 @@
 #ifndef swift_lib_project_Bridging_Header_h
 #define swift_lib_project_Bridging_Header_h
 
+//以下为object-c类库
+
 #import "SCLAlertView.h"
 #import "SCLAlertViewResponder.h"
-
 #import "GradientProgressView.h"
 #import "AMTumblrHud.h"
-
 #import "LighIndicatorView.h"
-
 #import "UIImageView+WebCache.h"
-
-
+#import "SloppySwiper.h"
+#import "SloppySwiperNavigationController.h"
 #endif

@@ -13,7 +13,7 @@ class LighBaseViewController : UIViewController,UITextFieldDelegate
 {
     //vc显示的内容 不包含NavigationBarView
     @IBOutlet var contentView:UIView!
-              var navigationBarView:UIView!
+              var navigationBarView:LighNavigationBarView!
     
     
     //键盘相关
@@ -69,12 +69,12 @@ class LighBaseViewController : UIViewController,UITextFieldDelegate
 
 
     //导航栏view 子类可以重写此方法
-    func loadNavigationBarView() -> UIView
+    func loadNavigationBarView() -> LighNavigationBarView
     {
 
         var navigationBarView:UIView! = LighNavigationBarView.viewFromXIB()
         navigationBarView.height = self.navigationBarViewHeight()
-        return navigationBarView
+        return navigationBarView as! LighNavigationBarView
         
     }
     
@@ -83,6 +83,11 @@ class LighBaseViewController : UIViewController,UITextFieldDelegate
         return UIDevice.lessthanIOS7() ? 44 : 64
     }
     
+    
+    func setNavigationBarTitle(title:String)
+    {
+        self.navigationBarView.titleLabel.text = title
+    }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
          self.endEditing()
@@ -238,22 +243,7 @@ class LighBaseViewController : UIViewController,UITextFieldDelegate
     
     
     
-    
-    class func getClassName() -> String
-    {
-        
-        var s:NSString = "" as NSString
-        
-        var selfName:String = self.classForCoder().description()
-        var range:Range<String.Index>? = selfName.rangeOfString(".")
-        
-        if range != nil
-        {
-            return selfName.substringFromIndex(range!.endIndex)
-        }
-        
-        return selfName
-    }
+
     
  
 }
