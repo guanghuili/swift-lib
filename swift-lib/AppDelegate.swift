@@ -12,11 +12,86 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var draw:DrawerController?
+   
+    func application(application: UIApplication, willFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+     
+        UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: false)
+        
+        let rightSideNavController = UINavigationController(rootViewController: LefVC())
+        rightSideNavController.restorationIdentifier = "ExampleRightNavigationControllerRestorationKey"
+        
+        let leftSideNavController = UINavigationController(rootViewController: LefVC())
+        rightSideNavController.restorationIdentifier = "ExampleRightNavigationControllerRestorationKey"
+        
+        
+        let navigationController = UINavigationController(rootViewController: ViewController())
+        navigationController.restorationIdentifier = "ExampleLeftNavigationControllerRestorationKey"
 
-
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        
+        self.draw = DrawerController(centerViewController: navigationController, leftDrawerViewController: leftSideNavController,rightDrawerViewController:nil)
+        
+        self.draw?.showsShadows = true
+        
+        self.draw?.restorationIdentifier = "Drawer"
+        self.draw?.maximumRightDrawerWidth = 100.0
+        self.draw?.openDrawerGestureModeMask = .All
+        self.draw?.closeDrawerGestureModeMask = .All
+        
+        self.draw?.drawerVisualStateBlock = { (drawerController, drawerSide, percentVisible) in
+            let block = ExampleDrawerVisualStateManager.sharedManager.drawerVisualStateBlockForDrawerSide(drawerSide)
+            block?(drawerController, drawerSide, percentVisible)
+        }
+        
+        //必须设置frame
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        let tintColor = UIColor(red: 29 / 255, green: 173 / 255, blue: 234 / 255, alpha: 1.0)
+        self.window?.tintColor = tintColor
+        
+        self.window?.rootViewController = draw
+        
         return true
+    }
+    
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        self.window?.backgroundColor = UIColor.whiteColor()
+        self.window?.makeKeyAndVisible()
+        
+        return true
+    }
+    
+    
+    func application(application: UIApplication, viewControllerWithRestorationIdentifierPath identifierComponents: [AnyObject], coder: NSCoder) -> UIViewController? {
+        if let key = identifierComponents.last as? String {
+            if key == "Drawer" {
+                return self.window?.rootViewController
+            } else if key == "ExampleCenterNavigationControllerRestorationKey" {
+                return (self.window?.rootViewController as! DrawerController).centerViewController
+            } else if key == "ExampleRightNavigationControllerRestorationKey" {
+                return (self.window?.rootViewController as! DrawerController).rightDrawerViewController
+            } else if key == "ExampleLeftNavigationControllerRestorationKey" {
+                return (self.window?.rootViewController as! DrawerController).leftDrawerViewController
+            } else if key == "ExampleLeftSideDrawerController" {
+                if let leftVC = (self.window?.rootViewController as? DrawerController)?.leftDrawerViewController {
+                    if leftVC.isKindOfClass(UINavigationController) {
+                        return (leftVC as! UINavigationController).topViewController
+                    } else {
+                        return leftVC
+                    }
+                }
+            } else if key == "ExampleRightSideDrawerController" {
+                if let rightVC = (self.window?.rootViewController as? DrawerController)?.rightDrawerViewController {
+                    if rightVC.isKindOfClass(UINavigationController) {
+                        return (rightVC as! UINavigationController).topViewController
+                    } else {
+                        return rightVC
+                    }
+                }
+            }
+        }
+        
+        return nil
     }
 
     func applicationWillResignActive(application: UIApplication) {

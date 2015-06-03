@@ -16,9 +16,9 @@
 #include <string.h>
 #include <math.h>
 
+#include "./cost.h"
 #include "./vp8enci.h"
 #include "./vp8li.h"
-#include "./cost.h"
 #include "../utils/utils.h"
 
 // #define PRINT_MEMORY_INFO
@@ -38,14 +38,14 @@ int WebPGetEncoderVersion(void) {
 //------------------------------------------------------------------------------
 
 static void ResetSegmentHeader(VP8Encoder* const enc) {
-  VP8SegmentHeader* const hdr = &enc->segment_hdr_;
+  VP8EncSegmentHeader* const hdr = &enc->segment_hdr_;
   hdr->num_segments_ = enc->config_->segments;
   hdr->update_map_  = (hdr->num_segments_ > 1);
   hdr->size_ = 0;
 }
 
 static void ResetFilterHeader(VP8Encoder* const enc) {
-  VP8FilterHeader* const hdr = &enc->filter_hdr_;
+  VP8EncFilterHeader* const hdr = &enc->filter_hdr_;
   hdr->simple_ = 1;
   hdr->level_ = 0;
   hdr->sharpness_ = 0;
@@ -131,7 +131,7 @@ static void MapConfigToTools(VP8Encoder* const enc) {
 //       VP8EncIterator: 3360
 //         VP8ModeScore: 872
 //       VP8SegmentInfo: 732
-//             VP8Proba: 18352
+//          VP8EncProba: 18352
 //              LFStats: 2048
 // Picture size (yuv): 419328
 
@@ -177,10 +177,10 @@ static VP8Encoder* InitVP8Encoder(const WebPConfig* const config,
          "      VP8EncIterator: %ld\n"
          "        VP8ModeScore: %ld\n"
          "      VP8SegmentInfo: %ld\n"
-         "            VP8Proba: %ld\n"
+         "         VP8EncProba: %ld\n"
          "             LFStats: %ld\n",
          sizeof(VP8EncIterator), sizeof(VP8ModeScore),
-         sizeof(VP8SegmentInfo), sizeof(VP8Proba),
+         sizeof(VP8SegmentInfo), sizeof(VP8EncProba),
          sizeof(LFStats));
   printf("Picture size (yuv): %ld\n",
          mb_w * mb_h * 384 * sizeof(uint8_t));
@@ -225,8 +225,7 @@ static VP8Encoder* InitVP8Encoder(const WebPConfig* const config,
   ResetSegmentHeader(enc);
   ResetFilterHeader(enc);
   ResetBoundaryPredictions(enc);
-  VP8GetResidualCostInit();
-  VP8SetResidualCoeffsInit();
+  VP8EncDspCostInit();
   VP8EncInitAlpha(enc);
 
   // lower quality means smaller output -> we modulate a little the page
@@ -329,11 +328,9 @@ int WebPEncode(const WebPConfig* config, WebPPicture* pic) {
     if (pic->use_argb || pic->y == NULL || pic->u == NULL || pic->v == NULL) {
       // Make sure we have YUVA samples.
       if (config->preprocessing & 4) {
-#if WEBP_ENCODER_ABI_VERSION > 0x0204
         if (!WebPPictureSmartARGBToYUVA(pic)) {
           return 0;
         }
-#endif
       } else {
         float dithering = 0.f;
         if (config->preprocessing & 2) {

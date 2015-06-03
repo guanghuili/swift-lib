@@ -546,15 +546,11 @@ static void Help(void) {
          "  -nofilter .... disable in-loop filtering\n"
          "  -nodither .... disable dithering\n"
          "  -dither <d> .. dithering strength (in 0..100)\n"
-#if WEBP_DECODER_ABI_VERSION > 0x0204
          "  -alpha_dither  use alpha-plane dithering if needed\n"
-#endif
          "  -mt .......... use multi-threading\n"
          "  -crop <x> <y> <w> <h> ... crop output with the given rectangle\n"
          "  -scale <w> <h> .......... scale the output (*after* any cropping)\n"
-#if WEBP_DECODER_ABI_VERSION > 0x0203
          "  -flip ........ flip the output vertically\n"
-#endif
          "  -alpha ....... only save the alpha plane\n"
          "  -incremental . use incremental decoding (useful for tests)\n"
          "  -h     ....... this help message\n"
@@ -618,10 +614,8 @@ int main(int argc, const char *argv[]) {
       format = YUV;
     } else if (!strcmp(argv[c], "-mt")) {
       config.options.use_threads = 1;
-#if WEBP_DECODER_ABI_VERSION > 0x0204
     } else if (!strcmp(argv[c], "-alpha_dither")) {
       config.options.alpha_dithering_strength = 100;
-#endif
     } else if (!strcmp(argv[c], "-nodither")) {
       config.options.dithering_strength = 0;
     } else if (!strcmp(argv[c], "-dither") && c < argc - 1) {
@@ -637,10 +631,8 @@ int main(int argc, const char *argv[]) {
       config.options.use_scaling = 1;
       config.options.scaled_width  = ExUtilGetInt(argv[++c], 0, &parse_error);
       config.options.scaled_height = ExUtilGetInt(argv[++c], 0, &parse_error);
-#if WEBP_DECODER_ABI_VERSION > 0x0203
     } else if (!strcmp(argv[c], "-flip")) {
       config.options.flip = 1;
-#endif
     } else if (!strcmp(argv[c], "-v")) {
       verbose = 1;
 #ifndef WEBP_DLL

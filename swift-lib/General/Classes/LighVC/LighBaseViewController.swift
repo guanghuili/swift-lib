@@ -88,6 +88,11 @@ class LighBaseViewController : UIViewController,UITextFieldDelegate
          self.endEditing()
     }
     
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        
+        return .LightContent
+    }
   
     /*******************************ContentView  NavigationBarView end**********************************/
     

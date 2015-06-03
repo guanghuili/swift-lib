@@ -60,10 +60,10 @@
 // Loads 17 pixels each from rows r1 and r2 and generates 32 pixels.
 #define UPSAMPLE_32PIXELS(r1, r2, out) {                                       \
   const __m128i one = _mm_set1_epi8(1);                                        \
-  const __m128i a = _mm_loadu_si128((__m128i*)&(r1)[0]);                       \
-  const __m128i b = _mm_loadu_si128((__m128i*)&(r1)[1]);                       \
-  const __m128i c = _mm_loadu_si128((__m128i*)&(r2)[0]);                       \
-  const __m128i d = _mm_loadu_si128((__m128i*)&(r2)[1]);                       \
+  const __m128i a = _mm_loadu_si128((const __m128i*)&(r1)[0]);                 \
+  const __m128i b = _mm_loadu_si128((const __m128i*)&(r1)[1]);                 \
+  const __m128i c = _mm_loadu_si128((const __m128i*)&(r2)[0]);                 \
+  const __m128i d = _mm_loadu_si128((const __m128i*)&(r2)[1]);                 \
                                                                                \
   const __m128i s = _mm_avg_epu8(a, d);        /* s = (a + d + 1) / 2 */       \
   const __m128i t = _mm_avg_epu8(b, c);        /* t = (b + c + 1) / 2 */       \
@@ -182,20 +182,14 @@ SSE2_UPSAMPLE_FUNC(UpsampleBgraLinePair, VP8YuvToBgra, 4)
 #undef CONVERT2RGB_32
 #undef SSE2_UPSAMPLE_FUNC
 
-#endif  // FANCY_UPSAMPLING
-
-#endif   // WEBP_USE_SSE2
-
 //------------------------------------------------------------------------------
-
-extern void WebPInitUpsamplersSSE2(void);
-
-#ifdef FANCY_UPSAMPLING
+// Entry point
 
 extern WebPUpsampleLinePairFunc WebPUpsamplers[/* MODE_LAST */];
 
-void WebPInitUpsamplersSSE2(void) {
-#if defined(WEBP_USE_SSE2)
+extern void WebPInitUpsamplersSSE2(void);
+
+WEBP_TSAN_IGNORE_FUNCTION void WebPInitUpsamplersSSE2(void) {
   VP8YUVInitSSE2();
   WebPUpsamplers[MODE_RGB]  = UpsampleRgbLinePair;
   WebPUpsamplers[MODE_RGBA] = UpsampleRgbaLinePair;
@@ -203,12 +197,12 @@ void WebPInitUpsamplersSSE2(void) {
   WebPUpsamplers[MODE_BGRA] = UpsampleBgraLinePair;
   WebPUpsamplers[MODE_rgbA] = UpsampleRgbaLinePair;
   WebPUpsamplers[MODE_bgrA] = UpsampleBgraLinePair;
-#endif   // WEBP_USE_SSE2
 }
 
-#else
-
-// this empty function is to avoid an empty .o
-void WebPInitUpsamplersSSE2(void) {}
-
 #endif  // FANCY_UPSAMPLING
+
+#endif  // WEBP_USE_SSE2
+
+#if !(defined(FANCY_UPSAMPLING) && defined(WEBP_USE_SSE2))
+WEBP_DSP_INIT_STUB(WebPInitUpsamplersSSE2)
+#endif

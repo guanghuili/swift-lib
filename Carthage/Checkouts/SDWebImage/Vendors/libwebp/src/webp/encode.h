@@ -20,7 +20,7 @@
 extern "C" {
 #endif
 
-#define WEBP_ENCODER_ABI_VERSION 0x0202    // MAJOR(8b) + MINOR(8b)
+#define WEBP_ENCODER_ABI_VERSION 0x0206    // MAJOR(8b) + MINOR(8b)
 
 // Note: forward declaring enumerations is not allowed in (strict) C and C++,
 // the types are left here for reference.
@@ -131,7 +131,10 @@ struct WebPConfig {
   int thread_level;       // If non-zero, try and use multi-threaded encoding.
   int low_memory;         // If set, reduce memory usage (but increase CPU use).
 
-  uint32_t pad[5];        // padding for later use
+  int near_lossless;      // Near lossless encoding [0 = off(default) .. 100].
+                          // This feature is experimental.
+
+  uint32_t pad[4];        // padding for later use
 };
 
 // Enumerate some predefined settings for WebPConfig, depending on the type
@@ -167,7 +170,6 @@ static WEBP_INLINE int WebPConfigPreset(WebPConfig* config,
                                 WEBP_ENCODER_ABI_VERSION);
 }
 
-#if WEBP_ENCODER_ABI_VERSION > 0x0202
 // Activate the lossless compression mode with the desired efficiency level
 // between 0 (fastest, lowest compression) and 9 (slower, best compression).
 // A good default level is '6', providing a fair tradeoff between compression
@@ -175,7 +177,6 @@ static WEBP_INLINE int WebPConfigPreset(WebPConfig* config,
 // This function will overwrite several fields from config: 'method', 'quality'
 // and 'lossless'. Returns false in case of parameter error.
 WEBP_EXTERN(int) WebPConfigLosslessPreset(WebPConfig* config, int level);
-#endif
 
 // Returns true if 'config' is non-NULL and all configuration parameters are
 // within their valid ranges.
@@ -209,8 +210,10 @@ struct WebPAuxStats {
   int cache_bits;              // number of bits for color cache lookup
   int palette_size;            // number of color in palette, if used
   int lossless_size;           // final lossless size
+  int lossless_hdr_size;       // lossless header (transform, huffman etc) size
+  int lossless_data_size;      // lossless image data size
 
-  uint32_t pad[4];        // padding for later use
+  uint32_t pad[2];        // padding for later use
 };
 
 // Signature for output function. Should return true if writing was successful.
@@ -231,18 +234,12 @@ struct WebPMemoryWriter {
 // The following must be called first before any use.
 WEBP_EXTERN(void) WebPMemoryWriterInit(WebPMemoryWriter* writer);
 
-#if WEBP_ENCODER_ABI_VERSION > 0x0203
 // The following must be called to deallocate writer->mem memory. The 'writer'
 // object itself is not deallocated.
 WEBP_EXTERN(void) WebPMemoryWriterClear(WebPMemoryWriter* writer);
-#endif
 // The custom writer to be used with WebPMemoryWriter as custom_ptr. Upon
 // completion, writer.mem and writer.size will hold the coded data.
-#if WEBP_ENCODER_ABI_VERSION > 0x0203
 // writer.mem must be freed by calling WebPMemoryWriterClear.
-#else
-// writer.mem must be freed by calling 'free(writer.mem)'.
-#endif
 WEBP_EXTERN(int) WebPMemoryWrite(const uint8_t* data, size_t data_size,
                                  const WebPPicture* picture);
 
@@ -464,14 +461,12 @@ WEBP_EXTERN(int) WebPPictureARGBToYUVA(WebPPicture* picture,
 WEBP_EXTERN(int) WebPPictureARGBToYUVADithered(
     WebPPicture* picture, WebPEncCSP colorspace, float dithering);
 
-#if WEBP_ENCODER_ABI_VERSION > 0x0204
 // Performs 'smart' RGBA->YUVA420 downsampling and colorspace conversion.
 // Downsampling is handled with extra care in case of color clipping. This
 // method is roughly 2x slower than WebPPictureARGBToYUVA() but produces better
 // YUV representation.
 // Returns false in case of error.
 WEBP_EXTERN(int) WebPPictureSmartARGBToYUVA(WebPPicture* picture);
-#endif
 
 // Converts picture->yuv to picture->argb and sets picture->use_argb to true.
 // The input format must be YUV_420 or YUV_420A.

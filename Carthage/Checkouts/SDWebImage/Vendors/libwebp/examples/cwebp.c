@@ -212,6 +212,8 @@ static void PrintFullLosslessInfo(const WebPAuxStats* const stats,
                                   const char* const description) {
   fprintf(stderr, "Lossless-%s compressed size: %d bytes\n",
           description, stats->lossless_size);
+  fprintf(stderr, "  * Header size: %d bytes, image data size: %d\n",
+          stats->lossless_hdr_size, stats->lossless_data_size);
   if (stats->lossless_features) {
     fprintf(stderr, "  * Lossless features used:");
     if (stats->lossless_features & 1) fprintf(stderr, " PREDICTION");
@@ -574,10 +576,8 @@ static void HelpLong(void) {
   printf("                            default, photo, picture,\n");
   printf("                            drawing, icon, text\n");
   printf("     -preset must come first, as it overwrites other parameters\n");
-#if WEBP_ENCODER_ABI_VERSION > 0x0202
   printf("  -z <int> ............... activates lossless preset with given\n"
          "                           level in [0:fast, ..., 9:slowest]\n");
-#endif
   printf("\n");
   printf("  -m <int> ............... compression method (0=fast, 6=slowest)\n");
   printf("  -segments <int> ........ number of segments to use (1..4)\n");
@@ -615,6 +615,8 @@ static void HelpLong(void) {
          "                           green=0xe0 and blue=0xd0\n");
   printf("  -noalpha ............... discard any transparency information\n");
   printf("  -lossless .............. encode image losslessly\n");
+  printf("  -near_lossless <int> ... use near-lossless image\n"
+         "                           preprocessing (0..100=off)\n");
   printf("  -hint <string> ......... specify image characteristics hint,\n");
   printf("                           one of: photo, picture or graph\n");
 
@@ -679,10 +681,8 @@ int main(int argc, const char *argv[]) {
   uint32_t background_color = 0xffffffu;
   int crop = 0, crop_x = 0, crop_y = 0, crop_w = 0, crop_h = 0;
   int resize_w = 0, resize_h = 0;
-#if WEBP_ENCODER_ABI_VERSION > 0x0202
   int lossless_preset = 6;
   int use_lossless_preset = -1;  // -1=unset, 0=don't use, 1=use it
-#endif
   int show_progress = 0;
   int keep_metadata = 0;
   int metadata_written = 0;
@@ -738,17 +738,13 @@ int main(int argc, const char *argv[]) {
       picture.height = ExUtilGetInt(argv[++c], 0, &parse_error);
     } else if (!strcmp(argv[c], "-m") && c < argc - 1) {
       config.method = ExUtilGetInt(argv[++c], 0, &parse_error);
-#if WEBP_ENCODER_ABI_VERSION > 0x0202
       use_lossless_preset = 0;   // disable -z option
-#endif
     } else if (!strcmp(argv[c], "-q") && c < argc - 1) {
       config.quality = ExUtilGetFloat(argv[++c], &parse_error);
-#if WEBP_ENCODER_ABI_VERSION > 0x0202
       use_lossless_preset = 0;   // disable -z option
     } else if (!strcmp(argv[c], "-z") && c < argc - 1) {
       lossless_preset = ExUtilGetInt(argv[++c], 0, &parse_error);
       if (use_lossless_preset != 0) use_lossless_preset = 1;
-#endif
     } else if (!strcmp(argv[c], "-alpha_q") && c < argc - 1) {
       config.alpha_quality = ExUtilGetInt(argv[++c], 0, &parse_error);
     } else if (!strcmp(argv[c], "-alpha_method") && c < argc - 1) {
@@ -776,6 +772,9 @@ int main(int argc, const char *argv[]) {
       keep_alpha = 0;
     } else if (!strcmp(argv[c], "-lossless")) {
       config.lossless = 1;
+    } else if (!strcmp(argv[c], "-near_lossless") && c < argc - 1) {
+      config.near_lossless = ExUtilGetInt(argv[++c], 0, &parse_error);
+      config.lossless = 1;  // use near-lossless only with lossless
     } else if (!strcmp(argv[c], "-hint") && c < argc - 1) {
       ++c;
       if (!strcmp(argv[c], "photo")) {
@@ -935,14 +934,12 @@ int main(int argc, const char *argv[]) {
     goto Error;
   }
 
-#if WEBP_ENCODER_ABI_VERSION > 0x0202
   if (use_lossless_preset == 1) {
     if (!WebPConfigLosslessPreset(&config, lossless_preset)) {
       fprintf(stderr, "Invalid lossless preset (-z %d)\n", lossless_preset);
       goto Error;
     }
   }
-#endif
 
   // Check for unsupported command line options for lossless mode and log
   // warning for such options.
@@ -1017,7 +1014,7 @@ int main(int argc, const char *argv[]) {
     picture.user_data = (void*)in_file;
   }
 
-  // Compress
+  // Crop & resize.
   if (verbose) {
     StopwatchReset(&stop_watch);
   }
@@ -1034,11 +1031,21 @@ int main(int argc, const char *argv[]) {
       goto Error;
     }
   }
+  if (verbose && (crop != 0 || (resize_w | resize_h) > 0)) {
+    const double preproc_time = StopwatchReadAndReset(&stop_watch);
+    fprintf(stderr, "Time to crop/resize picture: %.3fs\n", preproc_time);
+  }
+
   if (picture.extra_info_type > 0) {
     AllocExtraInfo(&picture);
   }
   if (print_distortion >= 0) {  // Save original picture for later comparison
     WebPPictureCopy(&picture, &original_picture);
+  }
+
+  // Compress.
+  if (verbose) {
+    StopwatchReset(&stop_watch);
   }
   if (!WebPEncode(&config, &picture)) {
     fprintf(stderr, "Error! Cannot encode picture as WebP\n");
@@ -1134,11 +1141,7 @@ int main(int argc, const char *argv[]) {
   return_value = 0;
 
  Error:
-#if WEBP_ENCODER_ABI_VERSION > 0x0203
   WebPMemoryWriterClear(&memory_writer);
-#else
-  free(memory_writer.mem);
-#endif
   free(picture.extra_info);
   MetadataFree(&metadata);
   WebPPictureFree(&picture);

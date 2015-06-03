@@ -15,6 +15,7 @@
 #include <stdlib.h>
 
 #include "./vp8enci.h"
+#include "../dsp/dsp.h"
 #include "../utils/filters.h"
 #include "../utils/quant_levels.h"
 #include "../utils/utils.h"
@@ -61,18 +62,8 @@ static int EncodeLossless(const uint8_t* const data, int width, int height,
   if (!WebPPictureAlloc(&picture)) return 0;
 
   // Transfer the alpha values to the green channel.
-  {
-    int i, j;
-    uint32_t* dst = picture.argb;
-    const uint8_t* src = data;
-    for (j = 0; j < picture.height; ++j) {
-      for (i = 0; i < picture.width; ++i) {
-        dst[i] = src[i] << 8;  // we leave A/R/B channels zero'd.
-      }
-      src += width;
-      dst += picture.argb_stride;
-    }
-  }
+  WebPDispatchAlphaToGreen(data, width, picture.width, picture.height,
+                           picture.argb, picture.argb_stride);
 
   WebPConfigInit(&config);
   config.lossless = 1;
@@ -83,11 +74,15 @@ static int EncodeLossless(const uint8_t* const data, int width, int height,
   config.quality = 8.f * effort_level;
   assert(config.quality >= 0 && config.quality <= 100.f);
 
-  ok = (VP8LEncodeStream(&config, &picture, bw) == VP8_ENC_OK);
+  // TODO(urvang): Temporary fix to avoid generating images that trigger
+  // a decoder bug related to alpha with color cache.
+  // See: https://code.google.com/p/webp/issues/detail?id=239
+  // Need to re-enable this later.
+  ok = (VP8LEncodeStream(&config, &picture, bw, 0 /*use_cache*/) == VP8_ENC_OK);
   WebPPictureFree(&picture);
   ok = ok && !bw->error_;
   if (!ok) {
-    VP8LBitWriterDestroy(bw);
+    VP8LBitWriterWipeOut(bw);
     return 0;
   }
   return 1;
@@ -143,10 +138,10 @@ static int EncodeAlphaInternal(const uint8_t* const data, int width, int height,
       if (output_size > data_size) {
         // compressed size is larger than source! Revert to uncompressed mode.
         method = ALPHA_NO_COMPRESSION;
-        VP8LBitWriterDestroy(&tmp_bw);
+        VP8LBitWriterWipeOut(&tmp_bw);
       }
     } else {
-      VP8LBitWriterDestroy(&tmp_bw);
+      VP8LBitWriterWipeOut(&tmp_bw);
       return 0;
     }
   }
@@ -166,7 +161,7 @@ static int EncodeAlphaInternal(const uint8_t* const data, int width, int height,
   ok = ok && VP8BitWriterAppend(&result->bw, output, output_size);
 
   if (method != ALPHA_NO_COMPRESSION) {
-    VP8LBitWriterDestroy(&tmp_bw);
+    VP8LBitWriterWipeOut(&tmp_bw);
   }
   ok = ok && !result->bw.error_;
   result->score = VP8BitWriterSize(&result->bw);
@@ -218,8 +213,9 @@ static uint32_t GetFilterMap(const uint8_t* alpha, int width, int height,
     const int kMaxColorsForFilterNone = 192;
     const int num_colors = GetNumColors(alpha, width, height, width);
     // For low number of colors, NONE yields better compression.
-    filter = (num_colors <= kMinColorsForFilterNone) ? WEBP_FILTER_NONE :
-             EstimateBestFilter(alpha, width, height, width);
+    filter = (num_colors <= kMinColorsForFilterNone)
+        ? WEBP_FILTER_NONE
+        : WebPEstimateBestFilter(alpha, width, height, width);
     bit_map |= 1 << filter;
     // For large number of colors, try FILTER_NONE in addition to the best
     // filter as well.
@@ -250,6 +246,7 @@ static int ApplyFiltersAndEncode(const uint8_t* alpha, int width, int height,
   uint32_t try_map =
       GetFilterMap(alpha, width, height, filter, effort_level);
   InitFilterTrial(&best);
+
   if (try_map != FILTER_TRY_NONE) {
     uint8_t* filtered_alpha =  (uint8_t*)WebPSafeMalloc(1ULL, data_size);
     if (filtered_alpha == NULL) return 0;
@@ -274,7 +271,16 @@ static int ApplyFiltersAndEncode(const uint8_t* alpha, int width, int height,
                              reduce_levels, effort_level, NULL, &best);
   }
   if (ok) {
-    if (stats != NULL) *stats = best.stats;
+    if (stats != NULL) {
+      stats->lossless_features = best.stats.lossless_features;
+      stats->histogram_bits = best.stats.histogram_bits;
+      stats->transform_bits = best.stats.transform_bits;
+      stats->cache_bits = best.stats.cache_bits;
+      stats->palette_size = best.stats.palette_size;
+      stats->lossless_size = best.stats.lossless_size;
+      stats->lossless_hdr_size = best.stats.lossless_hdr_size;
+      stats->lossless_data_size = best.stats.lossless_data_size;
+    }
     *output_size = VP8BitWriterSize(&best.bw);
     *output = VP8BitWriterBuf(&best.bw);
   } else {
@@ -336,6 +342,7 @@ static int EncodeAlpha(VP8Encoder* const enc,
   }
 
   if (ok) {
+    VP8FiltersInit();
     ok = ApplyFiltersAndEncode(quant_alpha, width, height, data_size, method,
                                filter, reduce_levels, effort_level, output,
                                output_size, pic->stats);
@@ -376,6 +383,7 @@ static int CompressAlphaJob(VP8Encoder* const enc, void* dummy) {
 }
 
 void VP8EncInitAlpha(VP8Encoder* const enc) {
+  WebPInitAlphaProcessing();
   enc->has_alpha_ = WebPPictureHasTransparency(enc->pic_);
   enc->alpha_data_ = NULL;
   enc->alpha_data_size_ = 0;
@@ -430,4 +438,3 @@ int VP8EncDeleteAlpha(VP8Encoder* const enc) {
   enc->has_alpha_ = 0;
   return ok;
 }
-

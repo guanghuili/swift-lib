@@ -28,6 +28,7 @@ AC_ARG_ENABLE([everything],
                               disabled with --disable-target]),
               [SET_IF_UNSET([enable_libwebpdecoder], [$enableval])
                SET_IF_UNSET([enable_libwebpdemux], [$enableval])
+               SET_IF_UNSET([enable_libwebpextras], [$enableval])
                SET_IF_UNSET([enable_libwebpmux], [$enableval])])
 
 AC_ARG_WITH([pkgconfigdir], AS_HELP_STRING([--with-pkgconfigdir=DIR],
@@ -79,33 +80,63 @@ AS_IF([test "$GCC" = "yes" ], [
 AC_SUBST([AM_CFLAGS])
 
 dnl === Check for machine specific flags
-TEST_AND_ADD_CFLAGS([AVX2_FLAGS], [-mavx2])
-AS_IF([test -n "$AVX2_FLAGS"], [
-  SAVED_CFLAGS=$CFLAGS
-  CFLAGS="$CFLAGS $AVX2_FLAGS"
-  AC_CHECK_HEADER([immintrin.h],
-                  [AC_DEFINE(WEBP_HAVE_AVX2, [1],
-                   [Set to 1 if AVX2 is supported])],
-                  [AVX2_FLAGS=""],
-                  dnl it's illegal to directly include avx2intrin.h, but it's
-                  dnl included conditionally in immintrin.h, tricky!
-                  [#ifndef __AVX2__
-                   #error avx2 is not enabled
-                   #endif
-                  ])
-  CFLAGS=$SAVED_CFLAGS])
-AC_SUBST([AVX2_FLAGS])
+AC_ARG_ENABLE([avx2],
+              AS_HELP_STRING([--disable-avx2],
+                             [Disable detection of AVX2 support
+                              @<:@default=auto@:>@]))
 
-TEST_AND_ADD_CFLAGS([SSE2_FLAGS], [-msse2])
-AS_IF([test -n "$SSE2_FLAGS"], [
-  SAVED_CFLAGS=$CFLAGS
-  CFLAGS="$CFLAGS $SSE2_FLAGS"
-  AC_CHECK_HEADER([emmintrin.h],
-                  [AC_DEFINE(WEBP_HAVE_SSE2, [1],
-                   [Set to 1 if SSE2 is supported])],
-                  [SSE2_FLAGS=""])
-  CFLAGS=$SAVED_CFLAGS])
-AC_SUBST([SSE2_FLAGS])
+AS_IF([test "x$enable_avx2" != "xno" -a "x$enable_sse4_1" != "xno" \
+         -a "x$enable_sse2" != "xno"], [
+  TEST_AND_ADD_CFLAGS([AVX2_FLAGS], [-mavx2])
+  AS_IF([test -n "$AVX2_FLAGS"], [
+    SAVED_CFLAGS=$CFLAGS
+    CFLAGS="$CFLAGS $AVX2_FLAGS"
+    AC_CHECK_HEADER([immintrin.h],
+                    [AC_DEFINE(WEBP_HAVE_AVX2, [1],
+                     [Set to 1 if AVX2 is supported])],
+                    [AVX2_FLAGS=""],
+                    dnl it's illegal to directly include avx2intrin.h, but it's
+                    dnl included conditionally in immintrin.h, tricky!
+                    [#ifndef __AVX2__
+                     #error avx2 is not enabled
+                     #endif
+                    ])
+    CFLAGS=$SAVED_CFLAGS])
+  AC_SUBST([AVX2_FLAGS])])
+
+AC_ARG_ENABLE([sse4.1],
+              AS_HELP_STRING([--disable-sse4.1],
+                             [Disable detection of SSE4.1 support
+                              @<:@default=auto@:>@]))
+
+AS_IF([test "x$enable_sse4_1" != "xno" -a "x$enable_sse2" != "xno"], [
+  TEST_AND_ADD_CFLAGS([SSE41_FLAGS], [-msse4.1])
+  AS_IF([test -n "$SSE41_FLAGS"], [
+    SAVED_CFLAGS=$CFLAGS
+    CFLAGS="$CFLAGS $SSE41_FLAGS"
+    AC_CHECK_HEADER([smmintrin.h],
+                    [AC_DEFINE(WEBP_HAVE_SSE41, [1],
+                     [Set to 1 if SSE4.1 is supported])],
+                    [SSE41_FLAGS=""])
+    CFLAGS=$SAVED_CFLAGS])
+  AC_SUBST([SSE41_FLAGS])])
+
+AC_ARG_ENABLE([sse2],
+              AS_HELP_STRING([--disable-sse2],
+                             [Disable detection of SSE2 support
+                              @<:@default=auto@:>@]))
+
+AS_IF([test "x$enable_sse2" != "xno"], [
+  TEST_AND_ADD_CFLAGS([SSE2_FLAGS], [-msse2])
+  AS_IF([test -n "$SSE2_FLAGS"], [
+    SAVED_CFLAGS=$CFLAGS
+    CFLAGS="$CFLAGS $SSE2_FLAGS"
+    AC_CHECK_HEADER([emmintrin.h],
+                    [AC_DEFINE(WEBP_HAVE_SSE2, [1],
+                     [Set to 1 if SSE2 is supported])],
+                    [SSE2_FLAGS=""])
+    CFLAGS=$SAVED_CFLAGS])
+  AC_SUBST([SSE2_FLAGS])])
 
 dnl === CLEAR_LIBVARS([var_pfx])
 dnl ===   Clears <var_pfx>_{INCLUDES,LIBS}.
@@ -527,6 +558,14 @@ AC_ARG_ENABLE([libwebpdecoder],
 AC_MSG_RESULT(${enable_libwebpdecoder-no})
 AM_CONDITIONAL([BUILD_LIBWEBPDECODER], [test "$enable_libwebpdecoder" = "yes"])
 
+dnl === Check whether libwebpextras should be built
+AC_MSG_CHECKING(whether libwebpextras is to be built)
+AC_ARG_ENABLE([libwebpextras],
+              AS_HELP_STRING([--enable-libwebpextras],
+                             [Build libwebpextras @<:@default=no@:>@]))
+AC_MSG_RESULT(${enable_libwebpextras-no})
+AM_CONDITIONAL([WANT_EXTRAS], [test "$enable_libwebpextras" = "yes"])
+
 dnl =========================
 
 AC_CONFIG_MACRO_DIR([m4])
@@ -535,9 +574,10 @@ AC_CONFIG_FILES([Makefile src/Makefile man/Makefile \
                  examples/Makefile src/dec/Makefile \
                  src/enc/Makefile src/dsp/Makefile \
                  src/demux/Makefile src/mux/Makefile \
-                 src/utils/Makefile \
+                 src/utils/Makefile src/extras/Makefile \
                  src/libwebp.pc src/libwebpdecoder.pc \
-                 src/demux/libwebpdemux.pc src/mux/libwebpmux.pc])
+                 src/demux/libwebpdemux.pc src/mux/libwebpmux.pc \
+                 src/extras/libwebpextras.pc])
 
 
 AC_OUTPUT
@@ -553,6 +593,7 @@ libwebp: yes
 libwebpdecoder: ${enable_libwebpdecoder-no}
 libwebpdemux: ${enable_libwebpdemux-no}
 libwebpmux: ${enable_libwebpmux-no}
+libwebpextras: ${enable_libwebpextras-no}
 
 Tools:
 cwebp : yes

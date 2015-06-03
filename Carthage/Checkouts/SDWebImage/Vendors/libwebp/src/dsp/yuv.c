@@ -26,7 +26,7 @@ int32_t VP8kVToG[256], VP8kUToG[256];
 uint8_t VP8kClip[YUV_RANGE_MAX - YUV_RANGE_MIN];
 uint8_t VP8kClip4Bits[YUV_RANGE_MAX - YUV_RANGE_MIN];
 
-void VP8YUVInit(void) {
+WEBP_TSAN_IGNORE_FUNCTION void VP8YUVInit(void) {
   int i;
   if (done) {
     return;
@@ -62,7 +62,7 @@ void VP8YUVInit(void) {
 
 #else
 
-void VP8YUVInit(void) {}
+WEBP_TSAN_IGNORE_FUNCTION void VP8YUVInit(void) {}
 
 #endif  // WEBP_YUV_USE_TABLE
 
@@ -122,11 +122,12 @@ WebPSamplerRowFunc WebPSamplers[MODE_LAST];
 
 extern void WebPInitSamplersSSE2(void);
 extern void WebPInitSamplersMIPS32(void);
+extern void WebPInitSamplersMIPSdspR2(void);
 
 static volatile VP8CPUInfo yuv_last_cpuinfo_used =
     (VP8CPUInfo)&yuv_last_cpuinfo_used;
 
-void WebPInitSamplers(void) {
+WEBP_TSAN_IGNORE_FUNCTION void WebPInitSamplers(void) {
   if (yuv_last_cpuinfo_used == VP8GetCPUInfo) return;
 
   WebPSamplers[MODE_RGB]       = YuvToRgbRow;
@@ -153,6 +154,11 @@ void WebPInitSamplers(void) {
       WebPInitSamplersMIPS32();
     }
 #endif  // WEBP_USE_MIPS32
+#if defined(WEBP_USE_MIPS_DSP_R2)
+    if (VP8GetCPUInfo(kMIPSdspR2)) {
+      WebPInitSamplersMIPSdspR2();
+    }
+#endif  // WEBP_USE_MIPS_DSP_R2
   }
   yuv_last_cpuinfo_used = VP8GetCPUInfo;
 }

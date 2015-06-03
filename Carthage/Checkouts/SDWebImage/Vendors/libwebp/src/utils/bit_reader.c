@@ -54,7 +54,7 @@ const uint8_t kVP8Log2Range[128] = {
 };
 
 // range = ((range - 1) << kVP8Log2Range[range]) + 1
-const range_t kVP8NewRange[128] = {
+const uint8_t kVP8NewRange[128] = {
   127, 127, 191, 127, 159, 191, 223, 127,
   143, 159, 175, 191, 207, 223, 239, 127,
   135, 143, 151, 159, 167, 175, 183, 191,
@@ -83,6 +83,8 @@ void VP8LoadFinalBytes(VP8BitReader* const br) {
     br->value_ <<= 8;
     br->bits_ += 8;
     br->eof_ = 1;
+  } else {
+    br->bits_ = 0;  // This is to avoid undefined behaviour with shifts.
   }
 }
 
@@ -136,7 +138,6 @@ void VP8LInitBitReader(VP8LBitReader* const br, const uint8_t* const start,
   br->val_ = 0;
   br->bit_pos_ = 0;
   br->eos_ = 0;
-  br->error_ = 0;
 
   if (length > sizeof(br->val_)) {
     length = sizeof(br->val_);
@@ -157,8 +158,12 @@ void VP8LBitReaderSetBuffer(VP8LBitReader* const br,
   br->buf_ = buf;
   br->len_ = len;
   // pos_ > len_ should be considered a param error.
-  br->error_ = (br->pos_ > br->len_);
-  br->eos_ = br->error_ || VP8LIsEndOfStream(br);
+  br->eos_ = (br->pos_ > br->len_) || VP8LIsEndOfStream(br);
+}
+
+static void VP8LSetEndOfStream(VP8LBitReader* const br) {
+  br->eos_ = 1;
+  br->bit_pos_ = 0;  // To avoid undefined behaviour with shifts.
 }
 
 // If not at EOS, reload up to VP8L_LBITS byte-by-byte
@@ -169,7 +174,9 @@ static void ShiftBytes(VP8LBitReader* const br) {
     ++br->pos_;
     br->bit_pos_ -= 8;
   }
-  br->eos_ = VP8LIsEndOfStream(br);
+  if (VP8LIsEndOfStream(br)) {
+    VP8LSetEndOfStream(br);
+  }
 }
 
 void VP8LDoFillBitWindow(VP8LBitReader* const br) {
@@ -195,14 +202,13 @@ uint32_t VP8LReadBits(VP8LBitReader* const br, int n_bits) {
   assert(n_bits >= 0);
   // Flag an error if end_of_stream or n_bits is more than allowed limit.
   if (!br->eos_ && n_bits <= VP8L_MAX_NUM_BIT_READ) {
-    const uint32_t val =
-        (uint32_t)(br->val_ >> br->bit_pos_) & kBitMask[n_bits];
+    const uint32_t val = VP8LPrefetchBits(br) & kBitMask[n_bits];
     const int new_bits = br->bit_pos_ + n_bits;
     br->bit_pos_ = new_bits;
     ShiftBytes(br);
     return val;
   } else {
-    br->error_ = 1;
+    VP8LSetEndOfStream(br);
     return 0;
   }
 }

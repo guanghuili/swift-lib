@@ -56,32 +56,6 @@ static int EmitSampledRGB(const VP8Io* const io, WebPDecParams* const p) {
 }
 
 //------------------------------------------------------------------------------
-// YUV444 -> RGB conversion
-
-#if 0   // TODO(skal): this is for future rescaling.
-static int EmitRGB(const VP8Io* const io, WebPDecParams* const p) {
-  WebPDecBuffer* output = p->output;
-  const WebPRGBABuffer* const buf = &output->u.RGBA;
-  uint8_t* dst = buf->rgba + io->mb_y * buf->stride;
-  const uint8_t* y_src = io->y;
-  const uint8_t* u_src = io->u;
-  const uint8_t* v_src = io->v;
-  const WebPYUV444Converter convert = WebPYUV444Converters[output->colorspace];
-  const int mb_w = io->mb_w;
-  const int last = io->mb_h;
-  int j;
-  for (j = 0; j < last; ++j) {
-    convert(y_src, u_src, v_src, dst, mb_w);
-    y_src += io->y_stride;
-    u_src += io->uv_stride;
-    v_src += io->uv_stride;
-    dst += buf->stride;
-  }
-  return io->mb_h;
-}
-#endif
-
-//------------------------------------------------------------------------------
 // Fancy upsampling
 
 #ifdef FANCY_UPSAMPLING
@@ -206,21 +180,12 @@ static int EmitAlphaRGB(const VP8Io* const io, WebPDecParams* const p) {
     int num_rows;
     const int start_y = GetAlphaSourceRow(io, &alpha, &num_rows);
     uint8_t* const base_rgba = buf->rgba + start_y * buf->stride;
-    uint8_t* dst = base_rgba + (alpha_first ? 0 : 3);
-    uint32_t alpha_mask = 0xff;
-    int i, j;
+    uint8_t* const dst = base_rgba + (alpha_first ? 0 : 3);
+    const int has_alpha = WebPDispatchAlpha(alpha, io->width, mb_w,
+                                            num_rows, dst, buf->stride);
 
-    for (j = 0; j < num_rows; ++j) {
-      for (i = 0; i < mb_w; ++i) {
-        const uint32_t alpha_value = alpha[i];
-        dst[4 * i] = alpha_value;
-        alpha_mask &= alpha_value;
-      }
-      alpha += io->width;
-      dst += buf->stride;
-    }
-    // alpha_mask is < 0xff if there's non-trivial alpha to premultiply with.
-    if (alpha_mask != 0xff && WebPIsPremultipliedMode(colorspace)) {
+    // has_alpha is true if there's non-trivial alpha to premultiply with.
+    if (has_alpha && WebPIsPremultipliedMode(colorspace)) {
       WebPApplyAlphaMultiply(base_rgba, alpha_first,
                              mb_w, num_rows, buf->stride);
     }
@@ -525,6 +490,7 @@ static int InitRGBRescaler(const VP8Io* const io, WebPDecParams* const p) {
                    io->mb_w, 2 * out_width, io->mb_h, 2 * out_height,
                    work + 2 * work_size);
   p->emit = EmitRescaledRGB;
+  WebPInitYUV444Converters();
 
   if (has_alpha) {
     WebPRescalerInit(&p->scaler_a, io->mb_w, io->mb_h,

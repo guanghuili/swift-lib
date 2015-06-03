@@ -15,6 +15,7 @@
 #define WEBP_DEC_VP8I_H_
 
 #include <string.h>     // for memcpy()
+#include "./common.h"
 #include "./vp8li.h"
 #include "../utils/bit_reader.h"
 #include "../utils/random.h"
@@ -33,43 +34,7 @@ extern "C" {
 #define DEC_MIN_VERSION 4
 #define DEC_REV_VERSION 3
 
-// intra prediction modes
-enum { B_DC_PRED = 0,   // 4x4 modes
-       B_TM_PRED,
-       B_VE_PRED,
-       B_HE_PRED,
-       B_RD_PRED,
-       B_VR_PRED,
-       B_LD_PRED,
-       B_VL_PRED,
-       B_HD_PRED,
-       B_HU_PRED,
-       NUM_BMODES = B_HU_PRED + 1 - B_DC_PRED,  // = 10
-
-       // Luma16 or UV modes
-       DC_PRED = B_DC_PRED, V_PRED = B_VE_PRED,
-       H_PRED = B_HE_PRED, TM_PRED = B_TM_PRED,
-       B_PRED = NUM_BMODES,   // refined I4x4 mode
-
-       // special modes
-       B_DC_PRED_NOTOP = 4,
-       B_DC_PRED_NOLEFT = 5,
-       B_DC_PRED_NOTOPLEFT = 6,
-       NUM_B_DC_MODES = 7 };
-
-enum { MB_FEATURE_TREE_PROBS = 3,
-       NUM_MB_SEGMENTS = 4,
-       NUM_REF_LF_DELTAS = 4,
-       NUM_MODE_LF_DELTAS = 4,    // I4x4, ZERO, *, SPLIT
-       MAX_NUM_PARTITIONS = 8,
-       // Probabilities
-       NUM_TYPES = 4,
-       NUM_BANDS = 8,
-       NUM_CTX = 3,
-       NUM_PROBAS = 11,
-       NUM_MV_PROBAS = 19 };
-
-// YUV-cache parameters.
+// YUV-cache parameters. Cache is 32-bytes wide (= one cacheline).
 // Constraints are: We need to store one 16x16 block of luma samples (y),
 // and two 8x8 chroma blocks (u/v). These are better be 16-bytes aligned,
 // in order to be SIMD-friendly. We also need to store the top, left and
@@ -91,8 +56,6 @@ enum { MB_FEATURE_TREE_PROBS = 3,
 //  'y' = y-samples   'u' = u-samples     'v' = u-samples
 //  '|' = left sample,   '-' = top sample,    '+' = top-left sample
 //  't' = extra top-right sample for 4x4 modes
-// With this layout, BPS (=Bytes Per Scan-line) is one cacheline size.
-#define BPS       32    // this is the common stride used by yuv[]
 #define YUV_SIZE (BPS * 17 + BPS * 9)
 #define Y_SIZE   (BPS * 17)
 #define Y_OFF    (BPS * 1 + 8)
@@ -130,7 +93,6 @@ typedef struct {
   int8_t filter_strength_[NUM_MB_SEGMENTS];  // filter strength for segments
 } VP8SegmentHeader;
 
-
 // probas associated to one of the contexts
 typedef uint8_t VP8ProbaArray[NUM_PROBAS];
 
@@ -143,6 +105,7 @@ typedef struct {
   uint8_t segments_[MB_FEATURE_TREE_PROBS];
   // Type: 0:Intra16-AC  1:Intra16-DC   2:Chroma   3:Intra4
   VP8BandProbas bands_[NUM_TYPES][NUM_BANDS];
+  const VP8BandProbas* bands_ptr_[NUM_TYPES][16 + 1];
 } VP8Proba;
 
 // Filter parameters
