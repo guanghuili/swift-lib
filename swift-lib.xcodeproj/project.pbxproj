@@ -38,7 +38,6 @@
 		911FCA761B1EE4C900A970A3 /* SloppySwiperNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 911FCA701B1EE4C900A970A3 /* SloppySwiperNavigationController.m */; };
 		911FCA771B1EE4C900A970A3 /* SSWAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 911FCA721B1EE4C900A970A3 /* SSWAnimator.m */; };
 		911FCA781B1EE4C900A970A3 /* SSWDirectionalPanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 911FCA741B1EE4C900A970A3 /* SSWDirectionalPanGestureRecognizer.m */; };
-		911FCA7C1B1EE7EF00A970A3 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911FCA7B1B1EE7EF00A970A3 /* UIViewControllerExtension.swift */; };
 		917A3F7A1B1BF923000A2A44 /* Alamofire-SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917A3F791B1BF923000A2A44 /* Alamofire-SwiftyJSON.swift */; };
 		917A3F8D1B1C0F93000A2A44 /* NSObectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917A3F8C1B1C0F93000A2A44 /* NSObectExtension.swift */; };
 		917A3F921B1C234D000A2A44 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917A3F911B1C234D000A2A44 /* User.swift */; };
@@ -71,6 +70,7 @@
 		91BD5A331B1DBC6C002CF727 /* UIimageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD5A321B1DBC6C002CF727 /* UIimageViewExtension.swift */; };
 		91C04E961B1D56AC0059A84A /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 917A3FB61B1C6CC4000A2A44 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		91C04E981B1D56AC0059A84A /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 91C04E931B1D56A30059A84A /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		91F09BE81B2407FA005D5A0B /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F09BE71B2407FA005D5A0B /* UIButtonExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,7 +147,6 @@
 		911FCA721B1EE4C900A970A3 /* SSWAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSWAnimator.m; sourceTree = "<group>"; };
 		911FCA731B1EE4C900A970A3 /* SSWDirectionalPanGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSWDirectionalPanGestureRecognizer.h; sourceTree = "<group>"; };
 		911FCA741B1EE4C900A970A3 /* SSWDirectionalPanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSWDirectionalPanGestureRecognizer.m; sourceTree = "<group>"; };
-		911FCA7B1B1EE7EF00A970A3 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		917A3F781B1BF923000A2A44 /* Alamofire-SwiftyJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Alamofire-SwiftyJSON.h"; sourceTree = "<group>"; };
 		917A3F791B1BF923000A2A44 /* Alamofire-SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire-SwiftyJSON.swift"; sourceTree = "<group>"; };
 		917A3F8C1B1C0F93000A2A44 /* NSObectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObectExtension.swift; sourceTree = "<group>"; };
@@ -201,6 +200,7 @@
 		91BD5A211B1DBAF9002CF727 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		91BD5A321B1DBC6C002CF727 /* UIimageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIimageViewExtension.swift; sourceTree = "<group>"; };
 		91C04E931B1D56A30059A84A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
+		91F09BE71B2407FA005D5A0B /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -336,7 +336,7 @@
 				9103C9791B1ADBD700AB48F2 /* UIViewExtension.swift */,
 				917A3F8C1B1C0F93000A2A44 /* NSObectExtension.swift */,
 				91BD5A321B1DBC6C002CF727 /* UIimageViewExtension.swift */,
-				911FCA7B1B1EE7EF00A970A3 /* UIViewControllerExtension.swift */,
+				91F09BE71B2407FA005D5A0B /* UIButtonExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -649,6 +649,7 @@
 				91BD59E21B1D5EDC002CF727 /* LighHTTPResult.swift in Sources */,
 				917A3F921B1C234D000A2A44 /* User.swift in Sources */,
 				91BD5A2F1B1DBAF9002CF727 /* UIImageView+HighlightedWebCache.m in Sources */,
+				91F09BE81B2407FA005D5A0B /* UIButtonExtension.swift in Sources */,
 				9103C9651B1AC50E00AB48F2 /* SCLAlertViewResponder.m in Sources */,
 				9103C9711B1AD9F100AB48F2 /* LighBaseViewController.swift in Sources */,
 				911FCA761B1EE4C900A970A3 /* SloppySwiperNavigationController.m in Sources */,
@@ -664,7 +665,6 @@
 				91BD5A231B1DBAF9002CF727 /* NSData+ImageContentType.m in Sources */,
 				91BD5A2B1B1DBAF9002CF727 /* UIButton+WebCache.m in Sources */,
 				91BD5A301B1DBAF9002CF727 /* UIImageView+WebCache.m in Sources */,
-				911FCA7C1B1EE7EF00A970A3 /* UIViewControllerExtension.swift in Sources */,
 				917A3FBE1B1C70CA000A2A44 /* AlamofireExtensions.swift in Sources */,
 				9103C97A1B1ADBD700AB48F2 /* UIDeviceExtension.swift in Sources */,
 				911FCA781B1EE4C900A970A3 /* SSWDirectionalPanGestureRecognizer.m in Sources */,

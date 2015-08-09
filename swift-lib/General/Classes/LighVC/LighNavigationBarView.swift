@@ -14,6 +14,16 @@ class LighNavigationBarView: UIView
 {
     
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var leftButton: UIButton!
+    @IBOutlet weak var rightButton: UIButton!
+    
+    
+    
+    func setTitle(title:String)
+    {
+        titleLabel.text = title;
+    }
+    
     
     
 }

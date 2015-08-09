@@ -63,7 +63,6 @@ class LighHttpRequestManager
         case .POST:
             return Alamofire.Method.POST
         case .GET:
-            println("GET")
             return Alamofire.Method.GET
         case .DELETE:
             return Alamofire.Method.DELETE
