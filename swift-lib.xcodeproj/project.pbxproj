@@ -38,6 +38,11 @@
 		911FCA781B1EE4C900A970A3 /* SSWDirectionalPanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 911FCA741B1EE4C900A970A3 /* SSWDirectionalPanGestureRecognizer.m */; };
 		916979C51B7C622800E6E25A /* LefVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916979C31B7C622800E6E25A /* LefVC.swift */; };
 		916979C61B7C622800E6E25A /* LefVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 916979C41B7C622800E6E25A /* LefVC.xib */; };
+		916979C81B7C626600E6E25A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 916979C71B7C626600E6E25A /* CoreData.framework */; };
+		916979CD1B7C62BE00E6E25A /* App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 916979CB1B7C62BE00E6E25A /* App.xcdatamodeld */; };
+		916979CF1B7C62C900E6E25A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916979CE1B7C62C900E6E25A /* CoreDataManager.swift */; };
+		916979D11B7C639800E6E25A /* Travel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916979D01B7C639800E6E25A /* Travel.swift */; };
+		916979D31B7C63B300E6E25A /* NSManagedObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916979D21B7C63B300E6E25A /* NSManagedObjectExtension.swift */; };
 		917A3F7A1B1BF923000A2A44 /* Alamofire-SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917A3F791B1BF923000A2A44 /* Alamofire-SwiftyJSON.swift */; };
 		917A3F8D1B1C0F93000A2A44 /* NSObectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917A3F8C1B1C0F93000A2A44 /* NSObectExtension.swift */; };
 		917A3F921B1C234D000A2A44 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917A3F911B1C234D000A2A44 /* User.swift */; };
@@ -147,6 +152,11 @@
 		911FCA741B1EE4C900A970A3 /* SSWDirectionalPanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSWDirectionalPanGestureRecognizer.m; sourceTree = "<group>"; };
 		916979C31B7C622800E6E25A /* LefVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LefVC.swift; sourceTree = "<group>"; };
 		916979C41B7C622800E6E25A /* LefVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LefVC.xib; sourceTree = "<group>"; };
+		916979C71B7C626600E6E25A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		916979CC1B7C62BE00E6E25A /* App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = App.xcdatamodel; sourceTree = "<group>"; };
+		916979CE1B7C62C900E6E25A /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		916979D01B7C639800E6E25A /* Travel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Travel.swift; sourceTree = "<group>"; };
+		916979D21B7C63B300E6E25A /* NSManagedObjectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObjectExtension.swift; sourceTree = "<group>"; };
 		917A3F781B1BF923000A2A44 /* Alamofire-SwiftyJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Alamofire-SwiftyJSON.h"; sourceTree = "<group>"; };
 		917A3F791B1BF923000A2A44 /* Alamofire-SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire-SwiftyJSON.swift"; sourceTree = "<group>"; };
 		917A3F8C1B1C0F93000A2A44 /* NSObectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObectExtension.swift; sourceTree = "<group>"; };
@@ -208,6 +218,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				916979C81B7C626600E6E25A /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,6 +253,7 @@
 		9103C9161B19BF8500AB48F2 /* swift-lib */ = {
 			isa = PBXGroup;
 			children = (
+				916979CA1B7C62AC00E6E25A /* CoreData */,
 				917A3FBC1B1C70B8000A2A44 /* HTTP */,
 				917A3F8E1B1C1F3E000A2A44 /* Models */,
 				9103C9501B1AC42600AB48F2 /* General */,
@@ -287,6 +299,7 @@
 		9103C9391B19C08B00AB48F2 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				916979C91B7C627400E6E25A /* CoreData */,
 				911FCA6C1B1EE49D00A970A3 /* SloppySwiper */,
 				911FCA4A1B1EAE9A00A970A3 /* DrawerController */,
 				91BD5A001B1DBAE3002CF727 /* SDWebImage */,
@@ -413,6 +426,25 @@
 				916979C41B7C622800E6E25A /* LefVC.xib */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		916979C91B7C627400E6E25A /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				916979C71B7C626600E6E25A /* CoreData.framework */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		916979CA1B7C62AC00E6E25A /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				916979CB1B7C62BE00E6E25A /* App.xcdatamodeld */,
+				916979CE1B7C62C900E6E25A /* CoreDataManager.swift */,
+				916979D21B7C63B300E6E25A /* NSManagedObjectExtension.swift */,
+				916979D01B7C639800E6E25A /* Travel.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		917A3F771B1BF8E5000A2A44 /* Alamofire-SwiftyJSON */ = {
@@ -630,12 +662,14 @@
 				911FCA5A1B1EC4E900A970A3 /* ExampleDrawerVisualStateManager.swift in Sources */,
 				91BD5A2E1B1DBAF9002CF727 /* UIImage+WebP.m in Sources */,
 				91BD5A2A1B1DBAF9002CF727 /* SDWebImagePrefetcher.m in Sources */,
+				916979CD1B7C62BE00E6E25A /* App.xcdatamodeld in Sources */,
 				9103C9661B1AC50E00AB48F2 /* SCLAlertViewStyleKit.m in Sources */,
 				91BD5A241B1DBAF9002CF727 /* SDImageCache.m in Sources */,
 				91BD5A291B1DBAF9002CF727 /* SDWebImageManager.m in Sources */,
 				9103C97C1B1ADBD700AB48F2 /* UIColorExtension.swift in Sources */,
 				917A3F7A1B1BF923000A2A44 /* Alamofire-SwiftyJSON.swift in Sources */,
 				9103C91C1B19BF8500AB48F2 /* ViewController.swift in Sources */,
+				916979D31B7C63B300E6E25A /* NSManagedObjectExtension.swift in Sources */,
 				9103C9681B1AC50E00AB48F2 /* UIImage+ImageEffects.m in Sources */,
 				91BD5A311B1DBAF9002CF727 /* UIView+WebCacheOperation.m in Sources */,
 				917A3F941B1C241D000A2A44 /* Order.swift in Sources */,
@@ -670,6 +704,7 @@
 				911FCA781B1EE4C900A970A3 /* SSWDirectionalPanGestureRecognizer.m in Sources */,
 				91BD5A2C1B1DBAF9002CF727 /* UIImage+GIF.m in Sources */,
 				91BD5A271B1DBAF9002CF727 /* SDWebImageDownloader.m in Sources */,
+				916979D11B7C639800E6E25A /* Travel.swift in Sources */,
 				916979C51B7C622800E6E25A /* LefVC.swift in Sources */,
 				9103C96B1B1AC52800AB48F2 /* LighAlertView.swift in Sources */,
 				9103C9671B1AC50E00AB48F2 /* SCLButton.m in Sources */,
@@ -679,6 +714,7 @@
 				9103C9641B1AC50E00AB48F2 /* SCLAlertView.m in Sources */,
 				9103C9811B1ADDA700AB48F2 /* LighNavigationBarView.swift in Sources */,
 				911FCA521B1EAED400A970A3 /* DrawerController.swift in Sources */,
+				916979CF1B7C62C900E6E25A /* CoreDataManager.swift in Sources */,
 				91BD59F01B1D90C6002CF727 /* LighIndicatorView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -902,6 +938,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		916979CB1B7C62BE00E6E25A /* App.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				916979CC1B7C62BE00E6E25A /* App.xcdatamodel */,
+			);
+			currentVersion = 916979CC1B7C62BE00E6E25A /* App.xcdatamodel */;
+			path = App.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9103C90C1B19BF8500AB48F2 /* Project object */;
 }
