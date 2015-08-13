@@ -36,7 +36,8 @@
 		911FCA761B1EE4C900A970A3 /* SloppySwiperNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 911FCA701B1EE4C900A970A3 /* SloppySwiperNavigationController.m */; };
 		911FCA771B1EE4C900A970A3 /* SSWAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 911FCA721B1EE4C900A970A3 /* SSWAnimator.m */; };
 		911FCA781B1EE4C900A970A3 /* SSWDirectionalPanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 911FCA741B1EE4C900A970A3 /* SSWDirectionalPanGestureRecognizer.m */; };
-		912260F61B7B493700D78E13 /* UI in Resources */ = {isa = PBXBuildFile; fileRef = 912260F51B7B493700D78E13 /* UI */; };
+		916979C51B7C622800E6E25A /* LefVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916979C31B7C622800E6E25A /* LefVC.swift */; };
+		916979C61B7C622800E6E25A /* LefVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 916979C41B7C622800E6E25A /* LefVC.xib */; };
 		917A3F7A1B1BF923000A2A44 /* Alamofire-SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917A3F791B1BF923000A2A44 /* Alamofire-SwiftyJSON.swift */; };
 		917A3F8D1B1C0F93000A2A44 /* NSObectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917A3F8C1B1C0F93000A2A44 /* NSObectExtension.swift */; };
 		917A3F921B1C234D000A2A44 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917A3F911B1C234D000A2A44 /* User.swift */; };
@@ -144,7 +145,8 @@
 		911FCA721B1EE4C900A970A3 /* SSWAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSWAnimator.m; sourceTree = "<group>"; };
 		911FCA731B1EE4C900A970A3 /* SSWDirectionalPanGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSWDirectionalPanGestureRecognizer.h; sourceTree = "<group>"; };
 		911FCA741B1EE4C900A970A3 /* SSWDirectionalPanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSWDirectionalPanGestureRecognizer.m; sourceTree = "<group>"; };
-		912260F51B7B493700D78E13 /* UI */ = {isa = PBXFileReference; lastKnownFileType = folder; path = UI; sourceTree = "<group>"; };
+		916979C31B7C622800E6E25A /* LefVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LefVC.swift; sourceTree = "<group>"; };
+		916979C41B7C622800E6E25A /* LefVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LefVC.xib; sourceTree = "<group>"; };
 		917A3F781B1BF923000A2A44 /* Alamofire-SwiftyJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Alamofire-SwiftyJSON.h"; sourceTree = "<group>"; };
 		917A3F791B1BF923000A2A44 /* Alamofire-SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire-SwiftyJSON.swift"; sourceTree = "<group>"; };
 		917A3F8C1B1C0F93000A2A44 /* NSObectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObectExtension.swift; sourceTree = "<group>"; };
@@ -300,7 +302,7 @@
 		9103C9501B1AC42600AB48F2 /* General */ = {
 			isa = PBXGroup;
 			children = (
-				912260F51B7B493700D78E13 /* UI */,
+				916979C21B7C621A00E6E25A /* UI */,
 				9103C9551B1AC4A700AB48F2 /* Extensions */,
 				9103C9531B1AC46800AB48F2 /* Classes */,
 				9103C9521B1AC45C00AB48F2 /* Views */,
@@ -402,6 +404,15 @@
 				911FCA741B1EE4C900A970A3 /* SSWDirectionalPanGestureRecognizer.m */,
 			);
 			path = SloppySwiper;
+			sourceTree = "<group>";
+		};
+		916979C21B7C621A00E6E25A /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				916979C31B7C622800E6E25A /* LefVC.swift */,
+				916979C41B7C622800E6E25A /* LefVC.xib */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		917A3F771B1BF8E5000A2A44 /* Alamofire-SwiftyJSON */ = {
@@ -594,7 +605,7 @@
 				9103C91F1B19BF8500AB48F2 /* Main.storyboard in Resources */,
 				9103C9241B19BF8500AB48F2 /* LaunchScreen.xib in Resources */,
 				9103C9821B1ADDA700AB48F2 /* LighNavigationBarView.xib in Resources */,
-				912260F61B7B493700D78E13 /* UI in Resources */,
+				916979C61B7C622800E6E25A /* LefVC.xib in Resources */,
 				91BD59F11B1D90C6002CF727 /* LighIndicatorView.xib in Resources */,
 				91BD59DE1B1D5710002CF727 /* Info.plist in Resources */,
 				9103C9211B19BF8500AB48F2 /* Images.xcassets in Resources */,
@@ -659,6 +670,7 @@
 				911FCA781B1EE4C900A970A3 /* SSWDirectionalPanGestureRecognizer.m in Sources */,
 				91BD5A2C1B1DBAF9002CF727 /* UIImage+GIF.m in Sources */,
 				91BD5A271B1DBAF9002CF727 /* SDWebImageDownloader.m in Sources */,
+				916979C51B7C622800E6E25A /* LefVC.swift in Sources */,
 				9103C96B1B1AC52800AB48F2 /* LighAlertView.swift in Sources */,
 				9103C9671B1AC50E00AB48F2 /* SCLButton.m in Sources */,
 				9103C97B1B1ADBD700AB48F2 /* StringExtension.swift in Sources */,
