@@ -37,6 +37,31 @@ extension NSManagedObject {
         
     }
     
+    
+    /***
+    **创建一个NSFetchedResultsController sortDescriptorMap 是必须要指定的
+    */
+    class func fetchedResultsController(predicate:NSPredicate? = nil,sortDescriptorMap:[String:Bool],delegate:NSFetchedResultsControllerDelegate? = nil) -> NSFetchedResultsController {
+    
+    
+        var request = NSFetchRequest()
+        request.entity = NSEntityDescription.entityForName(self.className(), inManagedObjectContext: self.managedObjectContext())
+    
+        var sortDescriptorArray:[NSSortDescriptor] = []
+    
+        for (key,value) in sortDescriptorMap {
+        
+            sortDescriptorArray.append(NSSortDescriptor(key: key, ascending: value))
+        }
+    
+        request.sortDescriptors = sortDescriptorArray
+    
+    
+       var fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: self.managedObjectContext(), sectionNameKeyPath: nil, cacheName: self.className())
+        fetchedResultsController.delegate = delegate
+    
+        return fetchedResultsController;
+    }
     /**
     *
     根据 predicateFormat查询实体
@@ -48,6 +73,8 @@ extension NSManagedObject {
         return self.executeQuery(predicate: predicate)
         
     }
+    
+    
     
     
     class func managedObjectContext() ->NSManagedObjectContext {

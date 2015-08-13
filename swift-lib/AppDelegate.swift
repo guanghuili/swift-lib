@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import CoreData
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate ,NSFetchedResultsControllerDelegate{
 
     var window: UIWindow?
     var draw:DrawerController?
@@ -53,6 +54,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.tintColor = tintColor
         
         self.window?.rootViewController = SloppySwiperNavigationController(rootViewController: self.draw!)
+        
+       // Travel.fetchedResultsController(sortDescriptorMap: ["a":false], delegate: self)
         
         return true
     }
