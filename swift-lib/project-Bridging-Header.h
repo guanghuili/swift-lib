@@ -19,4 +19,5 @@
 #import "UIImageView+WebCache.h"
 #import "SloppySwiper.h"
 #import "SloppySwiperNavigationController.h"
+#import "UITableView+FDTemplateLayoutCell.h"
 #endif

@@ -62,6 +62,7 @@ extension NSManagedObject {
     
         return fetchedResultsController;
     }
+    
     /**
     *
     根据 predicateFormat查询实体
@@ -75,8 +76,36 @@ extension NSManagedObject {
     }
     
     
+    /**
+    *
+    * 生成当前对象 不持久化化到数据库
+    *
+    **/
+    class func newObject() -> AnyObject?
+    {
+      return  NSEntityDescription.entityForName(self.className(), inManagedObjectContext: self.managedObjectContext())
+    }
     
+
+    /**
+    *
+    * 生成当前对象 并持久化化到数据库
+    *
+    **/
+    class func insertObject() -> AnyObject? {
+        
+        var newObject = self.newObject()
+        
+        self.managedObjectContext().save(nil);
+        
+        return newObject
+    }
     
+    /**
+    *
+    * NSManagedObjectContext上下文
+    *
+    **/
     class func managedObjectContext() ->NSManagedObjectContext {
         
        return CoreDataManager.sharedCoreDataManager().managedObjectContext!;

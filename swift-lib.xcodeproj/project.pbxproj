@@ -76,6 +76,8 @@
 		91C04E961B1D56AC0059A84A /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 917A3FB61B1C6CC4000A2A44 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		91C04E981B1D56AC0059A84A /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 91C04E931B1D56A30059A84A /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		91F09BE81B2407FA005D5A0B /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F09BE71B2407FA005D5A0B /* UIButtonExtension.swift */; };
+		91FC6B4D1B7D9E650086E6AA /* UITableView+FDTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FC6B4C1B7D9E650086E6AA /* UITableView+FDTemplateLayoutCell.m */; };
+		91FC6B4F1B7DA0AA0086E6AA /* UITableViewCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FC6B4E1B7DA0AA0086E6AA /* UITableViewCellExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -211,6 +213,9 @@
 		91BD5A321B1DBC6C002CF727 /* UIimageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIimageViewExtension.swift; sourceTree = "<group>"; };
 		91C04E931B1D56A30059A84A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
 		91F09BE71B2407FA005D5A0B /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		91FC6B4B1B7D9E650086E6AA /* UITableView+FDTemplateLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCell.h"; sourceTree = "<group>"; };
+		91FC6B4C1B7D9E650086E6AA /* UITableView+FDTemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCell.m"; sourceTree = "<group>"; };
+		91FC6B4E1B7DA0AA0086E6AA /* UITableViewCellExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewCellExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,6 +304,7 @@
 		9103C9391B19C08B00AB48F2 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				91FC6B4A1B7D9E230086E6AA /* FDTemplateLayoutCell */,
 				916979C91B7C627400E6E25A /* CoreData */,
 				911FCA6C1B1EE49D00A970A3 /* SloppySwiper */,
 				911FCA4A1B1EAE9A00A970A3 /* DrawerController */,
@@ -350,6 +356,7 @@
 				917A3F8C1B1C0F93000A2A44 /* NSObectExtension.swift */,
 				91BD5A321B1DBC6C002CF727 /* UIimageViewExtension.swift */,
 				91F09BE71B2407FA005D5A0B /* UIButtonExtension.swift */,
+				91FC6B4E1B7DA0AA0086E6AA /* UITableViewCellExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -553,6 +560,15 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
+		91FC6B4A1B7D9E230086E6AA /* FDTemplateLayoutCell */ = {
+			isa = PBXGroup;
+			children = (
+				91FC6B4B1B7D9E650086E6AA /* UITableView+FDTemplateLayoutCell.h */,
+				91FC6B4C1B7D9E650086E6AA /* UITableView+FDTemplateLayoutCell.m */,
+			);
+			path = FDTemplateLayoutCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -680,10 +696,12 @@
 				91BD5A261B1DBAF9002CF727 /* SDWebImageDecoder.m in Sources */,
 				9103C9841B1AE3BE00AB48F2 /* LighBaseTableViewController.swift in Sources */,
 				911FCA531B1EAED400A970A3 /* DrawerVisualState.swift in Sources */,
+				91FC6B4D1B7D9E650086E6AA /* UITableView+FDTemplateLayoutCell.m in Sources */,
 				91BD59E21B1D5EDC002CF727 /* LighHTTPResult.swift in Sources */,
 				917A3F921B1C234D000A2A44 /* User.swift in Sources */,
 				91BD5A2F1B1DBAF9002CF727 /* UIImageView+HighlightedWebCache.m in Sources */,
 				91F09BE81B2407FA005D5A0B /* UIButtonExtension.swift in Sources */,
+				91FC6B4F1B7DA0AA0086E6AA /* UITableViewCellExtension.swift in Sources */,
 				9103C9651B1AC50E00AB48F2 /* SCLAlertViewResponder.m in Sources */,
 				9103C9711B1AD9F100AB48F2 /* LighBaseViewController.swift in Sources */,
 				911FCA761B1EE4C900A970A3 /* SloppySwiperNavigationController.m in Sources */,
