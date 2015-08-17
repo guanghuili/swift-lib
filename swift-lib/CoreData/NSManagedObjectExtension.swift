@@ -24,17 +24,65 @@ extension NSManagedObject {
 
         var sortDescriptorArray:[NSSortDescriptor] = []
         
-        for (key,value) in sortDescriptorMap! {
-
-            sortDescriptorArray.append(NSSortDescriptor(key: key, ascending: value))
+        if let tempSortDescriptorMap = sortDescriptorMap
+        {
+            for (key,value) in tempSortDescriptorMap {
+                
+                sortDescriptorArray.append(NSSortDescriptor(key: key, ascending: value))
+            }
         }
         
         request.sortDescriptors = sortDescriptorArray
         
-        
        return self.managedObjectContext().executeFetchRequest(request, error: nil)
         
         
+    }
+    
+    /**
+    *
+    根据 predicateFormat查询实体
+    *
+    **/
+    class func executeQuery(predicateFormat:String,args: CVarArgType...)  -> [AnyObject]? {
+        
+        var predicate = NSPredicate(format: predicateFormat, arguments: getVaList(args))
+        return self.executeQuery(predicate: predicate)
+        
+    }
+    
+    
+    /**
+        提取一个对象
+    **/
+    class func fetchObject(predicate:NSPredicate? = nil,sortDescriptorMap:[String:Bool]? = nil) ->AnyObject? {
+        
+        
+        var request = NSFetchRequest()
+        request.entity = NSEntityDescription.entityForName(self.className(), inManagedObjectContext: self.managedObjectContext())
+        request.fetchLimit = 1 //设置只提取一个对象
+        
+        var sortDescriptorArray:[NSSortDescriptor] = []
+        
+        if let tempSortDescriptorMap = sortDescriptorMap
+        {
+            for (key,value) in tempSortDescriptorMap {
+                
+                sortDescriptorArray.append(NSSortDescriptor(key: key, ascending: value))
+            }
+        }
+        
+        request.sortDescriptors = sortDescriptorArray
+        
+        return self.managedObjectContext().executeFetchRequest(request, error: nil)?.last
+
+    }
+    
+    
+    class func fetchObject(predicateFormat:String,args: CVarArgType...) ->AnyObject? {
+        
+            var predicate = NSPredicate(format: predicateFormat, arguments: getVaList(args))
+            return self.fetchObject(predicate: predicate)
     }
     
     
@@ -63,17 +111,7 @@ extension NSManagedObject {
         return fetchedResultsController;
     }
     
-    /**
-    *
-    根据 predicateFormat查询实体
-    *
-    **/
-    class func executeQuery(predicateFormat:String,args: CVarArgType...)  -> [AnyObject]? {
-        
-        var predicate = NSPredicate(format: predicateFormat, arguments: getVaList(args))
-        return self.executeQuery(predicate: predicate)
-        
-    }
+
     
     
     /**
@@ -83,7 +121,8 @@ extension NSManagedObject {
     **/
     class func newObject() -> AnyObject?
     {
-      return  NSEntityDescription.entityForName(self.className(), inManagedObjectContext: self.managedObjectContext())
+        NSLog("%@",self.className())
+      return  NSEntityDescription.insertNewObjectForEntityForName(self.className(), inManagedObjectContext: self.managedObjectContext())
     }
     
 
@@ -94,12 +133,19 @@ extension NSManagedObject {
     **/
     class func insertObject() -> AnyObject? {
         
-        var newObject = self.newObject()
+        var newObject: AnyObject? = self.newObject()
         
         self.managedObjectContext().save(nil);
         
         return newObject
     }
+    
+
+     func save() {
+        
+    
+        CoreDataManager.sharedCoreDataManager().managedObjectContext!.save(nil)
+     }
     
     /**
     *
@@ -114,7 +160,17 @@ extension NSManagedObject {
     
     class func className() ->String {
     
-        return NSStringFromClass(self)
+        var clazzName:NSString = NSStringFromClass(self) as NSString
+        var dotIndex = clazzName.rangeOfString(".").location
+        
+        if(dotIndex == NSNotFound)
+        {
+            return NSStringFromClass(self)
+        }
+        
+        NSLog("%d %@",dotIndex,clazzName)
+        return clazzName.substringFromIndex(dotIndex)
+        
     }
     
 }
