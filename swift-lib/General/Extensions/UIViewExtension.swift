@@ -140,6 +140,19 @@ extension UIView
     }
     
     
+    //快速执行动画
+    class func animate(animations:()->Void){
+        
+        UIView.beginAnimations(NSStringFromClass(self), context: nil)
+        
+            animations()
+        
+        UIView.commitAnimations()
+        
+    }
+    
+
+    
     //=================================Frame end===================================//
 
 
@@ -168,6 +181,7 @@ extension UIView
         var tapGestureRecognizer:UITapGestureRecognizer = UITapGestureRecognizer(target: target, action: action)
         self.addGestureRecognizer(tapGestureRecognizer)
     }
+    
     
     //制作圆角
     func makeCornerRadius(cornerRadius:CGFloat,borderColor:UIColor,borderWidth:CGFloat)

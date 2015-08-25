@@ -43,7 +43,11 @@ extension UIImageView
                 hudView.removeFromSuperview()
                 
             })
-
+    }
+    
+    
+    func setImageName(image:String) {
         
+        self.image = UIImage(named: image)
     }
 }

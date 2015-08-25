@@ -170,7 +170,7 @@ class JSONModelParser {
         
         /// 判断是否遵循了协议，一旦遵循协议就是有自定义对象
         var mapping:[String : String]?
-        if (cls.respondsToSelector("customeClassMapping")){    // $$$$$
+        if (cls.respondsToSelector("JSONKeyByClassMapping")){    // $$$$$
             
             /// 得到属性字典
             mapping = cls.JSONKeyByClassMapping()
