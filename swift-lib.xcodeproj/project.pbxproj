@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7EC2865080D38C3857722B54 /* Pods_swift_lib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EFA5585F273426F228621C8 /* Pods_swift_lib.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		9103C91A1B19BF8500AB48F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9103C9191B19BF8500AB48F2 /* AppDelegate.swift */; };
 		9103C91C1B19BF8500AB48F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9103C91B1B19BF8500AB48F2 /* ViewController.swift */; };
 		9103C91F1B19BF8500AB48F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9103C91D1B19BF8500AB48F2 /* Main.storyboard */; };
@@ -18,15 +19,10 @@
 		9103C9661B1AC50E00AB48F2 /* SCLAlertViewStyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 9103C95E1B1AC50E00AB48F2 /* SCLAlertViewStyleKit.m */; };
 		9103C9671B1AC50E00AB48F2 /* SCLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9103C9601B1AC50E00AB48F2 /* SCLButton.m */; };
 		9103C9681B1AC50E00AB48F2 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 9103C9631B1AC50E00AB48F2 /* UIImage+ImageEffects.m */; };
-		9103C96B1B1AC52800AB48F2 /* LighAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9103C96A1B1AC52800AB48F2 /* LighAlertView.swift */; };
-		9103C9711B1AD9F100AB48F2 /* LighBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9103C96D1B1AD9F100AB48F2 /* LighBaseViewController.swift */; };
 		9103C97A1B1ADBD700AB48F2 /* UIDeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9103C9751B1ADBD700AB48F2 /* UIDeviceExtension.swift */; };
 		9103C97B1B1ADBD700AB48F2 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9103C9761B1ADBD700AB48F2 /* StringExtension.swift */; };
 		9103C97C1B1ADBD700AB48F2 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9103C9771B1ADBD700AB48F2 /* UIColorExtension.swift */; };
 		9103C97E1B1ADBD700AB48F2 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9103C9791B1ADBD700AB48F2 /* UIViewExtension.swift */; };
-		9103C9811B1ADDA700AB48F2 /* LighNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9103C97F1B1ADDA700AB48F2 /* LighNavigationBarView.swift */; };
-		9103C9821B1ADDA700AB48F2 /* LighNavigationBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9103C9801B1ADDA700AB48F2 /* LighNavigationBarView.xib */; };
-		9103C9841B1AE3BE00AB48F2 /* LighBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9103C9831B1AE3BE00AB48F2 /* LighBaseTableViewController.swift */; };
 		911FCA501B1EAED400A970A3 /* AnimatedMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911FCA4B1B1EAED400A970A3 /* AnimatedMenuButton.swift */; };
 		911FCA511B1EAED400A970A3 /* DrawerBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911FCA4C1B1EAED400A970A3 /* DrawerBarButtonItem.swift */; };
 		911FCA521B1EAED400A970A3 /* DrawerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911FCA4E1B1EAED400A970A3 /* DrawerController.swift */; };
@@ -36,14 +32,11 @@
 		911FCA761B1EE4C900A970A3 /* SloppySwiperNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 911FCA701B1EE4C900A970A3 /* SloppySwiperNavigationController.m */; };
 		911FCA771B1EE4C900A970A3 /* SSWAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 911FCA721B1EE4C900A970A3 /* SSWAnimator.m */; };
 		911FCA781B1EE4C900A970A3 /* SSWDirectionalPanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 911FCA741B1EE4C900A970A3 /* SSWDirectionalPanGestureRecognizer.m */; };
-		916979C51B7C622800E6E25A /* LefVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916979C31B7C622800E6E25A /* LefVC.swift */; };
-		916979C61B7C622800E6E25A /* LefVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 916979C41B7C622800E6E25A /* LefVC.xib */; };
 		916979C81B7C626600E6E25A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 916979C71B7C626600E6E25A /* CoreData.framework */; };
 		916979CD1B7C62BE00E6E25A /* App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 916979CB1B7C62BE00E6E25A /* App.xcdatamodeld */; };
 		916979CF1B7C62C900E6E25A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916979CE1B7C62C900E6E25A /* CoreDataManager.swift */; };
 		916979D11B7C639800E6E25A /* Travel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916979D01B7C639800E6E25A /* Travel.swift */; };
 		916979D31B7C63B300E6E25A /* NSManagedObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916979D21B7C63B300E6E25A /* NSManagedObjectExtension.swift */; };
-		917A3F7A1B1BF923000A2A44 /* Alamofire-SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917A3F791B1BF923000A2A44 /* Alamofire-SwiftyJSON.swift */; };
 		917A3F8D1B1C0F93000A2A44 /* NSObectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917A3F8C1B1C0F93000A2A44 /* NSObectExtension.swift */; };
 		917A3F921B1C234D000A2A44 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917A3F911B1C234D000A2A44 /* User.swift */; };
 		917A3F941B1C241D000A2A44 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917A3F931B1C241D000A2A44 /* Order.swift */; };
@@ -54,8 +47,6 @@
 		91BD59E41B1D7D8F002CF727 /* LighHttpRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD59E31B1D7D8F002CF727 /* LighHttpRequestManager.swift */; };
 		91BD59EA1B1D89FE002CF727 /* AMTumblrHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BD59E71B1D89FE002CF727 /* AMTumblrHud.m */; };
 		91BD59EB1B1D89FE002CF727 /* GradientProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BD59E91B1D89FE002CF727 /* GradientProgressView.m */; };
-		91BD59F01B1D90C6002CF727 /* LighIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BD59EE1B1D90C6002CF727 /* LighIndicatorView.m */; };
-		91BD59F11B1D90C6002CF727 /* LighIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91BD59EF1B1D90C6002CF727 /* LighIndicatorView.xib */; };
 		91BD5A221B1DBAF9002CF727 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BD5A021B1DBAF9002CF727 /* MKAnnotationView+WebCache.m */; };
 		91BD5A231B1DBAF9002CF727 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BD5A041B1DBAF9002CF727 /* NSData+ImageContentType.m */; };
 		91BD5A241B1DBAF9002CF727 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BD5A061B1DBAF9002CF727 /* SDImageCache.m */; };
@@ -73,8 +64,23 @@
 		91BD5A301B1DBAF9002CF727 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BD5A1F1B1DBAF9002CF727 /* UIImageView+WebCache.m */; };
 		91BD5A311B1DBAF9002CF727 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BD5A211B1DBAF9002CF727 /* UIView+WebCacheOperation.m */; };
 		91BD5A331B1DBC6C002CF727 /* UIimageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD5A321B1DBC6C002CF727 /* UIimageViewExtension.swift */; };
-		91C04E961B1D56AC0059A84A /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 917A3FB61B1C6CC4000A2A44 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		91C04E981B1D56AC0059A84A /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 91C04E931B1D56A30059A84A /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		91CB92A81BA27DAF00182CB0 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CB92A41BA27DAF00182CB0 /* ArrayExtension.swift */; };
+		91CB92A91BA27DAF00182CB0 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CB92A51BA27DAF00182CB0 /* UIImageExtension.swift */; };
+		91CB92AA1BA27DAF00182CB0 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CB92A61BA27DAF00182CB0 /* UITableViewExtension.swift */; };
+		91CB92AB1BA27DAF00182CB0 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CB92A71BA27DAF00182CB0 /* UIViewControllerExtension.swift */; };
+		91CB92B31BA27E2700182CB0 /* LighBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CB92AF1BA27E2700182CB0 /* LighBaseTableViewController.swift */; };
+		91CB92B41BA27E2700182CB0 /* LighBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CB92B01BA27E2700182CB0 /* LighBaseViewController.swift */; };
+		91CB92B51BA27E2700182CB0 /* LighNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CB92B11BA27E2700182CB0 /* LighNavigationBarView.swift */; };
+		91CB92B61BA27E2700182CB0 /* LighNavigationBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91CB92B21BA27E2700182CB0 /* LighNavigationBarView.xib */; };
+		91CB92C11BA27E5300182CB0 /* CircularImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CB92B91BA27E5300182CB0 /* CircularImageView.swift */; };
+		91CB92C21BA27E5300182CB0 /* CircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CB92BA1BA27E5300182CB0 /* CircularView.swift */; };
+		91CB92C31BA27E5300182CB0 /* LighAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CB92BB1BA27E5300182CB0 /* LighAlertView.swift */; };
+		91CB92C41BA27E5300182CB0 /* LighHorizontalLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CB92BC1BA27E5300182CB0 /* LighHorizontalLineView.swift */; };
+		91CB92C51BA27E5300182CB0 /* LighIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CB92BE1BA27E5300182CB0 /* LighIndicatorView.m */; };
+		91CB92C61BA27E5300182CB0 /* LighIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91CB92BF1BA27E5300182CB0 /* LighIndicatorView.xib */; };
+		91CB92C71BA27E5300182CB0 /* LighVerticalLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CB92C01BA27E5300182CB0 /* LighVerticalLineView.swift */; };
+		91CB92CA1BA27EA300182CB0 /* LefVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CB92C81BA27EA300182CB0 /* LefVC.swift */; };
+		91CB92CB1BA27EA300182CB0 /* LefVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91CB92C91BA27EA300182CB0 /* LefVC.xib */; };
 		91F09BE81B2407FA005D5A0B /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F09BE71B2407FA005D5A0B /* UIButtonExtension.swift */; };
 		91FC6B4D1B7D9E650086E6AA /* UITableView+FDTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FC6B4C1B7D9E650086E6AA /* UITableView+FDTemplateLayoutCell.m */; };
 		91FC6B4F1B7DA0AA0086E6AA /* UITableViewCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FC6B4E1B7DA0AA0086E6AA /* UITableViewCellExtension.swift */; };
@@ -90,22 +96,10 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		917A3F7E1B1BFB2C000A2A44 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				91C04E961B1D56AC0059A84A /* SwiftyJSON.framework in Embed Frameworks */,
-				91C04E981B1D56AC0059A84A /* Alamofire.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
+		0EFA5585F273426F228621C8 /* Pods_swift_lib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swift_lib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		855C6249CC2E0EE9F48C8F15 /* Pods-swift-lib.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift-lib.release.xcconfig"; path = "Pods/Target Support Files/Pods-swift-lib/Pods-swift-lib.release.xcconfig"; sourceTree = "<group>"; };
+		8E2F084DDE4B0DC0400C53BD /* Pods-swift-lib.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift-lib.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swift-lib/Pods-swift-lib.debug.xcconfig"; sourceTree = "<group>"; };
 		9103C9141B19BF8500AB48F2 /* swift-lib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swift-lib.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9103C9191B19BF8500AB48F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9103C91B1B19BF8500AB48F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -128,15 +122,10 @@
 		9103C9611B1AC50E00AB48F2 /* SCLMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLMacros.h; sourceTree = "<group>"; };
 		9103C9621B1AC50E00AB48F2 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		9103C9631B1AC50E00AB48F2 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
-		9103C96A1B1AC52800AB48F2 /* LighAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighAlertView.swift; sourceTree = "<group>"; };
-		9103C96D1B1AD9F100AB48F2 /* LighBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighBaseViewController.swift; sourceTree = "<group>"; };
 		9103C9751B1ADBD700AB48F2 /* UIDeviceExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDeviceExtension.swift; sourceTree = "<group>"; };
 		9103C9761B1ADBD700AB48F2 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		9103C9771B1ADBD700AB48F2 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		9103C9791B1ADBD700AB48F2 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
-		9103C97F1B1ADDA700AB48F2 /* LighNavigationBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighNavigationBarView.swift; sourceTree = "<group>"; };
-		9103C9801B1ADDA700AB48F2 /* LighNavigationBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LighNavigationBarView.xib; sourceTree = "<group>"; };
-		9103C9831B1AE3BE00AB48F2 /* LighBaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighBaseTableViewController.swift; sourceTree = "<group>"; };
 		9103C99D1B1B1DF800AB48F2 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		911FCA4B1B1EAED400A970A3 /* AnimatedMenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedMenuButton.swift; sourceTree = "<group>"; };
 		911FCA4C1B1EAED400A970A3 /* DrawerBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerBarButtonItem.swift; sourceTree = "<group>"; };
@@ -152,20 +141,15 @@
 		911FCA721B1EE4C900A970A3 /* SSWAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSWAnimator.m; sourceTree = "<group>"; };
 		911FCA731B1EE4C900A970A3 /* SSWDirectionalPanGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSWDirectionalPanGestureRecognizer.h; sourceTree = "<group>"; };
 		911FCA741B1EE4C900A970A3 /* SSWDirectionalPanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSWDirectionalPanGestureRecognizer.m; sourceTree = "<group>"; };
-		916979C31B7C622800E6E25A /* LefVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LefVC.swift; sourceTree = "<group>"; };
-		916979C41B7C622800E6E25A /* LefVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LefVC.xib; sourceTree = "<group>"; };
 		916979C71B7C626600E6E25A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		916979CC1B7C62BE00E6E25A /* App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = App.xcdatamodel; sourceTree = "<group>"; };
 		916979CE1B7C62C900E6E25A /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		916979D01B7C639800E6E25A /* Travel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Travel.swift; sourceTree = "<group>"; };
 		916979D21B7C63B300E6E25A /* NSManagedObjectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObjectExtension.swift; sourceTree = "<group>"; };
-		917A3F781B1BF923000A2A44 /* Alamofire-SwiftyJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Alamofire-SwiftyJSON.h"; sourceTree = "<group>"; };
-		917A3F791B1BF923000A2A44 /* Alamofire-SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire-SwiftyJSON.swift"; sourceTree = "<group>"; };
 		917A3F8C1B1C0F93000A2A44 /* NSObectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObectExtension.swift; sourceTree = "<group>"; };
 		917A3F911B1C234D000A2A44 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		917A3F931B1C241D000A2A44 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		917A3FB31B1C5F47000A2A44 /* JSONModelParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONModelParser.swift; sourceTree = "<group>"; };
-		917A3FB61B1C6CC4000A2A44 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = "<group>"; };
 		917A3FBD1B1C70CA000A2A44 /* AlamofireExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireExtensions.swift; sourceTree = "<group>"; };
 		91BD59DD1B1D5710002CF727 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91BD59E11B1D5EDC002CF727 /* LighHTTPResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighHTTPResult.swift; sourceTree = "<group>"; };
@@ -174,9 +158,6 @@
 		91BD59E71B1D89FE002CF727 /* AMTumblrHud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMTumblrHud.m; sourceTree = "<group>"; };
 		91BD59E81B1D89FE002CF727 /* GradientProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientProgressView.h; sourceTree = "<group>"; };
 		91BD59E91B1D89FE002CF727 /* GradientProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientProgressView.m; sourceTree = "<group>"; };
-		91BD59ED1B1D90C6002CF727 /* LighIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LighIndicatorView.h; sourceTree = "<group>"; };
-		91BD59EE1B1D90C6002CF727 /* LighIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LighIndicatorView.m; sourceTree = "<group>"; };
-		91BD59EF1B1D90C6002CF727 /* LighIndicatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LighIndicatorView.xib; sourceTree = "<group>"; };
 		91BD5A011B1DBAF9002CF727 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		91BD5A021B1DBAF9002CF727 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		91BD5A031B1DBAF9002CF727 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -211,7 +192,24 @@
 		91BD5A201B1DBAF9002CF727 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		91BD5A211B1DBAF9002CF727 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		91BD5A321B1DBC6C002CF727 /* UIimageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIimageViewExtension.swift; sourceTree = "<group>"; };
-		91C04E931B1D56A30059A84A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
+		91CB92A41BA27DAF00182CB0 /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
+		91CB92A51BA27DAF00182CB0 /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		91CB92A61BA27DAF00182CB0 /* UITableViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
+		91CB92A71BA27DAF00182CB0 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		91CB92AF1BA27E2700182CB0 /* LighBaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighBaseTableViewController.swift; sourceTree = "<group>"; };
+		91CB92B01BA27E2700182CB0 /* LighBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighBaseViewController.swift; sourceTree = "<group>"; };
+		91CB92B11BA27E2700182CB0 /* LighNavigationBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighNavigationBarView.swift; sourceTree = "<group>"; };
+		91CB92B21BA27E2700182CB0 /* LighNavigationBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LighNavigationBarView.xib; sourceTree = "<group>"; };
+		91CB92B91BA27E5300182CB0 /* CircularImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularImageView.swift; sourceTree = "<group>"; };
+		91CB92BA1BA27E5300182CB0 /* CircularView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularView.swift; sourceTree = "<group>"; };
+		91CB92BB1BA27E5300182CB0 /* LighAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighAlertView.swift; sourceTree = "<group>"; };
+		91CB92BC1BA27E5300182CB0 /* LighHorizontalLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighHorizontalLineView.swift; sourceTree = "<group>"; };
+		91CB92BD1BA27E5300182CB0 /* LighIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LighIndicatorView.h; sourceTree = "<group>"; };
+		91CB92BE1BA27E5300182CB0 /* LighIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LighIndicatorView.m; sourceTree = "<group>"; };
+		91CB92BF1BA27E5300182CB0 /* LighIndicatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LighIndicatorView.xib; sourceTree = "<group>"; };
+		91CB92C01BA27E5300182CB0 /* LighVerticalLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighVerticalLineView.swift; sourceTree = "<group>"; };
+		91CB92C81BA27EA300182CB0 /* LefVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LefVC.swift; sourceTree = "<group>"; };
+		91CB92C91BA27EA300182CB0 /* LefVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LefVC.xib; sourceTree = "<group>"; };
 		91F09BE71B2407FA005D5A0B /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		91FC6B4B1B7D9E650086E6AA /* UITableView+FDTemplateLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCell.h"; sourceTree = "<group>"; };
 		91FC6B4C1B7D9E650086E6AA /* UITableView+FDTemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCell.m"; sourceTree = "<group>"; };
@@ -224,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				916979C81B7C626600E6E25A /* CoreData.framework in Frameworks */,
+				7EC2865080D38C3857722B54 /* Pods_swift_lib.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,12 +236,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		073E163D9D8F72627AC65743 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0EFA5585F273426F228621C8 /* Pods_swift_lib.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		37E11910CD9F6B592FA120A1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8E2F084DDE4B0DC0400C53BD /* Pods-swift-lib.debug.xcconfig */,
+				855C6249CC2E0EE9F48C8F15 /* Pods-swift-lib.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		9103C90B1B19BF8500AB48F2 = {
 			isa = PBXGroup;
 			children = (
 				9103C9161B19BF8500AB48F2 /* swift-lib */,
 				9103C92C1B19BF8500AB48F2 /* swift-libTests */,
 				9103C9151B19BF8500AB48F2 /* Products */,
+				37E11910CD9F6B592FA120A1 /* Pods */,
+				073E163D9D8F72627AC65743 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -258,6 +276,7 @@
 		9103C9161B19BF8500AB48F2 /* swift-lib */ = {
 			isa = PBXGroup;
 			children = (
+				91CB92AD1BA27DF800182CB0 /* UI */,
 				916979CA1B7C62AC00E6E25A /* CoreData */,
 				917A3FBC1B1C70B8000A2A44 /* HTTP */,
 				917A3F8E1B1C1F3E000A2A44 /* Models */,
@@ -310,9 +329,6 @@
 				911FCA4A1B1EAE9A00A970A3 /* DrawerController */,
 				91BD5A001B1DBAE3002CF727 /* SDWebImage */,
 				91BD59E51B1D89FE002CF727 /* AMTumblrHud */,
-				917A3F881B1C0EE0000A2A44 /* SwiftyJSON */,
-				917A3F7F1B1BFB57000A2A44 /* Alamofire */,
-				917A3F771B1BF8E5000A2A44 /* Alamofire-SwiftyJSON */,
 				9103C9581B1AC50E00AB48F2 /* SCLAlertView */,
 			);
 			path = Vendors;
@@ -323,33 +339,18 @@
 			children = (
 				916979C21B7C621A00E6E25A /* UI */,
 				9103C9551B1AC4A700AB48F2 /* Extensions */,
-				9103C9531B1AC46800AB48F2 /* Classes */,
-				9103C9521B1AC45C00AB48F2 /* Views */,
 			);
 			path = General;
-			sourceTree = "<group>";
-		};
-		9103C9521B1AC45C00AB48F2 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				91BD59EC1B1D90BB002CF727 /* Loading */,
-				9103C9691B1AC52800AB48F2 /* AlertView */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		9103C9531B1AC46800AB48F2 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				9103C96C1B1AD9E000AB48F2 /* LighVC */,
-			);
-			path = Classes;
 			sourceTree = "<group>";
 		};
 		9103C9551B1AC4A700AB48F2 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				9103C9751B1ADBD700AB48F2 /* UIDeviceExtension.swift */,
+				91CB92A41BA27DAF00182CB0 /* ArrayExtension.swift */,
+				91CB92A51BA27DAF00182CB0 /* UIImageExtension.swift */,
+				91CB92A61BA27DAF00182CB0 /* UITableViewExtension.swift */,
+				91CB92A71BA27DAF00182CB0 /* UIViewControllerExtension.swift */,
 				9103C9761B1ADBD700AB48F2 /* StringExtension.swift */,
 				9103C9771B1ADBD700AB48F2 /* UIColorExtension.swift */,
 				9103C9791B1ADBD700AB48F2 /* UIViewExtension.swift */,
@@ -377,25 +378,6 @@
 				9103C9631B1AC50E00AB48F2 /* UIImage+ImageEffects.m */,
 			);
 			path = SCLAlertView;
-			sourceTree = "<group>";
-		};
-		9103C9691B1AC52800AB48F2 /* AlertView */ = {
-			isa = PBXGroup;
-			children = (
-				9103C96A1B1AC52800AB48F2 /* LighAlertView.swift */,
-			);
-			path = AlertView;
-			sourceTree = "<group>";
-		};
-		9103C96C1B1AD9E000AB48F2 /* LighVC */ = {
-			isa = PBXGroup;
-			children = (
-				9103C97F1B1ADDA700AB48F2 /* LighNavigationBarView.swift */,
-				9103C9801B1ADDA700AB48F2 /* LighNavigationBarView.xib */,
-				9103C96D1B1AD9F100AB48F2 /* LighBaseViewController.swift */,
-				9103C9831B1AE3BE00AB48F2 /* LighBaseTableViewController.swift */,
-			);
-			path = LighVC;
 			sourceTree = "<group>";
 		};
 		911FCA4A1B1EAE9A00A970A3 /* DrawerController */ = {
@@ -429,8 +411,9 @@
 		916979C21B7C621A00E6E25A /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				916979C31B7C622800E6E25A /* LefVC.swift */,
-				916979C41B7C622800E6E25A /* LefVC.xib */,
+				91CB92B81BA27E4A00182CB0 /* Views */,
+				91CB92B71BA27E4100182CB0 /* Cell */,
+				91CB92AE1BA27E1500182CB0 /* ViewControllers */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -452,31 +435,6 @@
 				916979D01B7C639800E6E25A /* Travel.swift */,
 			);
 			path = CoreData;
-			sourceTree = "<group>";
-		};
-		917A3F771B1BF8E5000A2A44 /* Alamofire-SwiftyJSON */ = {
-			isa = PBXGroup;
-			children = (
-				917A3F781B1BF923000A2A44 /* Alamofire-SwiftyJSON.h */,
-				917A3F791B1BF923000A2A44 /* Alamofire-SwiftyJSON.swift */,
-			);
-			path = "Alamofire-SwiftyJSON";
-			sourceTree = "<group>";
-		};
-		917A3F7F1B1BFB57000A2A44 /* Alamofire */ = {
-			isa = PBXGroup;
-			children = (
-				91C04E931B1D56A30059A84A /* Alamofire.framework */,
-			);
-			path = Alamofire;
-			sourceTree = "<group>";
-		};
-		917A3F881B1C0EE0000A2A44 /* SwiftyJSON */ = {
-			isa = PBXGroup;
-			children = (
-				917A3FB61B1C6CC4000A2A44 /* SwiftyJSON.framework */,
-			);
-			path = SwiftyJSON;
 			sourceTree = "<group>";
 		};
 		917A3F8E1B1C1F3E000A2A44 /* Models */ = {
@@ -508,16 +466,6 @@
 				91BD59E91B1D89FE002CF727 /* GradientProgressView.m */,
 			);
 			path = AMTumblrHud;
-			sourceTree = "<group>";
-		};
-		91BD59EC1B1D90BB002CF727 /* Loading */ = {
-			isa = PBXGroup;
-			children = (
-				91BD59ED1B1D90C6002CF727 /* LighIndicatorView.h */,
-				91BD59EE1B1D90C6002CF727 /* LighIndicatorView.m */,
-				91BD59EF1B1D90C6002CF727 /* LighIndicatorView.xib */,
-			);
-			path = Loading;
 			sourceTree = "<group>";
 		};
 		91BD5A001B1DBAE3002CF727 /* SDWebImage */ = {
@@ -560,6 +508,49 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
+		91CB92AD1BA27DF800182CB0 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				91CB92C81BA27EA300182CB0 /* LefVC.swift */,
+				91CB92C91BA27EA300182CB0 /* LefVC.xib */,
+			);
+			name = UI;
+			path = General/UI/AppUI/UI;
+			sourceTree = "<group>";
+		};
+		91CB92AE1BA27E1500182CB0 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				91CB92AF1BA27E2700182CB0 /* LighBaseTableViewController.swift */,
+				91CB92B01BA27E2700182CB0 /* LighBaseViewController.swift */,
+				91CB92B11BA27E2700182CB0 /* LighNavigationBarView.swift */,
+				91CB92B21BA27E2700182CB0 /* LighNavigationBarView.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		91CB92B71BA27E4100182CB0 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		91CB92B81BA27E4A00182CB0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				91CB92B91BA27E5300182CB0 /* CircularImageView.swift */,
+				91CB92BA1BA27E5300182CB0 /* CircularView.swift */,
+				91CB92BB1BA27E5300182CB0 /* LighAlertView.swift */,
+				91CB92BC1BA27E5300182CB0 /* LighHorizontalLineView.swift */,
+				91CB92BD1BA27E5300182CB0 /* LighIndicatorView.h */,
+				91CB92BE1BA27E5300182CB0 /* LighIndicatorView.m */,
+				91CB92BF1BA27E5300182CB0 /* LighIndicatorView.xib */,
+				91CB92C01BA27E5300182CB0 /* LighVerticalLineView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		91FC6B4A1B7D9E230086E6AA /* FDTemplateLayoutCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -576,10 +567,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9103C9331B19BF8500AB48F2 /* Build configuration list for PBXNativeTarget "swift-lib" */;
 			buildPhases = (
+				767FE5F641CED60C01FEFB5D /* Check Pods Manifest.lock */,
 				9103C9101B19BF8500AB48F2 /* Sources */,
 				9103C9111B19BF8500AB48F2 /* Frameworks */,
 				9103C9121B19BF8500AB48F2 /* Resources */,
-				917A3F7E1B1BFB2C000A2A44 /* Embed Frameworks */,
+				A5A26398C20FC94446955002 /* Embed Pods Frameworks */,
+				2BBFB1E39988F73AD785835E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -619,6 +612,7 @@
 				TargetAttributes = {
 					9103C9131B19BF8500AB48F2 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = V4Q5CVEM8S;
 					};
 					9103C9281B19BF8500AB48F2 = {
 						CreatedOnToolsVersion = 6.1;
@@ -652,10 +646,10 @@
 			files = (
 				9103C91F1B19BF8500AB48F2 /* Main.storyboard in Resources */,
 				9103C9241B19BF8500AB48F2 /* LaunchScreen.xib in Resources */,
-				9103C9821B1ADDA700AB48F2 /* LighNavigationBarView.xib in Resources */,
-				916979C61B7C622800E6E25A /* LefVC.xib in Resources */,
-				91BD59F11B1D90C6002CF727 /* LighIndicatorView.xib in Resources */,
+				91CB92CB1BA27EA300182CB0 /* LefVC.xib in Resources */,
+				91CB92C61BA27E5300182CB0 /* LighIndicatorView.xib in Resources */,
 				91BD59DE1B1D5710002CF727 /* Info.plist in Resources */,
+				91CB92B61BA27E2700182CB0 /* LighNavigationBarView.xib in Resources */,
 				9103C9211B19BF8500AB48F2 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -668,6 +662,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2BBFB1E39988F73AD785835E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-swift-lib/Pods-swift-lib-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		767FE5F641CED60C01FEFB5D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A5A26398C20FC94446955002 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-swift-lib/Pods-swift-lib-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9103C9101B19BF8500AB48F2 /* Sources */ = {
@@ -683,18 +725,21 @@
 				91BD5A241B1DBAF9002CF727 /* SDImageCache.m in Sources */,
 				91BD5A291B1DBAF9002CF727 /* SDWebImageManager.m in Sources */,
 				9103C97C1B1ADBD700AB48F2 /* UIColorExtension.swift in Sources */,
-				917A3F7A1B1BF923000A2A44 /* Alamofire-SwiftyJSON.swift in Sources */,
 				9103C91C1B19BF8500AB48F2 /* ViewController.swift in Sources */,
+				91CB92B51BA27E2700182CB0 /* LighNavigationBarView.swift in Sources */,
 				916979D31B7C63B300E6E25A /* NSManagedObjectExtension.swift in Sources */,
 				9103C9681B1AC50E00AB48F2 /* UIImage+ImageEffects.m in Sources */,
 				91BD5A311B1DBAF9002CF727 /* UIView+WebCacheOperation.m in Sources */,
 				917A3F941B1C241D000A2A44 /* Order.swift in Sources */,
+				91CB92C51BA27E5300182CB0 /* LighIndicatorView.m in Sources */,
 				91BD5A251B1DBAF9002CF727 /* SDWebImageCompat.m in Sources */,
+				91CB92A81BA27DAF00182CB0 /* ArrayExtension.swift in Sources */,
 				911FCA511B1EAED400A970A3 /* DrawerBarButtonItem.swift in Sources */,
 				91BD59EB1B1D89FE002CF727 /* GradientProgressView.m in Sources */,
+				91CB92A91BA27DAF00182CB0 /* UIImageExtension.swift in Sources */,
 				9103C97E1B1ADBD700AB48F2 /* UIViewExtension.swift in Sources */,
+				91CB92C21BA27E5300182CB0 /* CircularView.swift in Sources */,
 				91BD5A261B1DBAF9002CF727 /* SDWebImageDecoder.m in Sources */,
-				9103C9841B1AE3BE00AB48F2 /* LighBaseTableViewController.swift in Sources */,
 				911FCA531B1EAED400A970A3 /* DrawerVisualState.swift in Sources */,
 				91FC6B4D1B7D9E650086E6AA /* UITableView+FDTemplateLayoutCell.m in Sources */,
 				91BD59E21B1D5EDC002CF727 /* LighHTTPResult.swift in Sources */,
@@ -703,14 +748,16 @@
 				91F09BE81B2407FA005D5A0B /* UIButtonExtension.swift in Sources */,
 				91FC6B4F1B7DA0AA0086E6AA /* UITableViewCellExtension.swift in Sources */,
 				9103C9651B1AC50E00AB48F2 /* SCLAlertViewResponder.m in Sources */,
-				9103C9711B1AD9F100AB48F2 /* LighBaseViewController.swift in Sources */,
 				911FCA761B1EE4C900A970A3 /* SloppySwiperNavigationController.m in Sources */,
 				917A3FB51B1C5F47000A2A44 /* JSONModelParser.swift in Sources */,
 				911FCA501B1EAED400A970A3 /* AnimatedMenuButton.swift in Sources */,
 				91BD59EA1B1D89FE002CF727 /* AMTumblrHud.m in Sources */,
+				91CB92C71BA27E5300182CB0 /* LighVerticalLineView.swift in Sources */,
 				9103C91A1B19BF8500AB48F2 /* AppDelegate.swift in Sources */,
 				91BD5A2D1B1DBAF9002CF727 /* UIImage+MultiFormat.m in Sources */,
 				917A3F8D1B1C0F93000A2A44 /* NSObectExtension.swift in Sources */,
+				91CB92C41BA27E5300182CB0 /* LighHorizontalLineView.swift in Sources */,
+				91CB92B31BA27E2700182CB0 /* LighBaseTableViewController.swift in Sources */,
 				911FCA771B1EE4C900A970A3 /* SSWAnimator.m in Sources */,
 				91BD5A221B1DBAF9002CF727 /* MKAnnotationView+WebCache.m in Sources */,
 				91BD5A331B1DBC6C002CF727 /* UIimageViewExtension.swift in Sources */,
@@ -718,22 +765,24 @@
 				91BD5A2B1B1DBAF9002CF727 /* UIButton+WebCache.m in Sources */,
 				91BD5A301B1DBAF9002CF727 /* UIImageView+WebCache.m in Sources */,
 				917A3FBE1B1C70CA000A2A44 /* AlamofireExtensions.swift in Sources */,
+				91CB92AA1BA27DAF00182CB0 /* UITableViewExtension.swift in Sources */,
+				91CB92C11BA27E5300182CB0 /* CircularImageView.swift in Sources */,
 				9103C97A1B1ADBD700AB48F2 /* UIDeviceExtension.swift in Sources */,
+				91CB92B41BA27E2700182CB0 /* LighBaseViewController.swift in Sources */,
+				91CB92C31BA27E5300182CB0 /* LighAlertView.swift in Sources */,
+				91CB92AB1BA27DAF00182CB0 /* UIViewControllerExtension.swift in Sources */,
 				911FCA781B1EE4C900A970A3 /* SSWDirectionalPanGestureRecognizer.m in Sources */,
 				91BD5A2C1B1DBAF9002CF727 /* UIImage+GIF.m in Sources */,
 				91BD5A271B1DBAF9002CF727 /* SDWebImageDownloader.m in Sources */,
 				916979D11B7C639800E6E25A /* Travel.swift in Sources */,
-				916979C51B7C622800E6E25A /* LefVC.swift in Sources */,
-				9103C96B1B1AC52800AB48F2 /* LighAlertView.swift in Sources */,
+				91CB92CA1BA27EA300182CB0 /* LefVC.swift in Sources */,
 				9103C9671B1AC50E00AB48F2 /* SCLButton.m in Sources */,
 				9103C97B1B1ADBD700AB48F2 /* StringExtension.swift in Sources */,
 				911FCA751B1EE4C900A970A3 /* SloppySwiper.m in Sources */,
 				91BD59E41B1D7D8F002CF727 /* LighHttpRequestManager.swift in Sources */,
 				9103C9641B1AC50E00AB48F2 /* SCLAlertView.m in Sources */,
-				9103C9811B1ADDA700AB48F2 /* LighNavigationBarView.swift in Sources */,
 				911FCA521B1EAED400A970A3 /* DrawerController.swift in Sources */,
 				916979CF1B7C62C900E6E25A /* CoreDataManager.swift in Sources */,
-				91BD59F01B1D90C6002CF727 /* LighIndicatorView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -854,8 +903,10 @@
 		};
 		9103C9341B19BF8500AB48F2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E2F084DDE4B0DC0400C53BD /* Pods-swift-lib.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -874,8 +925,10 @@
 		};
 		9103C9351B19BF8500AB48F2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 855C6249CC2E0EE9F48C8F15 /* Pods-swift-lib.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",

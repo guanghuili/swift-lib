@@ -15,12 +15,10 @@ import Foundation
 class LighHTTPResult : NSObject
 {
     
-    static let DATA_KEY:String = "weatherinfo"
-    
     var result:String?//接口状态 非http状态
     var msg:String?//消息
     //var data:NSDictionary?//服务器返回的字典数据
-    var dataObj:AnyObject?//解析后的model对象
+    var data:AnyObject?//解析后的model对象
     
     
     func isSuccess() -> Bool

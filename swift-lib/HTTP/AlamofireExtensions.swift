@@ -10,68 +10,55 @@ import Foundation
 import Alamofire
 
 
+public typealias Serializer = (NSURLRequest, NSHTTPURLResponse?, NSData?) -> (AnyObject?, NSError?)
 
 extension Request
 {
     
     /***
-        将响应数据转为UIImage
-        如果你请求都是 一个图片数据 可以直接将NSData转为UIImage
+    将响应数据转为UIImage
+    如果你请求都是 一个图片数据 可以直接将NSData转为UIImage
     **/
-    func responseImage(completionHandler: (UIImage?, NSError?) -> Void) -> Self
-    {
-       
-        let serializer: Serializer = { request, response, data in
-            
-            if data == nil
-            {
+    
+    public static func ImageResponseSerializer() -> GenericResponseSerializer<UIImage> {
+        return GenericResponseSerializer { request, response, data in
+            if data == nil || data?.length == 0 {
                 return (nil, nil)
             }
             
-            let image = UIImage(data: data!, scale: UIScreen.mainScreen().scale)
+            var serializationError: NSError?
             
-            return (image, nil)
+            return (UIImage(data: data!), serializationError)
         }
-        
-        return response(serializer:serializer, completionHandler: { (request, response, image, error) in
-            completionHandler(image as? UIImage, error)
-        })
     }
     
+    func responseImage(completionHandler: (UIImage?, NSError?) -> Void) -> Self
+    {
+       
+        return response(queue: nil, responseSerializer: Request.ImageResponseSerializer()) { (request, response, image, error) -> Void in
     
+            completionHandler(image,error)
+        }
+
+    }
+
     
     /**
         如果你只关心相应的json数据 则可以调用此方法  他不会做model解析 只将数据转为json对象
         Array 或者 Dictionary
     **/
-    func responseJSONObject(completionHandler: (LighHTTPResult?) -> Void) -> Self
+    func responseJSON(completionHandler: (AnyObject?, NSError?) -> Void) -> Self
     {
-    
-        let serializer: Serializer = { (request, response, data) in
-            
-            let JSONSerializer = Request.JSONResponseSerializer(options: .AllowFragments)
-            
-            let (JSON: AnyObject?, serializationError) = JSONSerializer(request, response, data)
-            
-            if response != nil && JSON != nil
-            {
-                
-                let result:LighHTTPResult? = JSONModelParser.sharedManager.swiftObjWithDict(JSON as! NSDictionary, cls:LighHTTPResult.self) as? LighHTTPResult
-                
-                result?.dataObj = JSON;
-                
-                return (result,nil);
-                
-            } else {
-                
-                return (nil, serializationError)
-            }
-        }
+
+       return responseJSON(options: .AllowFragments) { (request, response, json, error) -> Void in
         
-        return response(serializer: serializer, completionHandler: { (request, response, object, error) in
-            completionHandler(object as? LighHTTPResult)
-        })
+               completionHandler(json,error)
+        }
+
     }
+    
+
+    
 
     /****
          响应一个model对象
@@ -80,35 +67,19 @@ extension Request
     
         clazz:知道返回的对象class 相应结束后会生成该clazz实例 返回调用端
     ***/
-     func responseObject(clazz:AnyClass,completionHandler: (LighHTTPResult?) -> Void) -> Self
+    
+    func responseObject(clazz:AnyClass,completionHandler: (AnyObject?,NSError?) -> Void) -> Self
     {
-        let serializer: Serializer = { (request, response, data) in
-            
-            let JSONSerializer = Request.JSONResponseSerializer(options: .AllowFragments)
-            
-            let (JSON: AnyObject?, serializationError) = JSONSerializer(request, response, data)
-     
-            if response != nil && JSON != nil
-            {
-             
-             let result:LighHTTPResult? = JSONModelParser.sharedManager.swiftObjWithDict(JSON as! NSDictionary, cls:LighHTTPResult.self) as? LighHTTPResult
-                
-                
-                let objctDict:NSDictionary = JSON?[LighHTTPResult.DATA_KEY] as! NSDictionary;
-                let obj:AnyObject? = JSONModelParser.sharedManager.swiftObjWithDict(objctDict, cls:clazz)
-                result?.dataObj = obj;
-            
-                return (result,nil);
-                
-            } else {
-                
-                return (nil, serializationError)
-            }
-        }
         
-        return response(serializer: serializer, completionHandler: { (request, response, object, error) in
-            completionHandler(object as? LighHTTPResult)
-        })
+       return responseJSON { (json, error) -> Void in
+        
+            let dic = (json as! NSDictionary)
+             let responseObject = JSONModelParser.sharedManager.swiftObjWithDict(dic, cls: clazz)
+            
+            completionHandler(responseObject,error)
+            
+        }
+
     }
     
 
@@ -117,43 +88,74 @@ extension Request
     一般用户列表请求
     clazz:知道返回的对象class 相应结束后会生成该clazz实例 返回调用端
     ***/
-    func responseObjectArray(clazz:AnyClass,completionHandler:(LighHTTPResult?)-> Void) -> Self
+    func responseObjectArray(clazz:AnyClass,completionHandler:([AnyObject]?,NSError?) -> Void) -> Self
     {
-        let serializer:Serializer =
-        {
-            (request,response,data) in
-        
-            let JSONSerializer = Request.JSONResponseSerializer(options: .AllowFragments)
+     
+        return responseJSON { (json, error) -> Void in
             
+            let array = (json as! NSArray)
+            let responseObjectArray: AnyObject? = JSONModelParser.sharedManager.swiftObjWithArray(array, cls: clazz)
             
-            //JSON = Array/Dictionary
-            let (JSON: AnyObject?, serializationError) = JSONSerializer(request, response, data)
+            completionHandler(responseObjectArray as? Array,error)
             
-            if response != nil && JSON != nil
-            {
-                
-                let result:LighHTTPResult? = JSONModelParser.sharedManager.swiftObjWithDict(JSON as! NSDictionary, cls:LighHTTPResult.self) as? LighHTTPResult
-                
-                
-                let objectArrayDict:NSArray = JSON?[LighHTTPResult.DATA_KEY] as! NSArray;
-                let objArray:AnyObject? = JSONModelParser.sharedManager.swiftObjWithArray(objectArrayDict, cls: clazz)
-               
-                result?.dataObj = objArray;
-                
-                return (result,nil);
-                
-            } else {
-                
-                return (nil, serializationError)
-            }
-
         }
-        
-        return response(serializer: serializer, completionHandler: { (request, response, object, error) in
-            completionHandler(object as? LighHTTPResult)
-        })
     }
     
+    /**
+    *
+    *返回一个LighHTTPResult 数据为dataClazz
+    *
+    */
+    func responseResultObject(dataClazz:AnyClass,completionHandler: (LighHTTPResult?) -> Void) -> Self
+    {
+        
+        return responseJSON(options: .AllowFragments) { (request, response, json, error) -> Void in
+            
+        
+            if let jsonDic = (json as? NSDictionary) {
+                
+               let result = JSONModelParser.sharedManager.swiftObjWithDict(jsonDic, cls: LighHTTPResult.self) as! LighHTTPResult
+                //["data"] as! NSDictionary
+                result.data = JSONModelParser.sharedManager.swiftObjWithDict(jsonDic , cls: dataClazz)
+                
+                completionHandler(result)
+             
+                return
+            }
+            
+            
+            completionHandler(nil)
+        }
+
+    }
     
+    /**
+    *
+    *返回一个LighHTTPResult 数据为dataClazz array
+    *
+    */
+    func responseResultObjectArray(dataClazz:AnyClass,completionHandler: (LighHTTPResult?) -> Void) -> Self
+    {
+        
+        return responseJSON(options: .AllowFragments) { (request, response, json, error) -> Void in
+            
+            
+            if let jsonDic = (json as? NSDictionary) {
+                
+                let result = JSONModelParser.sharedManager.swiftObjWithDict(jsonDic, cls: LighHTTPResult.self) as! LighHTTPResult
+                
+                result.data = JSONModelParser.sharedManager.swiftObjWithArray(jsonDic["data"] as! NSArray, cls: dataClazz)
+                
+                completionHandler(result)
+                
+                return
+            }
+            
+            
+            completionHandler(nil)
+        }
+        
+    }
+
     
 }

@@ -83,8 +83,9 @@ extension NSManagedObject {
     
     
        var request = self.fetchRequest(predicate: predicate, sortDescriptorMap: sortDescriptorMap)
+        request.fetchBatchSize = 5
         
-       var fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: self.managedObjectContext(), sectionNameKeyPath: nil, cacheName: self.className())
+       var fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: self.managedObjectContext(), sectionNameKeyPath:nil, cacheName: nil)
         fetchedResultsController.delegate = delegate
         
         //这个必须调用
@@ -93,6 +94,22 @@ extension NSManagedObject {
         return fetchedResultsController;
     }
     
+    
+    //统计数量
+    class func countForPredicateFormat(predicateFormat:String? = nil,args: CVarArgType...) ->Int{
+        
+        var predicate:NSPredicate? = nil
+        
+        if let temppredicateFormat = predicateFormat {
+            predicate = NSPredicate(format: temppredicateFormat, arguments: getVaList(args))
+        }
+    
+        var request = self.fetchRequest(predicate: predicate)
+        request.resultType = .CountResultType
+        
+        return self.managedObjectContext().countForFetchRequest(request, error: nil)
+        
+    }
 
     
     
@@ -121,6 +138,13 @@ extension NSManagedObject {
         return newObject
     }
     
+    
+    func deleteObject() {
+        
+        self.managedObjectContext!.deleteObject(self)
+        CoreDataManager.sharedCoreDataManager().managedObjectContext!.save(nil)
+
+    }
 
     /**
         保存managedObjectContext中 为持久化的对象
@@ -137,6 +161,7 @@ extension NSManagedObject {
     **/
     class func fetchRequest(predicate:NSPredicate? = nil,sortDescriptorMap:[String:Bool]? = nil) -> NSFetchRequest {
         
+        
         var request = NSFetchRequest()
         request.entity = NSEntityDescription.entityForName(self.className(), inManagedObjectContext: self.managedObjectContext())
         
@@ -151,6 +176,7 @@ extension NSManagedObject {
         }
         
         request.sortDescriptors = sortDescriptorArray
+        
         
         
         return request

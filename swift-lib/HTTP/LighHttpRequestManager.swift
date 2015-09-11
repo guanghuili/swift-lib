@@ -26,6 +26,11 @@ enum LighHttpRequestMethod : String
 
 
 
+func reuqst()
+{
+
+}
+
 //请求信息管理者
 class LighHttpRequestManager
 {
@@ -56,7 +61,7 @@ class LighHttpRequestManager
     /**
         将lighMethod转为Alamofire Method 主要是考虑以后换用其他框架 
     **/
-    class func AlamofireMethodByLighHttpRequest(method:LighHttpRequestMethod) -> Alamofire.Method
+    class func AlamofireMethodByLighHttpRequest(method:LighHttpRequestMethod = .POST) -> Alamofire.Method
     {
         switch method
         {
@@ -117,64 +122,103 @@ class LighHttpRequestManager
     }
     
     
+    
+    class func createRequest(method:Alamofire.Method? = .GET, URLString: URLStringConvertible, parameters: [String : AnyObject]? = nil, encoding: ParameterEncoding) -> Request {
+        
+        return Alamofire.request(method!, URLString, parameters: parameters, encoding: encoding)
+    }
+    
     ///请求一个json
-    class func requestJSON(indicatorViewInView:UIView,method:LighHttpRequestMethod,url:String,parameters:[String : AnyObject]?,completionHandler:(LighHTTPResult?) -> Void)
+    class func requestJSON(indicatorViewInView:UIView,method:Alamofire.Method? = .POST,url:String,parameters:[String : AnyObject]? = nil,completionHandler:(AnyObject?) -> Void)
     {
 
         showIndicatorView(indicatorViewInView)
         discardRequestByCacheWithUrl(url)
         
-       let request = Alamofire.request(AlamofireMethodByLighHttpRequest(method), url, parameters:parameters, encoding: ParameterEncoding.URL).responseJSONObject { (httpResult) -> Void in
-        
-            completionHandler(httpResult);
+        let request = self.createRequest(method: method, URLString: url, parameters: parameters, encoding: ParameterEncoding.URL).responseJSON { (json, error) -> Void in
+            
+            completionHandler(json);
             
             self.hideIndicatorView(indicatorViewInView);
             self.discardRequestByCacheWithUrl(url)
         }
-        
+ 
+           
         urlByRequestMapping[url] = request
 
     }
     
-    //请求一个对象
-   class  func requestObject(indicatorViewInView:UIView,method:LighHttpRequestMethod,url:String,parameters:[String : AnyObject]?,clazz:AnyClass, completionHandler:(LighHTTPResult?) -> Void)
-    {
+    
+    class func request(indicatorViewInView:UIView,method:LighHttpRequestMethod? = .POST,url:String,parameters:[String : AnyObject]? = nil,clazz:AnyClass, completionHandler:(LighHTTPResult?) -> Void){
+    
         showIndicatorView(indicatorViewInView)
         discardRequestByCacheWithUrl(url)
-        
-        let request = Alamofire.request(AlamofireMethodByLighHttpRequest(method), url, parameters:parameters, encoding: ParameterEncoding.URL).responseObject(clazz, completionHandler: { (result) -> Void in
+
+  
+         let request = self.createRequest(method: AlamofireMethodByLighHttpRequest(method: method!), URLString: url, parameters: parameters, encoding: ParameterEncoding.URL).responseJSON { (json, error) -> Void in
             
+            if let jsonDic = (json as? NSDictionary) {
+                
+                let result = JSONModelParser.sharedManager.swiftObjWithDict(jsonDic, cls: LighHTTPResult.self) as! LighHTTPResult
+                
+                let dataDic = jsonDic  //jsondic["data"]
+              
+                if (dataDic.isKindOfClass(NSArray)) {
+                    
+                    result.data = JSONModelParser.sharedManager.swiftObjWithArray(dataDic as! NSArray , cls: clazz)
+                    
+                } else {
+                    
+                     result.data = JSONModelParser.sharedManager.swiftObjWithDict(dataDic , cls: clazz)
+                }
           
-            completionHandler(result)
-            
-            self.hideIndicatorView(indicatorViewInView);
-            self.discardRequestByCacheWithUrl(url)
-            
+                completionHandler(result)
+                
+                return
+            }
 
-        })
+        }
         
-        urlByRequestMapping[url] = request
+         urlByRequestMapping[url] = request
+        
     }
     
-    
-    //请求一个对象集合
-   class  func requestObjectArray(indicatorViewInView:UIView,method:LighHttpRequestMethod,url:String,parameters:[String : AnyObject]?,clazz:AnyClass, completionHandler:(LighHTTPResult?) -> Void)
-    {
-        showIndicatorView(indicatorViewInView)
-        discardRequestByCacheWithUrl(url)
-        
-        
-       let request =  Alamofire.request(AlamofireMethodByLighHttpRequest(method), url, parameters:parameters, encoding: ParameterEncoding.URL).responseObjectArray(clazz, completionHandler: { (result) -> Void in
-            
-
-            completionHandler(result)
-        
-            self.hideIndicatorView(indicatorViewInView);
-            self.discardRequestByCacheWithUrl(url)
-        
-
-        })
-        
-                urlByRequestMapping[url] = request
-    }
+//    //请求一个对象
+//   class  func requestResultObject(indicatorViewInView:UIView,method:LighHttpRequestMethod? = .POST,url:String,parameters:[String : AnyObject]? = nil,clazz:AnyClass, completionHandler:(LighHTTPResult?) -> Void)
+//    {
+//        showIndicatorView(indicatorViewInView)
+//        discardRequestByCacheWithUrl(url)
+//        
+//         let request = self.createRequest(method: AlamofireMethodByLighHttpRequest(method: method!), URLString: url, parameters: parameters, encoding: ParameterEncoding.URL).responseResultObject(clazz, completionHandler: { (result) -> Void in
+//            
+//            completionHandler(result);
+//            
+//            self.hideIndicatorView(indicatorViewInView);
+//            self.discardRequestByCacheWithUrl(url)
+//            
+//         })
+//        urlByRequestMapping[url] = request
+//    }
+//    
+//    
+//    //请求一个对象集合
+//   class  func requestResultObjectArray(indicatorViewInView:UIView,method:LighHttpRequestMethod? = .POST,url:String,parameters:[String : AnyObject]? = nil,clazz:AnyClass, completionHandler:(LighHTTPResult?) -> Void)
+//    {
+//        showIndicatorView(indicatorViewInView)
+//        discardRequestByCacheWithUrl(url)
+//        
+//        
+//        let request = self.createRequest(method: AlamofireMethodByLighHttpRequest(method: method!), URLString: url, parameters: parameters, encoding: ParameterEncoding.URL).responseResultObjectArray(clazz, completionHandler: { (result) -> Void in
+//            
+//
+//            completionHandler(result)
+//        
+//            self.hideIndicatorView(indicatorViewInView);
+//            self.discardRequestByCacheWithUrl(url)
+//        
+//
+//        })
+//        
+//                urlByRequestMapping[url] = request
+//    }
 }

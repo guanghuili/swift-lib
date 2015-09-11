@@ -5,7 +5,7 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>2D48E370-B54E-438D-B565-2E1499D30619</string>
+	<string>CE2B6B38-28E9-4DE1-8B08-572833BA0904</string>
 	<key>IDESourceControlProjectName</key>
 	<string>swift-lib</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
@@ -14,11 +14,11 @@
 		<string>https://github.com/guanghuili/swift-lib.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>swift-lib.xcodeproj</string>
+	<string>swift-lib.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>5E7F22FF9FA9202C03ACCAAB53868F62C3F2A44B</key>
-		<string>../..</string>
+		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/guanghuili/swift-lib.git</string>
