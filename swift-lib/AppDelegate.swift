@@ -18,42 +18,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,NSFetchedResultsControlle
     func application(application: UIApplication, willFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
      
         UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: false)
-     
-        let rightSideNavController =  LefVC(nibName:"LefVC", bundle:nil)
-        
-            rightSideNavController.restorationIdentifier = "ExampleRightNavigationControllerRestorationKey"
-        
-        let leftSideNavController =  LefVC(nibName:"LefVC", bundle:nil)
-        
-        
-        rightSideNavController.restorationIdentifier = "ExampleRightNavigationControllerRestorationKey"
-        
-        
-        let navigationController = ViewController()
-        navigationController.restorationIdentifier = "ExampleLeftNavigationControllerRestorationKey"
-
-        
-        
-        self.draw = DrawerController(centerViewController: navigationController, leftDrawerViewController: leftSideNavController,rightDrawerViewController:nil)
-        
-        self.draw?.showsShadows = true
-        
-        self.draw?.restorationIdentifier = "Drawer"
-        self.draw?.maximumRightDrawerWidth = 100.0
-        self.draw?.openDrawerGestureModeMask = .All
-        self.draw?.closeDrawerGestureModeMask = .All
-        
-        self.draw?.drawerVisualStateBlock = { (drawerController, drawerSide, percentVisible) in
-            let block = ExampleDrawerVisualStateManager.sharedManager.drawerVisualStateBlockForDrawerSide(drawerSide)
-            block?(drawerController, drawerSide, percentVisible)
-        }
+//     
+//        let rightSideNavController =  LefVC(nibName:"LefVC", bundle:nil)
+//        
+//            rightSideNavController.restorationIdentifier = "ExampleRightNavigationControllerRestorationKey"
+//        
+//        let leftSideNavController =  LefVC(nibName:"LefVC", bundle:nil)
+//        
+//        
+//        rightSideNavController.restorationIdentifier = "ExampleRightNavigationControllerRestorationKey"
+//        
+//        
+//        let navigationController = ViewController()
+//        navigationController.restorationIdentifier = "ExampleLeftNavigationControllerRestorationKey"
+//
+//        
+//        
+//        self.draw = DrawerController(centerViewController: navigationController, leftDrawerViewController: leftSideNavController,rightDrawerViewController:nil)
+//        
+//        self.draw?.showsShadows = true
+//        
+//        self.draw?.restorationIdentifier = "Drawer"
+//        self.draw?.maximumRightDrawerWidth = 100.0
+//        self.draw?.openDrawerGestureModeMask = .All
+//        self.draw?.closeDrawerGestureModeMask = .All
+//        
+//        self.draw?.drawerVisualStateBlock = { (drawerController, drawerSide, percentVisible) in
+//            let block = ExampleDrawerVisualStateManager.sharedManager.drawerVisualStateBlockForDrawerSide(drawerSide)
+//            block?(drawerController, drawerSide, percentVisible)
+//        }
         
         //必须设置frame
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         let tintColor = UIColor(red: 29 / 255, green: 173 / 255, blue: 234 / 255, alpha: 1.0)
         self.window?.tintColor = tintColor
         
-        self.window?.rootViewController = SloppySwiperNavigationController(rootViewController: self.draw!)
+        self.window?.rootViewController = SloppySwiperNavigationController(rootViewController: ViewController.viewController());
         
        // Travel.fetchedResultsController(sortDescriptorMap: ["a":false], delegate: self)
         

@@ -20,7 +20,7 @@ class LighBaseViewController : UIViewController,UITextFieldDelegate
     var  contentViewY:CGFloat = 0.0
     var  editingTextFieldOrTextView:AnyObject?
     var  textViewOrFieldOrgDelegate:AnyObject?
-    
+
     
     
     override func viewDidLoad()
@@ -35,7 +35,7 @@ class LighBaseViewController : UIViewController,UITextFieldDelegate
     override func viewDidAppear(animated: Bool)
     {
         super.viewDidAppear(animated)
-        self.enableKeyboardManger()
+       self.enableKeyboardManger()
     }
     
     override func viewWillDisappear(animated: Bool)

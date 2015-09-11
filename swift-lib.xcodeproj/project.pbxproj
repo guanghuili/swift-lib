@@ -41,10 +41,7 @@
 		917A3F921B1C234D000A2A44 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917A3F911B1C234D000A2A44 /* User.swift */; };
 		917A3F941B1C241D000A2A44 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917A3F931B1C241D000A2A44 /* Order.swift */; };
 		917A3FB51B1C5F47000A2A44 /* JSONModelParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917A3FB31B1C5F47000A2A44 /* JSONModelParser.swift */; };
-		917A3FBE1B1C70CA000A2A44 /* AlamofireExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917A3FBD1B1C70CA000A2A44 /* AlamofireExtensions.swift */; };
 		91BD59DE1B1D5710002CF727 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91BD59DD1B1D5710002CF727 /* Info.plist */; };
-		91BD59E21B1D5EDC002CF727 /* LighHTTPResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD59E11B1D5EDC002CF727 /* LighHTTPResult.swift */; };
-		91BD59E41B1D7D8F002CF727 /* LighHttpRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD59E31B1D7D8F002CF727 /* LighHttpRequestManager.swift */; };
 		91BD59EA1B1D89FE002CF727 /* AMTumblrHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BD59E71B1D89FE002CF727 /* AMTumblrHud.m */; };
 		91BD59EB1B1D89FE002CF727 /* GradientProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BD59E91B1D89FE002CF727 /* GradientProgressView.m */; };
 		91BD5A221B1DBAF9002CF727 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BD5A021B1DBAF9002CF727 /* MKAnnotationView+WebCache.m */; };
@@ -81,6 +78,10 @@
 		91CB92C71BA27E5300182CB0 /* LighVerticalLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CB92C01BA27E5300182CB0 /* LighVerticalLineView.swift */; };
 		91CB92CA1BA27EA300182CB0 /* LefVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CB92C81BA27EA300182CB0 /* LefVC.swift */; };
 		91CB92CB1BA27EA300182CB0 /* LefVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91CB92C91BA27EA300182CB0 /* LefVC.xib */; };
+		91CB92D01BA27FD000182CB0 /* AlamofireExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CB92CD1BA27FD000182CB0 /* AlamofireExtensions.swift */; };
+		91CB92D11BA27FD000182CB0 /* LighHttpRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CB92CE1BA27FD000182CB0 /* LighHttpRequestManager.swift */; };
+		91CB92D21BA27FD000182CB0 /* LighHTTPResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CB92CF1BA27FD000182CB0 /* LighHTTPResult.swift */; };
+		91CB92D51BA2800B00182CB0 /* ThirdPartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CB92D41BA2800B00182CB0 /* ThirdPartService.swift */; };
 		91F09BE81B2407FA005D5A0B /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F09BE71B2407FA005D5A0B /* UIButtonExtension.swift */; };
 		91FC6B4D1B7D9E650086E6AA /* UITableView+FDTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FC6B4C1B7D9E650086E6AA /* UITableView+FDTemplateLayoutCell.m */; };
 		91FC6B4F1B7DA0AA0086E6AA /* UITableViewCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FC6B4E1B7DA0AA0086E6AA /* UITableViewCellExtension.swift */; };
@@ -150,10 +151,7 @@
 		917A3F911B1C234D000A2A44 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		917A3F931B1C241D000A2A44 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		917A3FB31B1C5F47000A2A44 /* JSONModelParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONModelParser.swift; sourceTree = "<group>"; };
-		917A3FBD1B1C70CA000A2A44 /* AlamofireExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireExtensions.swift; sourceTree = "<group>"; };
 		91BD59DD1B1D5710002CF727 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		91BD59E11B1D5EDC002CF727 /* LighHTTPResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighHTTPResult.swift; sourceTree = "<group>"; };
-		91BD59E31B1D7D8F002CF727 /* LighHttpRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighHttpRequestManager.swift; sourceTree = "<group>"; };
 		91BD59E61B1D89FE002CF727 /* AMTumblrHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMTumblrHud.h; sourceTree = "<group>"; };
 		91BD59E71B1D89FE002CF727 /* AMTumblrHud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMTumblrHud.m; sourceTree = "<group>"; };
 		91BD59E81B1D89FE002CF727 /* GradientProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientProgressView.h; sourceTree = "<group>"; };
@@ -210,6 +208,10 @@
 		91CB92C01BA27E5300182CB0 /* LighVerticalLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighVerticalLineView.swift; sourceTree = "<group>"; };
 		91CB92C81BA27EA300182CB0 /* LefVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LefVC.swift; sourceTree = "<group>"; };
 		91CB92C91BA27EA300182CB0 /* LefVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LefVC.xib; sourceTree = "<group>"; };
+		91CB92CD1BA27FD000182CB0 /* AlamofireExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireExtensions.swift; sourceTree = "<group>"; };
+		91CB92CE1BA27FD000182CB0 /* LighHttpRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighHttpRequestManager.swift; sourceTree = "<group>"; };
+		91CB92CF1BA27FD000182CB0 /* LighHTTPResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighHTTPResult.swift; sourceTree = "<group>"; };
+		91CB92D41BA2800B00182CB0 /* ThirdPartService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdPartService.swift; sourceTree = "<group>"; };
 		91F09BE71B2407FA005D5A0B /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		91FC6B4B1B7D9E650086E6AA /* UITableView+FDTemplateLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCell.h"; sourceTree = "<group>"; };
 		91FC6B4C1B7D9E650086E6AA /* UITableView+FDTemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCell.m"; sourceTree = "<group>"; };
@@ -278,7 +280,6 @@
 			children = (
 				91CB92AD1BA27DF800182CB0 /* UI */,
 				916979CA1B7C62AC00E6E25A /* CoreData */,
-				917A3FBC1B1C70B8000A2A44 /* HTTP */,
 				917A3F8E1B1C1F3E000A2A44 /* Models */,
 				9103C9501B1AC42600AB48F2 /* General */,
 				9103C9391B19C08B00AB48F2 /* Vendors */,
@@ -337,6 +338,8 @@
 		9103C9501B1AC42600AB48F2 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				91CB92D31BA27FF600182CB0 /* Aop */,
+				91CB92CC1BA27FD000182CB0 /* HTTP */,
 				916979C21B7C621A00E6E25A /* UI */,
 				9103C9551B1AC4A700AB48F2 /* Extensions */,
 			);
@@ -447,16 +450,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		917A3FBC1B1C70B8000A2A44 /* HTTP */ = {
-			isa = PBXGroup;
-			children = (
-				917A3FBD1B1C70CA000A2A44 /* AlamofireExtensions.swift */,
-				91BD59E11B1D5EDC002CF727 /* LighHTTPResult.swift */,
-				91BD59E31B1D7D8F002CF727 /* LighHttpRequestManager.swift */,
-			);
-			path = HTTP;
-			sourceTree = "<group>";
-		};
 		91BD59E51B1D89FE002CF727 /* AMTumblrHud */ = {
 			isa = PBXGroup;
 			children = (
@@ -549,6 +542,24 @@
 				91CB92C01BA27E5300182CB0 /* LighVerticalLineView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		91CB92CC1BA27FD000182CB0 /* HTTP */ = {
+			isa = PBXGroup;
+			children = (
+				91CB92CD1BA27FD000182CB0 /* AlamofireExtensions.swift */,
+				91CB92CE1BA27FD000182CB0 /* LighHttpRequestManager.swift */,
+				91CB92CF1BA27FD000182CB0 /* LighHTTPResult.swift */,
+			);
+			path = HTTP;
+			sourceTree = "<group>";
+		};
+		91CB92D31BA27FF600182CB0 /* Aop */ = {
+			isa = PBXGroup;
+			children = (
+				91CB92D41BA2800B00182CB0 /* ThirdPartService.swift */,
+			);
+			path = Aop;
 			sourceTree = "<group>";
 		};
 		91FC6B4A1B7D9E230086E6AA /* FDTemplateLayoutCell */ = {
@@ -721,6 +732,7 @@
 				91BD5A2E1B1DBAF9002CF727 /* UIImage+WebP.m in Sources */,
 				91BD5A2A1B1DBAF9002CF727 /* SDWebImagePrefetcher.m in Sources */,
 				916979CD1B7C62BE00E6E25A /* App.xcdatamodeld in Sources */,
+				91CB92D11BA27FD000182CB0 /* LighHttpRequestManager.swift in Sources */,
 				9103C9661B1AC50E00AB48F2 /* SCLAlertViewStyleKit.m in Sources */,
 				91BD5A241B1DBAF9002CF727 /* SDImageCache.m in Sources */,
 				91BD5A291B1DBAF9002CF727 /* SDWebImageManager.m in Sources */,
@@ -742,7 +754,6 @@
 				91BD5A261B1DBAF9002CF727 /* SDWebImageDecoder.m in Sources */,
 				911FCA531B1EAED400A970A3 /* DrawerVisualState.swift in Sources */,
 				91FC6B4D1B7D9E650086E6AA /* UITableView+FDTemplateLayoutCell.m in Sources */,
-				91BD59E21B1D5EDC002CF727 /* LighHTTPResult.swift in Sources */,
 				917A3F921B1C234D000A2A44 /* User.swift in Sources */,
 				91BD5A2F1B1DBAF9002CF727 /* UIImageView+HighlightedWebCache.m in Sources */,
 				91F09BE81B2407FA005D5A0B /* UIButtonExtension.swift in Sources */,
@@ -755,6 +766,7 @@
 				91CB92C71BA27E5300182CB0 /* LighVerticalLineView.swift in Sources */,
 				9103C91A1B19BF8500AB48F2 /* AppDelegate.swift in Sources */,
 				91BD5A2D1B1DBAF9002CF727 /* UIImage+MultiFormat.m in Sources */,
+				91CB92D01BA27FD000182CB0 /* AlamofireExtensions.swift in Sources */,
 				917A3F8D1B1C0F93000A2A44 /* NSObectExtension.swift in Sources */,
 				91CB92C41BA27E5300182CB0 /* LighHorizontalLineView.swift in Sources */,
 				91CB92B31BA27E2700182CB0 /* LighBaseTableViewController.swift in Sources */,
@@ -764,10 +776,10 @@
 				91BD5A231B1DBAF9002CF727 /* NSData+ImageContentType.m in Sources */,
 				91BD5A2B1B1DBAF9002CF727 /* UIButton+WebCache.m in Sources */,
 				91BD5A301B1DBAF9002CF727 /* UIImageView+WebCache.m in Sources */,
-				917A3FBE1B1C70CA000A2A44 /* AlamofireExtensions.swift in Sources */,
 				91CB92AA1BA27DAF00182CB0 /* UITableViewExtension.swift in Sources */,
 				91CB92C11BA27E5300182CB0 /* CircularImageView.swift in Sources */,
 				9103C97A1B1ADBD700AB48F2 /* UIDeviceExtension.swift in Sources */,
+				91CB92D21BA27FD000182CB0 /* LighHTTPResult.swift in Sources */,
 				91CB92B41BA27E2700182CB0 /* LighBaseViewController.swift in Sources */,
 				91CB92C31BA27E5300182CB0 /* LighAlertView.swift in Sources */,
 				91CB92AB1BA27DAF00182CB0 /* UIViewControllerExtension.swift in Sources */,
@@ -775,11 +787,11 @@
 				91BD5A2C1B1DBAF9002CF727 /* UIImage+GIF.m in Sources */,
 				91BD5A271B1DBAF9002CF727 /* SDWebImageDownloader.m in Sources */,
 				916979D11B7C639800E6E25A /* Travel.swift in Sources */,
+				91CB92D51BA2800B00182CB0 /* ThirdPartService.swift in Sources */,
 				91CB92CA1BA27EA300182CB0 /* LefVC.swift in Sources */,
 				9103C9671B1AC50E00AB48F2 /* SCLButton.m in Sources */,
 				9103C97B1B1ADBD700AB48F2 /* StringExtension.swift in Sources */,
 				911FCA751B1EE4C900A970A3 /* SloppySwiper.m in Sources */,
-				91BD59E41B1D7D8F002CF727 /* LighHttpRequestManager.swift in Sources */,
 				9103C9641B1AC50E00AB48F2 /* SCLAlertView.m in Sources */,
 				911FCA521B1EAED400A970A3 /* DrawerController.swift in Sources */,
 				916979CF1B7C62C900E6E25A /* CoreDataManager.swift in Sources */,
@@ -906,7 +918,7 @@
 			baseConfigurationReference = 8E2F084DDE4B0DC0400C53BD /* Pods-swift-lib.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: jing fan (549K9DE5MZ)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -918,6 +930,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "fe99ca91-9dc0-4b73-8bb6-ad465ce5809d";
 				SWIFT_OBJC_BRIDGING_HEADER = "swift-lib/project-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
@@ -928,7 +941,7 @@
 			baseConfigurationReference = 855C6249CC2E0EE9F48C8F15 /* Pods-swift-lib.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing QingChuang Technology Co., Ltd. (V4Q5CVEM8S)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -940,6 +953,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c2f4800b-dd6a-44d9-a1c9-799ceed2db04";
 				SWIFT_OBJC_BRIDGING_HEADER = "swift-lib/project-Bridging-Header.h";
 			};
 			name = Release;

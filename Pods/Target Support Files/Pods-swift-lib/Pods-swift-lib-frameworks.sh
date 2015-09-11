@@ -53,9 +53,15 @@ code_sign_if_enabled() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Pods-swift-lib/Alamofire.framework'
+  install_framework 'Pods-swift-lib/IQKeyboardManagerSwift.framework'
+  install_framework 'Pods-swift-lib/Proposer.framework'
+  install_framework 'Pods-swift-lib/ReactiveCocoa.framework'
   install_framework 'Pods-swift-lib/SwiftyJSON.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Pods-swift-lib/Alamofire.framework'
+  install_framework 'Pods-swift-lib/IQKeyboardManagerSwift.framework'
+  install_framework 'Pods-swift-lib/Proposer.framework'
+  install_framework 'Pods-swift-lib/ReactiveCocoa.framework'
   install_framework 'Pods-swift-lib/SwiftyJSON.framework'
 fi

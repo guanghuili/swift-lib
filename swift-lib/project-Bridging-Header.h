@@ -20,4 +20,7 @@
 #import "SloppySwiper.h"
 #import "SloppySwiperNavigationController.h"
 #import "UITableView+FDTemplateLayoutCell.h"
+
+#import <ReactiveCocoa/ReactiveCocoa.h>
+
 #endif

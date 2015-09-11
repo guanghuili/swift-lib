@@ -10,18 +10,18 @@ import UIKit
 
 
 class ViewController: LighBaseViewController {
-
-
+    
+    
+    var bu:UITextField?;
+    
     override func viewDidLoad() {
         super.viewDidLoad();
         
+        println("ViewController")
         
-        LighHttpRequestManager.requestJSON(self.view, url: "http://api.map.baidu.com/telematics/v3/weather?location=%E5%8C%97%E4%BA%AC&output=json&ak=BvuFycR82UEUtLshZSG1uNGw&mcode=xxxxxxxx") { (json) -> Void in
-            
-            NSLog("%@",json as! NSDictionary)
-        }
+
+        
     }
- 
 
 }
 

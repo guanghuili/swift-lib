@@ -1,13 +1,28 @@
 PODS:
   - Alamofire (1.3.1)
+  - IQKeyboardManagerSwift (3.3.0)
+  - Proposer (0.7)
+  - ReactiveCocoa (2.3.1):
+    - ReactiveCocoa/UI (= 2.3.1)
+  - ReactiveCocoa/Core (2.3.1):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.3.1)
+  - ReactiveCocoa/UI (2.3.1):
+    - ReactiveCocoa/Core
   - SwiftyJSON (2.2.1)
 
 DEPENDENCIES:
   - Alamofire (~> 1.3)
+  - IQKeyboardManagerSwift
+  - Proposer (~> 0.7)
+  - ReactiveCocoa (~> 2.3.1)
   - SwiftyJSON (~> 2.2.1)
 
 SPEC CHECKSUMS:
   Alamofire: e4ab637e3195b645c814b87a652373439e59f2a4
+  IQKeyboardManagerSwift: a89a3fa898578ed9e9d7acdf37de80d1bf7779dd
+  Proposer: c244e0d031227b6cf140da7a24d30f2d954d2cb2
+  ReactiveCocoa: 334468a83b2c5f669f7cfb9a084415ee23219b4f
   SwiftyJSON: ae2d0a3d68025d136602a33c4ee215091ced3e33
 
 COCOAPODS: 0.38.2
