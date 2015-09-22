@@ -9,8 +9,8 @@ use_frameworks!
 target 'swift-lib' do
 
 
-pod 'Alamofire', '~> 1.3'
-pod 'SwiftyJSON', '~> 2.2.1'
+pod 'Alamofire', '~> 2.0'
+pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 pod 'ReactiveCocoa', '~> 2.3.1'
 
 
