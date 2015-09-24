@@ -7,7 +7,9 @@
 //
 
 import UIKit
-
+import Alamofire
+import ObjectMapper
+import AlamofireObjectMapper
 
 class ViewController: LighBaseViewController {
     
@@ -17,9 +19,24 @@ class ViewController: LighBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad();
         
-        println("ViewController")
+        print("ViewController")
         
+//        Alamofire.request(.GET, "http://www.weather.com.cn/data/sk/101010100.html").responseJSON { (request, response, result) -> Void in
+//            
+//            //Weather.objectFromJSON(NSObject)
+//
+//            let user = Mapper<WeatherInfo>().map(result.value);
+//            print("\(user?.weatherinfo?.city)")
+//            
+//        }
 
+        
+        Alamofire.request(.GET, "http://www.weather.com.cn/data/sk/101010100.html").responseObject { (response:WeatherInfo?, error:ErrorType?) -> Void in
+            
+            print("=====\(response?.weatherinfo?.city)")
+
+            
+        }
         
     }
 

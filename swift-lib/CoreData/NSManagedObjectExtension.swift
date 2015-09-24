@@ -19,9 +19,9 @@ extension NSManagedObject {
     **/
     class func executeQuery(predicate:NSPredicate? = nil,sortDescriptorMap:[String:Bool]? = nil) -> [AnyObject]?{
     
-        var request = self.fetchRequest(predicate: predicate, sortDescriptorMap: sortDescriptorMap)
+        var request = self.fetchRequest(predicate, sortDescriptorMap: sortDescriptorMap)
         
-       return self.managedObjectContext().executeFetchRequest(request, error: nil)
+       return try? self.managedObjectContext().executeFetchRequest(request)
         
         
     }
@@ -34,7 +34,7 @@ extension NSManagedObject {
     class func executeQuery(predicateFormat:String,args: CVarArgType...)  -> [AnyObject]? {
         
         var predicate = NSPredicate(format: predicateFormat, arguments: getVaList(args))
-        return self.executeQuery(predicate: predicate)
+        return self.executeQuery(predicate)
         
     }
     
@@ -45,10 +45,10 @@ extension NSManagedObject {
     class func fetchObject(predicate:NSPredicate? = nil,sortDescriptorMap:[String:Bool]? = nil) ->AnyObject? {
         
         
-        var request = self.fetchRequest(predicate: predicate, sortDescriptorMap: sortDescriptorMap)
+        var request = self.fetchRequest(predicate, sortDescriptorMap: sortDescriptorMap)
         request.fetchLimit = 1 //设置只提取一个对象
         
-        return self.managedObjectContext().executeFetchRequest(request, error: nil)?.last
+        return (try? self.managedObjectContext().executeFetchRequest(request))?.last
 
     }
     
@@ -56,23 +56,23 @@ extension NSManagedObject {
     class func fetchObject(predicateFormat:String,args: CVarArgType...) ->AnyObject? {
         
             var predicate = NSPredicate(format: predicateFormat, arguments: getVaList(args))
-            return self.fetchObject(predicate: predicate)
+            return self.fetchObject(predicate)
     }
     
     /**
         MAX
     **/
-    class func fetchObject(#maxKey:String) -> AnyObject? {
+    class func fetchObject(maxKey maxKey:String) -> AnyObject? {
         
-       return  self.fetchObject(predicate: NSPredicate(format: maxKey+"==max("+maxKey+")"), sortDescriptorMap: [maxKey:false])
+       return  self.fetchObject(NSPredicate(format: maxKey+"==max("+maxKey+")"), sortDescriptorMap: [maxKey:false])
     }
     
     /**
         MIN
     **/
-    class func fetchObject(#minKey:String) -> AnyObject? {
+    class func fetchObject(minKey minKey:String) -> AnyObject? {
         
-        return  self.fetchObject(predicate: NSPredicate(format: minKey+"==min("+minKey+")"), sortDescriptorMap: [minKey:false])
+        return  self.fetchObject(NSPredicate(format: minKey+"==min("+minKey+")"), sortDescriptorMap: [minKey:false])
     }
     
     
@@ -82,14 +82,17 @@ extension NSManagedObject {
     class func fetchedResultsController(predicate:NSPredicate? = nil,sortDescriptorMap:[String:Bool]?=nil,delegate:NSFetchedResultsControllerDelegate? = nil) -> NSFetchedResultsController {
     
     
-       var request = self.fetchRequest(predicate: predicate, sortDescriptorMap: sortDescriptorMap)
+       var request = self.fetchRequest(predicate, sortDescriptorMap: sortDescriptorMap)
         request.fetchBatchSize = 5
         
        var fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: self.managedObjectContext(), sectionNameKeyPath:nil, cacheName: nil)
         fetchedResultsController.delegate = delegate
         
-        //这个必须调用
-        fetchedResultsController.performFetch(nil)
+        do {
+            //这个必须调用
+            try fetchedResultsController.performFetch()
+        } catch _ {
+        }
     
         return fetchedResultsController;
     }
@@ -104,7 +107,7 @@ extension NSManagedObject {
             predicate = NSPredicate(format: temppredicateFormat, arguments: getVaList(args))
         }
     
-        var request = self.fetchRequest(predicate: predicate)
+        var request = self.fetchRequest(predicate)
         request.resultType = .CountResultType
         
         return self.managedObjectContext().countForFetchRequest(request, error: nil)
@@ -131,9 +134,12 @@ extension NSManagedObject {
     **/
     class func insertObject() -> AnyObject? {
         
-        var newObject: AnyObject? = self.newObject()
+        let newObject: AnyObject? = self.newObject()
         
-        self.managedObjectContext().save(nil);
+        do {
+            try self.managedObjectContext().save()
+        } catch _ {
+        };
         
         return newObject
     }
@@ -142,7 +148,10 @@ extension NSManagedObject {
     func deleteObject() {
         
         self.managedObjectContext!.deleteObject(self)
-        CoreDataManager.sharedCoreDataManager().managedObjectContext!.save(nil)
+        do {
+            try CoreDataManager.sharedCoreDataManager().managedObjectContext!.save()
+        } catch _ {
+        }
 
     }
 
@@ -151,7 +160,10 @@ extension NSManagedObject {
     **/
      func save() {
     
-        CoreDataManager.sharedCoreDataManager().managedObjectContext!.save(nil)
+        do {
+            try CoreDataManager.sharedCoreDataManager().managedObjectContext!.save()
+        } catch _ {
+        }
      }
     
     
@@ -162,7 +174,7 @@ extension NSManagedObject {
     class func fetchRequest(predicate:NSPredicate? = nil,sortDescriptorMap:[String:Bool]? = nil) -> NSFetchRequest {
         
         
-        var request = NSFetchRequest()
+        let request = NSFetchRequest()
         request.entity = NSEntityDescription.entityForName(self.className(), inManagedObjectContext: self.managedObjectContext())
         
         var sortDescriptorArray:[NSSortDescriptor] = []
@@ -195,8 +207,8 @@ extension NSManagedObject {
     
     class func className() ->String {
     
-        var clazzName:NSString = NSStringFromClass(self) as NSString
-        var dotIndex = clazzName.rangeOfString(".").location
+        let clazzName:NSString = NSStringFromClass(self) as NSString
+        let dotIndex = clazzName.rangeOfString(".").location
         
         if(dotIndex == NSNotFound)
         {

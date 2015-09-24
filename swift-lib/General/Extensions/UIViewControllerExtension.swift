@@ -17,9 +17,9 @@ extension UIViewController {
     
     class func viewController(storyboardName:String?="Main") -> UIViewController {
     
-        var storyboard = UIStoryboard(name: storyboardName!, bundle: nil);
+        let storyboard = UIStoryboard(name: storyboardName!, bundle: nil);
         
-       return storyboard.instantiateViewControllerWithIdentifier(self.className()) as! UIViewController
+       return storyboard.instantiateViewControllerWithIdentifier(self.className()) 
         
     }
     
@@ -27,8 +27,8 @@ extension UIViewController {
     
     class func className() ->String {
         
-        var clazzName:NSString = NSStringFromClass(self) as NSString
-        var dotIndex = clazzName.rangeOfString(".").location
+        let clazzName:NSString = NSStringFromClass(self) as NSString
+        let dotIndex = clazzName.rangeOfString(".").location
         
         if(dotIndex == NSNotFound)
         {

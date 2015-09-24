@@ -13,7 +13,7 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate ,NSFetchedResultsControllerDelegate{
 
     var window: UIWindow?
-    var draw:DrawerController?
+//var draw:DrawerController?
    
     func application(application: UIApplication, willFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
      
@@ -68,37 +68,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,NSFetchedResultsControlle
     }
     
     
-    func application(application: UIApplication, viewControllerWithRestorationIdentifierPath identifierComponents: [AnyObject], coder: NSCoder) -> UIViewController? {
-        if let key = identifierComponents.last as? String {
-            if key == "Drawer" {
-                return self.window?.rootViewController
-            } else if key == "ExampleCenterNavigationControllerRestorationKey" {
-                return (self.window?.rootViewController as! DrawerController).centerViewController
-            } else if key == "ExampleRightNavigationControllerRestorationKey" {
-                return (self.window?.rootViewController as! DrawerController).rightDrawerViewController
-            } else if key == "ExampleLeftNavigationControllerRestorationKey" {
-                return (self.window?.rootViewController as! DrawerController).leftDrawerViewController
-            } else if key == "ExampleLeftSideDrawerController" {
-                if let leftVC = (self.window?.rootViewController as? DrawerController)?.leftDrawerViewController {
-                    if leftVC.isKindOfClass(UINavigationController) {
-                        return (leftVC as! UINavigationController).topViewController
-                    } else {
-                        return leftVC
-                    }
-                }
-            } else if key == "ExampleRightSideDrawerController" {
-                if let rightVC = (self.window?.rootViewController as? DrawerController)?.rightDrawerViewController {
-                    if rightVC.isKindOfClass(UINavigationController) {
-                        return (rightVC as! UINavigationController).topViewController
-                    } else {
-                        return rightVC
-                    }
-                }
-            }
-        }
-        
-        return nil
-    }
+//    func application(application: UIApplication, viewControllerWithRestorationIdentifierPath identifierComponents: [AnyObject], coder: NSCoder) -> UIViewController? {
+//        if let key = identifierComponents.last as? String {
+//            if key == "Drawer" {
+//                return self.window?.rootViewController
+//            } else if key == "ExampleCenterNavigationControllerRestorationKey" {
+//                return (self.window?.rootViewController as! DrawerController).centerViewController
+//            } else if key == "ExampleRightNavigationControllerRestorationKey" {
+//                return (self.window?.rootViewController as! DrawerController).rightDrawerViewController
+//            } else if key == "ExampleLeftNavigationControllerRestorationKey" {
+//                return (self.window?.rootViewController as! DrawerController).leftDrawerViewController
+//            } else if key == "ExampleLeftSideDrawerController" {
+//                if let leftVC = (self.window?.rootViewController as? DrawerController)?.leftDrawerViewController {
+//                    if leftVC.isKindOfClass(UINavigationController) {
+//                        return (leftVC as! UINavigationController).topViewController
+//                    } else {
+//                        return leftVC
+//                    }
+//                }
+//            } else if key == "ExampleRightSideDrawerController" {
+//                if let rightVC = (self.window?.rootViewController as? DrawerController)?.rightDrawerViewController {
+//                    if rightVC.isKindOfClass(UINavigationController) {
+//                        return (rightVC as! UINavigationController).topViewController
+//                    } else {
+//                        return rightVC
+//                    }
+//                }
+//            }
+//        }
+//        
+//        return nil
+//    }
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

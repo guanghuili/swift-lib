@@ -22,7 +22,7 @@ extension String
     //将String 转为Int32类型
     func intValue() -> Int?
     {
-        return self.toInt();
+        return Int(self);
     }
     
     //将String 转为Double类型
@@ -59,7 +59,7 @@ extension String
     //搜索字符最后出现的位置
     func lastRangeOfString(aString string:String) -> Range<String.Index>?
     {
-        var range:Range<String.Index>? = self.rangeOfString(string, options: NSStringCompareOptions.BackwardsSearch, range: nil, locale: NSLocale.currentLocale())
+        let range:Range<String.Index>? = self.rangeOfString(string, options: NSStringCompareOptions.BackwardsSearch, range: nil, locale: NSLocale.currentLocale())
 
         return range
     }
@@ -67,7 +67,7 @@ extension String
     //判断是否包含某一个字符串
     func containsOfString(aString string:String) -> Bool
     {
-        var range:Range<String.Index>? = self.rangeOfString(string)
+        let range:Range<String.Index>? = self.rangeOfString(string)
         return range != nil
     }
 
@@ -76,7 +76,7 @@ extension String
     **/
     func length()->Int
     {
-        return count(self);
+        return self.characters.count;
     }
 
     
@@ -85,7 +85,7 @@ extension String
     {
         if s.isEmpty{
             var x=[String]()
-            for y in self{
+            for y in self.characters{
                 x.append(String(y))
             }
             return x
@@ -111,7 +111,7 @@ extension String
     
     func isEqualToString(string aString:String) ->Bool {
         
-        var selfString:NSString = self.asNSString()
+        let selfString:NSString = self.asNSString()
         return selfString.isEqual(aString)
     }
 
@@ -125,8 +125,8 @@ extension String
         get {
 
  
-            let startIndex = advance(self.startIndex, r.startIndex)
-            let endIndex = advance(startIndex, r.endIndex - r.startIndex)
+            let startIndex = self.startIndex.advancedBy(r.startIndex)
+            let endIndex = startIndex.advancedBy(r.endIndex - r.startIndex)
             
             //return s.substringWithRange(Range(start: startIndex, end: endIndex)); 与下面的效果一样 下面是使用下标的方式获取
             
@@ -153,15 +153,15 @@ extension String
         let endIndex = count > maxCount ? maxCount : count;
 
         
-        let advanceStartIndex = advance(0, startIndex)
-        let advanceEndIndex = advance(advanceStartIndex,endIndex);
+        let advanceStartIndex = 0.advancedBy(startIndex)
+        let advanceEndIndex = advanceStartIndex.advancedBy(endIndex);
         
         return self[Range(start: advanceStartIndex, end: advanceEndIndex)]
     }
     
     
     //重复字符串
-    func repeat(times: Int) -> String
+    func `repeat`(times: Int) -> String
     {
         var result = ""
         for i in 0...times {
@@ -173,7 +173,7 @@ extension String
     //反转
     func reverse()-> String
     {
-        var s=self.split("").reverse()
+        let s=Array(self.split("").reverse())
         var x=""
         for y in s{
             x+=y

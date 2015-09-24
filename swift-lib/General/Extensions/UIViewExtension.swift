@@ -31,7 +31,7 @@ extension UIView
         //设置UIView x坐标
         set(newValue)
         {
-            var point:CGPoint = self.frame.origin
+            let point:CGPoint = self.frame.origin
             self.frame.origin = CGPointMake(newValue, point.y)
         }
     }
@@ -47,7 +47,7 @@ extension UIView
         //设置UIView x坐标
         set(newValue)
         {
-            var point:CGPoint = self.frame.origin
+            let point:CGPoint = self.frame.origin
             self.frame.origin = CGPointMake(point.x,newValue)
         }
     }
@@ -107,7 +107,7 @@ extension UIView
         
         set(newValue)
         {
-            var size:CGSize = self.frame.size
+            let size:CGSize = self.frame.size
             self.frame.size = CGSizeMake(newValue,size.height)
         }
     }
@@ -121,7 +121,7 @@ extension UIView
         
         set(newValue)
         {
-            var size:CGSize = self.frame.size
+            let size:CGSize = self.frame.size
             self.frame.size = CGSizeMake(size.width,newValue)
         }
     }
@@ -160,7 +160,7 @@ extension UIView
     //从xib中初始化view
     class func viewFromXIB() -> UIView?
     {
-        var className:String = self.getClassName()
+        let className:String = self.getClassName()
         
         var viewObjectArray = NSBundle.mainBundle().loadNibNamed(className, owner: self, options: nil)
         
@@ -175,10 +175,10 @@ extension UIView
     //=================================GestureRecognizer begin(首饰相关的)===================================//
     
     //添加点击事件
-    func addTapGestureRecognizer(#target: AnyObject,action: Selector)
+    func addTapGestureRecognizer(target target: AnyObject,action: Selector)
     {
         
-        var tapGestureRecognizer:UITapGestureRecognizer = UITapGestureRecognizer(target: target, action: action)
+        let tapGestureRecognizer:UITapGestureRecognizer = UITapGestureRecognizer(target: target, action: action)
         self.addGestureRecognizer(tapGestureRecognizer)
     }
     
@@ -202,8 +202,8 @@ extension UIView
     class func getClassName() -> String
     {
         
-        var selfName:String = NSStringFromClass(self)
-        var range:Range<String.Index>? = selfName.rangeOfString(".")
+        let selfName:String = NSStringFromClass(self)
+        let range:Range<String.Index>? = selfName.rangeOfString(".")
         
         if range != nil
         {

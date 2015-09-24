@@ -18,7 +18,7 @@ extension Array{
     
     func indexOf<T : Equatable>(object:T) -> Int {
        
-        for (index,obj) in enumerate(self) {
+        for (index,obj) in self.enumerate() {
             if obj as! T == object {
                 return index
             }
@@ -34,7 +34,7 @@ extension Array{
         var result : [Int] = []
         
         // Enumerate through all objects in array
-        for (index, obj) in enumerate(self) {
+        for (index, obj) in self.enumerate() {
             
             // Enumerate again through all objects that has not been found
             for x in unusedObjects {

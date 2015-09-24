@@ -22,7 +22,7 @@ extension UIImageView
         self.viewWithTag(99999)?.removeFromSuperview()
         
         //显示下载进度
-        var  hudView:GradientProgressView = GradientProgressView(frame: CGRectMake(0,0, self.width, 2.5))
+        let  hudView:GradientProgressView = GradientProgressView(frame: CGRectMake(0,0, self.width, 2.5))
         hudView.tag = 99999
         self.addSubview(hudView);
         hudView.y = (0 > self.y) ? abs(self.y) : 0;

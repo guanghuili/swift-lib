@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import ObjectMapper
 
-class User:NSObject,JSONModelParserProtocol
+class User:NSObject
 {
 //   
     var userName:String?
@@ -17,16 +18,41 @@ class User:NSObject,JSONModelParserProtocol
     var age:Int = 0
 
     
-   static func JSONKeyByClassMapping() -> [String:String]?
-   {
-        return ["order":"\(Order.self)","orders":"\(Order.self)"]
-   }
+
     
 }
 
 
-class Weather:NSObject
+class WeatherInfo:Mappable {
+    
+    var weatherinfo:Weather?
+    
+    required init?(_ map: Map){
+        
+        
+    }
+    
+    func mapping(map: Map) {
+        
+        weatherinfo <- map["weatherinfo"]
+     
+    }
+}
+
+class Weather:Mappable
 {
     var city_en:String?
     var city:String?
+    
+    required init?(_ map: Map){
+        
+    
+    }
+    
+    func mapping(map: Map) {
+        
+
+        city_en <- map["city_en"]
+        city <- map["city"]
+    }
 }

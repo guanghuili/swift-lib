@@ -57,7 +57,7 @@ public extension UIView {
             }
         }
         set(newValue) {
-            objc_setAssociatedObject(self, &kIQShouldHideTitle, newValue, UInt(OBJC_ASSOCIATION_RETAIN_NONATOMIC))
+            objc_setAssociatedObject(self, &kIQShouldHideTitle, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             
             if let toolbar = self.inputAccessoryView as? IQToolbar {
                 if let textField = self as? UITextField {
@@ -118,12 +118,12 @@ public extension UIView {
             return (target: target, selector: selector)
         }
         set(newValue) {
-            objc_setAssociatedObject(self, &kIQPreviousInvocationTarget, newValue.target, UInt(OBJC_ASSOCIATION_RETAIN_NONATOMIC))
+            objc_setAssociatedObject(self, &kIQPreviousInvocationTarget, newValue.target, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             
             if let unwrappedSelector = newValue.selector {
-                objc_setAssociatedObject(self, &kIQPreviousInvocationSelector, NSStringFromSelector(unwrappedSelector), UInt(OBJC_ASSOCIATION_RETAIN_NONATOMIC))
+                objc_setAssociatedObject(self, &kIQPreviousInvocationSelector, NSStringFromSelector(unwrappedSelector), objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             } else {
-                objc_setAssociatedObject(self, &kIQPreviousInvocationSelector, nil, UInt(OBJC_ASSOCIATION_RETAIN_NONATOMIC))
+                objc_setAssociatedObject(self, &kIQPreviousInvocationSelector, nil, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             }
         }
     }
@@ -143,12 +143,12 @@ public extension UIView {
             return (target: target, selector: selector)
         }
         set(newValue) {
-            objc_setAssociatedObject(self, &kIQNextInvocationTarget, newValue.target, UInt(OBJC_ASSOCIATION_RETAIN_NONATOMIC))
+            objc_setAssociatedObject(self, &kIQNextInvocationTarget, newValue.target, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             
             if let unwrappedSelector = newValue.selector {
-                objc_setAssociatedObject(self, &kIQNextInvocationSelector, NSStringFromSelector(unwrappedSelector), UInt(OBJC_ASSOCIATION_RETAIN_NONATOMIC))
+                objc_setAssociatedObject(self, &kIQNextInvocationSelector, NSStringFromSelector(unwrappedSelector), objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             } else {
-                objc_setAssociatedObject(self, &kIQNextInvocationSelector, nil, UInt(OBJC_ASSOCIATION_RETAIN_NONATOMIC))
+                objc_setAssociatedObject(self, &kIQNextInvocationSelector, nil, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             }
         }
     }
@@ -168,12 +168,12 @@ public extension UIView {
             return (target: target, selector: selector)
         }
         set(newValue) {
-            objc_setAssociatedObject(self, &kIQDoneInvocationTarget, newValue.target, UInt(OBJC_ASSOCIATION_RETAIN_NONATOMIC))
+            objc_setAssociatedObject(self, &kIQDoneInvocationTarget, newValue.target, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             
             if let unwrappedSelector = newValue.selector {
-                objc_setAssociatedObject(self, &kIQDoneInvocationSelector, NSStringFromSelector(unwrappedSelector), UInt(OBJC_ASSOCIATION_RETAIN_NONATOMIC))
+                objc_setAssociatedObject(self, &kIQDoneInvocationSelector, NSStringFromSelector(unwrappedSelector), objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             } else {
-                objc_setAssociatedObject(self, &kIQDoneInvocationSelector, nil, UInt(OBJC_ASSOCIATION_RETAIN_NONATOMIC))
+                objc_setAssociatedObject(self, &kIQDoneInvocationSelector, nil, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             }
         }
     }
@@ -630,12 +630,31 @@ public extension UIView {
             //  Create a done button to show on keyboard to resign it. Adding a selector to resign it.
             let doneButton = IQBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: target, action: doneAction)
             
-            let prev = IQBarButtonItem(image: UIImage(named: "IQKeyboardManager.bundle/IQButtonBarArrowLeft"), style: UIBarButtonItemStyle.Plain, target: target, action: previousAction)
+            let prev : IQBarButtonItem
+            let next : IQBarButtonItem
+            
+            if #available(iOS 8.0, *) {
+                
+                // Get the top level "bundle" which may actually be the framework
+                var bundle = NSBundle(forClass: IQKeyboardManager.self)
+                
+                if let resourcePath = bundle.pathForResource("IQKeyboardManager", ofType: "bundle") {
+                    if let resourcesBundle = NSBundle(path: resourcePath) {
+                        bundle = resourcesBundle;
+                    }
+                }
+                
+                prev = IQBarButtonItem(image: UIImage(named: "IQButtonBarArrowLeft", inBundle: bundle, compatibleWithTraitCollection: nil), style: UIBarButtonItemStyle.Plain, target: target, action: previousAction)
+                
+                next = IQBarButtonItem(image: UIImage(named: "IQButtonBarArrowRight", inBundle: bundle, compatibleWithTraitCollection: nil), style: UIBarButtonItemStyle.Plain, target: target, action: nextAction)
+            } else {
+                prev = IQBarButtonItem(image: UIImage(named: "IQKeyboardManager.bundle/IQButtonBarArrowLeft"), style: UIBarButtonItemStyle.Plain, target: target, action: previousAction)
+                
+                next = IQBarButtonItem(image: UIImage(named: "IQKeyboardManager.bundle/IQButtonBarArrowRight"), style: UIBarButtonItemStyle.Plain, target: target, action: nextAction)
+            }
             
             let fixed = IQBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FixedSpace, target: nil, action: nil)
             fixed.width = 23
-            
-            let next = IQBarButtonItem(image: UIImage(named: "IQKeyboardManager.bundle/IQButtonBarArrowRight"), style: UIBarButtonItemStyle.Plain, target: target, action: nextAction)
             
             items.append(prev)
             items.append(fixed)
@@ -747,12 +766,31 @@ public extension UIView {
             //  Create a done button to show on keyboard to resign it. Adding a selector to resign it.
             let doneButton = IQBarButtonItem(title: rightButtonTitle, style: UIBarButtonItemStyle.Plain, target: target, action: rightButtonAction)
             
-            let prev = IQBarButtonItem(image: UIImage(named: "IQKeyboardManager.bundle/IQButtonBarArrowLeft"), style: UIBarButtonItemStyle.Plain, target: target, action: previousAction)
+            let prev : IQBarButtonItem
+            let next : IQBarButtonItem
+            
+            if #available(iOS 8.0, *) {
+                
+                // Get the top level "bundle" which may actually be the framework
+                var bundle = NSBundle(forClass: IQKeyboardManager.self)
+                
+                if let resourcePath = bundle.pathForResource("IQKeyboardManager", ofType: "bundle") {
+                    if let resourcesBundle = NSBundle(path: resourcePath) {
+                        bundle = resourcesBundle;
+                    }
+                }
+                
+                prev = IQBarButtonItem(image: UIImage(named: "IQButtonBarArrowLeft", inBundle: bundle, compatibleWithTraitCollection: nil), style: UIBarButtonItemStyle.Plain, target: target, action: previousAction)
+                
+                next = IQBarButtonItem(image: UIImage(named: "IQButtonBarArrowRight", inBundle: bundle, compatibleWithTraitCollection: nil), style: UIBarButtonItemStyle.Plain, target: target, action: previousAction)
+            } else {
+                prev = IQBarButtonItem(image: UIImage(named: "IQKeyboardManager.bundle/IQButtonBarArrowLeft"), style: UIBarButtonItemStyle.Plain, target: target, action: previousAction)
+                
+                next = IQBarButtonItem(image: UIImage(named: "IQKeyboardManager.bundle/IQButtonBarArrowRight"), style: UIBarButtonItemStyle.Plain, target: target, action: nextAction)
+            }
             
             let fixed = IQBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FixedSpace, target: nil, action: nil)
             fixed.width = 23
-            
-            let next = IQBarButtonItem(image: UIImage(named: "IQKeyboardManager.bundle/IQButtonBarArrowRight"), style: UIBarButtonItemStyle.Plain, target: target, action: nextAction)
             
             items.append(prev)
             items.append(fixed)

@@ -14,6 +14,11 @@ pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 pod 'ReactiveCocoa', '~> 2.3.1'
 
 
+
+#json model转换
+pod 'AlamofireObjectMapper', '~> 0.9'
+
+
 #权限请求 Proposer provides a simple API to request permission for access Camera, Photos, Microphone, Contacts, Location.
 pod 'Proposer', '~> 0.7'
 

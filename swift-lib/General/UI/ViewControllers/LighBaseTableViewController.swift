@@ -90,7 +90,7 @@ class LighBaseTableViewController: LighBaseViewController
      func heightForRowAtIndexPath(tableView:UITableView,atIndexPath:NSIndexPath) -> CGFloat
     {
      
-        var cellIdentifier = self.cellIdentifierForIndexPath(atIndexPath)
+        let cellIdentifier = self.cellIdentifierForIndexPath(atIndexPath)
         
     
           return  tableView.fd_heightForCellWithIdentifier(cellIdentifier, cacheByIndexPath: atIndexPath, configuration: { (cell) -> Void in
@@ -122,12 +122,15 @@ extension LighBaseTableViewController : UITableViewDelegate , UITableViewDataSou
     //=================UITableViewDelegate UITableViewDataSource==============//
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier(self.cellIdentifierForIndexPath(indexPath)) as! UITableViewCell
+        if let cell = tableView.dequeueReusableCellWithIdentifier(self.cellIdentifierForIndexPath(indexPath))     {
+
+            self.configureCell(cell, atIndexPath: indexPath)
+            return cell
+        }
+
+        assertionFailure("不存在的Cell标示符")
         
-        self.configureCell(cell, atIndexPath: indexPath)
-        
-        
-        return cell;
+        return UITableViewCell()
     }
     
     

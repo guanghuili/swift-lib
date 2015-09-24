@@ -17,7 +17,7 @@ import Foundation
     /**
     自定义的类型映射表
     
-    :returns: 返回[属性名：自定义对象名称]
+    - returns: 返回[属性名：自定义对象名称]
     */
     static func JSONKeyByClassMapping()->[String:String]?
 }
@@ -31,10 +31,10 @@ class JSONModelParser {
     /**
     使用字典转模型
     
-    :param: dict 数据字典
-    :param: cls  模型的类
+    - parameter dict: 数据字典
+    - parameter cls:  模型的类
     
-    :returns: 实例化类的对象
+    - returns: 实例化类的对象
     */
     func swiftObjWithDict(dict:NSDictionary,cls:AnyClass) ->AnyObject?
     {
@@ -43,7 +43,7 @@ class JSONModelParser {
         let dictInfo = GetAllModelInfo(cls)
 
         /// 实例化对象
-        var obj:AnyObject = cls.alloc()
+        let obj:AnyObject = ""//TOOD
         
         for(k,v) in dictInfo
         {
@@ -54,7 +54,7 @@ class JSONModelParser {
                 /// 如果是基本数据类型直接kvc
                 if v.isEmpty && value !== nil && (value !== NSNull())
                 {
-                   println(k)
+                   print(k)
                   obj.setValue(value, forKey: k)
                     
                     
@@ -96,10 +96,10 @@ class JSONModelParser {
     /**
     将数组转化成模型数组
     
-    :param: array 数组
-    :param: cls   模型类
+    - parameter array: 数组
+    - parameter cls:   模型类
     
-    :returns: 模型数组
+    - returns: 模型数组
     */
     func swiftObjWithArray(array:NSArray,cls:AnyClass) ->AnyObject?{
         
@@ -133,9 +133,9 @@ class JSONModelParser {
     /**
     获取模型类的所有信息
     
-    :param: cls 模型类
+    - parameter cls: 模型类
     
-    :returns: 完整信息字典
+    - returns: 完整信息字典
     */
     func GetAllModelInfo(cls:AnyClass)->[String:String]{
         
@@ -211,7 +211,7 @@ class JSONModelParser {
 
         let properties = class_copyPropertyList(cls, &count)
         
-        println("有 \(count) 个属性")
+        print("有 \(count) 个属性")
         
         for i in 0..<count{
             /// 必须再强转成Int否则不能用来做下标
@@ -223,7 +223,7 @@ class JSONModelParser {
             let ctype = property_getAttributes(property)
             let type = String.fromCString(ctype)!
             
-            println(name + "--------" + type)
+            print(name + "--------" + type)
         }
         /// 释放
         free(properties)
@@ -250,7 +250,7 @@ class JSONModelParser {
             let ctype = ivar_getTypeEncoding(ivar)
             let type = String.fromCString(ctype)!
             
-            println(name + "--------" + type)
+            print(name + "--------" + type)
         }
         /// 释放
         free(ivars)

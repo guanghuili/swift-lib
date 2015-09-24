@@ -73,7 +73,7 @@ class LighBaseViewController : UIViewController,UITextFieldDelegate
      func loadNavigationBarView() -> LighNavigationBarView
     {
 
-        var navigationBarView:UIView! = LighNavigationBarView.viewFromXIB()
+        let navigationBarView:UIView! = LighNavigationBarView.viewFromXIB()
         navigationBarView.height = self.navigationBarViewHeight()
         return navigationBarView as! LighNavigationBarView
         
@@ -105,7 +105,7 @@ class LighBaseViewController : UIViewController,UITextFieldDelegate
         
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
          self.endEditing()
     }
     
@@ -179,15 +179,15 @@ class LighBaseViewController : UIViewController,UITextFieldDelegate
         var userInfo:Dictionary = notification.userInfo!
         
         // Get the origin of the keyboard when it's displayed.
-        var aValue:NSValue? = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue
+        let aValue:NSValue? = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue
         // Get the top of the keyboard as the y coordinate of its origin in self's view's coordinate system. The bottom of the text view's frame should align with the top of the keyboard's final position.
         var keyboardRect:CGRect = aValue!.CGRectValue()
         
         keyboardRect =   self.view.convertRect(keyboardRect, toView: self.view)
         
         
-        var editingViewSuperView:UIView? = editingTextFieldOrTextView?.superview
-        var textViewRect:CGRect = editingViewSuperView!.convertRect(editingTextFieldOrTextView!.frame, toView: self.view)
+        let editingViewSuperView:UIView? = editingTextFieldOrTextView?.superview
+        let textViewRect:CGRect = editingViewSuperView!.convertRect(editingTextFieldOrTextView!.frame, toView: self.view)
         var offsetY:CGFloat = (textViewRect.origin.y + textViewRect.size.height) - keyboardRect.origin.y
 
 
@@ -212,7 +212,7 @@ class LighBaseViewController : UIViewController,UITextFieldDelegate
         if (editingTextFieldOrTextView is UITextField)
         {
 
-            var textFiled:UITextField = editingTextFieldOrTextView as! UITextField
+            let textFiled:UITextField = editingTextFieldOrTextView as! UITextField
             
             if (textFiled.delegate == nil)
             {
@@ -227,7 +227,7 @@ class LighBaseViewController : UIViewController,UITextFieldDelegate
         } else if(editingTextFieldOrTextView is UITextView)
         {
             
-            var textView:UITextView = editingTextFieldOrTextView as! UITextView
+            let textView:UITextView = editingTextFieldOrTextView as! UITextView
             
             if (textView.returnKeyType == UIReturnKeyType.Default)
             {

@@ -23,7 +23,12 @@ class LighHTTPResult : NSObject
     
     func isSuccess() -> Bool
     {
-        return result?.toInt() == 1;
+        guard let _ = result else {
+            
+            return false
+        }
+
+         return Int(result!) == 1;
     }
     
     

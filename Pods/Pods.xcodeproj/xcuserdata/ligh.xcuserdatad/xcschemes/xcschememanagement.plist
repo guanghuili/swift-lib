@@ -9,7 +9,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>AlamofireObjectMapper.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>IQKeyboardManagerSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ObjectMapper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -37,22 +47,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>17C5EB4ACECB6EC9CA320224E3661372</key>
+		<key>07041DB7D7564336D1FBBC71328EE645</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>225F4C1A7CC3ADD7F8C99AE273909CF0</key>
+		<key>0E60360E3413E092F886C0AA91E28D87</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>317F2C7DCF3334F17C4DA69FAD583888</key>
+		<key>61F9B0620C4F74EDE7E626030322F33A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>69E418DE2C93F02C253308C21591117D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B7E5A3C245499D4350E7A04D22375977</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -63,6 +78,11 @@
 			<true/>
 		</dict>
 		<key>E998DAD6D9D27324F10C25D35DD9E96B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EB6E45DCC62857173C2743A47C5AF3B3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

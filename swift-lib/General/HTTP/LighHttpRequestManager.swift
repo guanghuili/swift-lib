@@ -100,25 +100,25 @@ class LighHttpRequestManager
         {
             request?.cancel()
             urlByRequestMapping.removeValueForKey(url)
-            println("url地址相同 cancel=\(url)")
+            print("url地址相同 cancel=\(url)")
             
         }else
         {
            if( urlByRequestMapping.count >= MAX_REQUEST_COUNT )
            {
-
-                let firstUrl = urlByRequestMapping.keys.array[0]
-            
-                  if let request:Request? = urlByRequestMapping[firstUrl]
-                  {
-                    request?.cancel()
-                    urlByRequestMapping.removeValueForKey(firstUrl)
-                    println("cancel=\(firstUrl)")
-                 }
+//
+//                let firstUrl = urlByRequestMapping.keys.array[0]
+//            
+//                  if let request:Request? = urlByRequestMapping[firstUrl]
+//                  {
+//                    request?.cancel()
+//                    urlByRequestMapping.removeValueForKey(firstUrl)
+//                    print("cancel=\(firstUrl)")
+//                 }
             }
         }
         
-        println("正在发送的数量\(urlByRequestMapping.count)")
+        print("正在发送的数量\(urlByRequestMapping.count)")
     }
     
     
@@ -135,7 +135,7 @@ class LighHttpRequestManager
         showIndicatorView(indicatorViewInView)
         discardRequestByCacheWithUrl(url)
         
-        let request = self.createRequest(method: method, URLString: url, parameters: parameters, encoding: ParameterEncoding.URL).responseJSON { (json, error) -> Void in
+        let request = self.createRequest(method, URLString: url, parameters: parameters, encoding: ParameterEncoding.URL).responseJSON { (json, error) -> Void in
             
             completionHandler(json);
             
@@ -155,7 +155,7 @@ class LighHttpRequestManager
         discardRequestByCacheWithUrl(url)
 
   
-         let request = self.createRequest(method: AlamofireMethodByLighHttpRequest(method: method!), URLString: url, parameters: parameters, encoding: ParameterEncoding.URL).responseJSON { (json, error) -> Void in
+         let request = self.createRequest(AlamofireMethodByLighHttpRequest(method!), URLString: url, parameters: parameters, encoding: ParameterEncoding.URL).responseJSON { (json, error) -> Void in
             
             if let jsonDic = (json as? NSDictionary) {
                 
