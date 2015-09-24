@@ -24,5 +24,6 @@
 	 持续更新中....
 ###Requirements
  
- 	iOS 7.0+ / Mac OS X 10.9+
- 	Xcode 6.3
+ 	iOS 7.0+ / Mac OS X 10.10.1+
+ 	
+ 	Xcode 7+
