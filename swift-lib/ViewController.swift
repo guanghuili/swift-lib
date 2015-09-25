@@ -19,6 +19,10 @@ class ViewController: LighBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad();
         
+     
+        
+       self.view.backgroundColor = AppColor.Line_Color.color()
+
         print("ViewController")
         
 //        Alamofire.request(.GET, "http://www.weather.com.cn/data/sk/101010100.html").responseJSON { (request, response, result) -> Void in

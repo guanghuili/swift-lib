@@ -59,6 +59,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Pods-swift-lib/Proposer.framework'
   install_framework 'Pods-swift-lib/ReactiveCocoa.framework'
   install_framework 'Pods-swift-lib/SwiftyJSON.framework'
+  install_framework 'Pods-swift-lib/Watchdog.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Pods-swift-lib/Alamofire.framework'
@@ -68,4 +69,5 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Pods-swift-lib/Proposer.framework'
   install_framework 'Pods-swift-lib/ReactiveCocoa.framework'
   install_framework 'Pods-swift-lib/SwiftyJSON.framework'
+  install_framework 'Pods-swift-lib/Watchdog.framework'
 fi

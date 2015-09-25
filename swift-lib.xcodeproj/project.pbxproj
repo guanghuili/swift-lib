@@ -35,6 +35,8 @@
 		917A3F8D1B1C0F93000A2A44 /* NSObectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917A3F8C1B1C0F93000A2A44 /* NSObectExtension.swift */; };
 		917A3F921B1C234D000A2A44 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917A3F911B1C234D000A2A44 /* User.swift */; };
 		917A3F941B1C241D000A2A44 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917A3F931B1C241D000A2A44 /* Order.swift */; };
+		91A194CD1BB4FE61000F1CE1 /* SuggestedColors.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91A194CC1BB4FE61000F1CE1 /* SuggestedColors.plist */; settings = {ASSET_TAGS = (); }; };
+		91A194D01BB4FF17000F1CE1 /* AppColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A194CF1BB4FF17000F1CE1 /* AppColorHelper.swift */; settings = {ASSET_TAGS = (); }; };
 		91BD59DE1B1D5710002CF727 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91BD59DD1B1D5710002CF727 /* Info.plist */; };
 		91BD59EA1B1D89FE002CF727 /* AMTumblrHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BD59E71B1D89FE002CF727 /* AMTumblrHud.m */; };
 		91BD59EB1B1D89FE002CF727 /* GradientProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BD59E91B1D89FE002CF727 /* GradientProgressView.m */; };
@@ -135,6 +137,8 @@
 		917A3F8C1B1C0F93000A2A44 /* NSObectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObectExtension.swift; sourceTree = "<group>"; };
 		917A3F911B1C234D000A2A44 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		917A3F931B1C241D000A2A44 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		91A194CC1BB4FE61000F1CE1 /* SuggestedColors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SuggestedColors.plist; sourceTree = "<group>"; };
+		91A194CF1BB4FF17000F1CE1 /* AppColorHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColorHelper.swift; sourceTree = "<group>"; };
 		91BD59DD1B1D5710002CF727 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91BD59E61B1D89FE002CF727 /* AMTumblrHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMTumblrHud.h; sourceTree = "<group>"; };
 		91BD59E71B1D89FE002CF727 /* AMTumblrHud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMTumblrHud.m; sourceTree = "<group>"; };
@@ -259,6 +263,7 @@
 		9103C9161B19BF8500AB48F2 /* swift-lib */ = {
 			isa = PBXGroup;
 			children = (
+				91A194CE1BB4FEEF000F1CE1 /* Helper */,
 				91CB92AD1BA27DF800182CB0 /* UI */,
 				916979CA1B7C62AC00E6E25A /* CoreData */,
 				917A3F8E1B1C1F3E000A2A44 /* Models */,
@@ -278,6 +283,7 @@
 		9103C9171B19BF8500AB48F2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				91A194CC1BB4FE61000F1CE1 /* SuggestedColors.plist */,
 				91BD59DD1B1D5710002CF727 /* Info.plist */,
 				9103C94B1B19C17C00AB48F2 /* project.pch */,
 				9103C94C1B19C52100AB48F2 /* project-Bridging-Header.h */,
@@ -414,6 +420,14 @@
 				917A3F931B1C241D000A2A44 /* Order.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		91A194CE1BB4FEEF000F1CE1 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				91A194CF1BB4FF17000F1CE1 /* AppColorHelper.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		91BD59E51B1D89FE002CF727 /* AMTumblrHud */ = {
@@ -624,6 +638,7 @@
 				9103C9241B19BF8500AB48F2 /* LaunchScreen.xib in Resources */,
 				91CB92CB1BA27EA300182CB0 /* LefVC.xib in Resources */,
 				91CB92C61BA27E5300182CB0 /* LighIndicatorView.xib in Resources */,
+				91A194CD1BB4FE61000F1CE1 /* SuggestedColors.plist in Resources */,
 				91BD59DE1B1D5710002CF727 /* Info.plist in Resources */,
 				91CB92B61BA27E2700182CB0 /* LighNavigationBarView.xib in Resources */,
 				9103C9211B19BF8500AB48F2 /* Images.xcassets in Resources */,
@@ -699,6 +714,7 @@
 				9103C9661B1AC50E00AB48F2 /* SCLAlertViewStyleKit.m in Sources */,
 				91BD5A241B1DBAF9002CF727 /* SDImageCache.m in Sources */,
 				91BD5A291B1DBAF9002CF727 /* SDWebImageManager.m in Sources */,
+				91A194D01BB4FF17000F1CE1 /* AppColorHelper.swift in Sources */,
 				9103C97C1B1ADBD700AB48F2 /* UIColorExtension.swift in Sources */,
 				9103C91C1B19BF8500AB48F2 /* ViewController.swift in Sources */,
 				91CB92B51BA27E2700182CB0 /* LighNavigationBarView.swift in Sources */,

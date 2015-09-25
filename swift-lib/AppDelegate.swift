@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Watchdog
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate ,NSFetchedResultsControllerDelegate{
@@ -18,7 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,NSFetchedResultsControlle
     func application(application: UIApplication, willFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
      
         UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: false)
-//     
+        
+        
+   
+        
+    
+//
 //        let rightSideNavController =  LefVC(nibName:"LefVC", bundle:nil)
 //        
 //            rightSideNavController.restorationIdentifier = "ExampleRightNavigationControllerRestorationKey"

@@ -13,7 +13,8 @@ pod 'Alamofire', '~> 2.0'
 pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 pod 'ReactiveCocoa', '~> 2.3.1'
 
-
+#简单、实用的 Watchdog，实时监视主线程运行或堵塞情况。
+pod 'Watchdog'
 
 #json model转换
 pod 'AlamofireObjectMapper', '~> 0.9'

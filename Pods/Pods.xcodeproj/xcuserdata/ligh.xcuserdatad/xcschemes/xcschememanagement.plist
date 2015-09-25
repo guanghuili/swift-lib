@@ -44,20 +44,35 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Watchdog-Watchdog.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Watchdog.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>07041DB7D7564336D1FBBC71328EE645</key>
+		<key>0CB3CCDBEF85E9BFE5DC4D39D086B41D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0E60360E3413E092F886C0AA91E28D87</key>
+		<key>1C763228EC74A7D93AA11A109F4E40B8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>61F9B0620C4F74EDE7E626030322F33A</key>
+		<key>31C7B7FCAD8DDEF0B67A69E8BBBF5D01</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4BAC90100613116EA00119BCD992A369</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,7 +82,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B7E5A3C245499D4350E7A04D22375977</key>
+		<key>8BFB75A44B81410C2F49AFD43A0959BD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>967DA209B032D7B40C155A4FBE3961D0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,7 +102,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EB6E45DCC62857173C2743A47C5AF3B3</key>
+		<key>ED0B0063015A9FBECC134575FE8A0C8F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

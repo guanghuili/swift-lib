@@ -14,6 +14,7 @@ PODS:
   - ReactiveCocoa/UI (2.3.1):
     - ReactiveCocoa/Core
   - SwiftyJSON (2.3.0)
+  - Watchdog (1.0.2)
 
 DEPENDENCIES:
   - Alamofire (~> 2.0)
@@ -22,6 +23,7 @@ DEPENDENCIES:
   - Proposer (~> 0.7)
   - ReactiveCocoa (~> 2.3.1)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
+  - Watchdog
 
 EXTERNAL SOURCES:
   SwiftyJSON:
@@ -40,5 +42,6 @@ SPEC CHECKSUMS:
   Proposer: c244e0d031227b6cf140da7a24d30f2d954d2cb2
   ReactiveCocoa: 334468a83b2c5f669f7cfb9a084415ee23219b4f
   SwiftyJSON: 8d6b61a70277ef2a5d710d372e06e7e2d87fb9e4
+  Watchdog: df151f580ea32831011cef05eda6c42385cd8423
 
 COCOAPODS: 0.38.2

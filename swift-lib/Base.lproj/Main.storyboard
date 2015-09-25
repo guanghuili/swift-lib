@@ -36,7 +36,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.96470588235294119" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="RBj-aY-Uk7" secondAttribute="centerX" id="Nwp-oZ-nRa"/>
                             <constraint firstAttribute="bottom" secondItem="RBj-aY-Uk7" secondAttribute="bottom" constant="65" id="mU0-Vd-KNh"/>

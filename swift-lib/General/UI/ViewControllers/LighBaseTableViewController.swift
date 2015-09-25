@@ -28,8 +28,6 @@ class LighBaseTableViewController: LighBaseViewController
         //#endif
 
         tableview?.separatorStyle = UITableViewCellSeparatorStyle.None
-      //  tableview?.delegate = self;
-        //tableview?.dataSource = self;
         tableview?.backgroundColor = UIColor(hexString: "#F1F6F8")
     
     }
