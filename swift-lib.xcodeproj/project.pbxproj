@@ -27,6 +27,9 @@
 		911FCA761B1EE4C900A970A3 /* SloppySwiperNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 911FCA701B1EE4C900A970A3 /* SloppySwiperNavigationController.m */; };
 		911FCA771B1EE4C900A970A3 /* SSWAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 911FCA721B1EE4C900A970A3 /* SSWAnimator.m */; };
 		911FCA781B1EE4C900A970A3 /* SSWDirectionalPanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 911FCA741B1EE4C900A970A3 /* SSWDirectionalPanGestureRecognizer.m */; };
+		91286AD91BBA3DB800F57093 /* HttpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91286AD81BBA3DB800F57093 /* HttpManager.swift */; settings = {ASSET_TAGS = (); }; };
+		91286ADB1BBA3F8200F57093 /* AlamofireExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91286ADA1BBA3F8200F57093 /* AlamofireExtensions.swift */; settings = {ASSET_TAGS = (); }; };
+		91286ADD1BBA8C3000F57093 /* GCDExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91286ADC1BBA8C3000F57093 /* GCDExtension.swift */; settings = {ASSET_TAGS = (); }; };
 		916979C81B7C626600E6E25A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 916979C71B7C626600E6E25A /* CoreData.framework */; };
 		916979CD1B7C62BE00E6E25A /* App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 916979CB1B7C62BE00E6E25A /* App.xcdatamodeld */; };
 		916979CF1B7C62C900E6E25A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916979CE1B7C62C900E6E25A /* CoreDataManager.swift */; };
@@ -129,6 +132,9 @@
 		911FCA721B1EE4C900A970A3 /* SSWAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSWAnimator.m; sourceTree = "<group>"; };
 		911FCA731B1EE4C900A970A3 /* SSWDirectionalPanGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSWDirectionalPanGestureRecognizer.h; sourceTree = "<group>"; };
 		911FCA741B1EE4C900A970A3 /* SSWDirectionalPanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSWDirectionalPanGestureRecognizer.m; sourceTree = "<group>"; };
+		91286AD81BBA3DB800F57093 /* HttpManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpManager.swift; sourceTree = "<group>"; };
+		91286ADA1BBA3F8200F57093 /* AlamofireExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireExtensions.swift; sourceTree = "<group>"; };
+		91286ADC1BBA8C3000F57093 /* GCDExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDExtension.swift; sourceTree = "<group>"; };
 		916979C71B7C626600E6E25A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		916979CC1B7C62BE00E6E25A /* App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = App.xcdatamodel; sourceTree = "<group>"; };
 		916979CE1B7C62C900E6E25A /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -336,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				9103C9751B1ADBD700AB48F2 /* UIDeviceExtension.swift */,
+				91286ADC1BBA8C3000F57093 /* GCDExtension.swift */,
 				91CB92A41BA27DAF00182CB0 /* ArrayExtension.swift */,
 				91CB92A51BA27DAF00182CB0 /* UIImageExtension.swift */,
 				91CB92A61BA27DAF00182CB0 /* UITableViewExtension.swift */,
@@ -527,6 +534,8 @@
 		91CB92CC1BA27FD000182CB0 /* HTTP */ = {
 			isa = PBXGroup;
 			children = (
+				91286AD81BBA3DB800F57093 /* HttpManager.swift */,
+				91286ADA1BBA3F8200F57093 /* AlamofireExtensions.swift */,
 			);
 			path = HTTP;
 			sourceTree = "<group>";
@@ -735,6 +744,7 @@
 				91BD5A2F1B1DBAF9002CF727 /* UIImageView+HighlightedWebCache.m in Sources */,
 				91F09BE81B2407FA005D5A0B /* UIButtonExtension.swift in Sources */,
 				91FC6B4F1B7DA0AA0086E6AA /* UITableViewCellExtension.swift in Sources */,
+				91286ADB1BBA3F8200F57093 /* AlamofireExtensions.swift in Sources */,
 				9103C9651B1AC50E00AB48F2 /* SCLAlertViewResponder.m in Sources */,
 				911FCA761B1EE4C900A970A3 /* SloppySwiperNavigationController.m in Sources */,
 				91BD59EA1B1D89FE002CF727 /* AMTumblrHud.m in Sources */,
@@ -745,6 +755,7 @@
 				91CB92C41BA27E5300182CB0 /* LighHorizontalLineView.swift in Sources */,
 				91CB92B31BA27E2700182CB0 /* LighBaseTableViewController.swift in Sources */,
 				911FCA771B1EE4C900A970A3 /* SSWAnimator.m in Sources */,
+				91286ADD1BBA8C3000F57093 /* GCDExtension.swift in Sources */,
 				91BD5A221B1DBAF9002CF727 /* MKAnnotationView+WebCache.m in Sources */,
 				91BD5A331B1DBC6C002CF727 /* UIimageViewExtension.swift in Sources */,
 				91BD5A231B1DBAF9002CF727 /* NSData+ImageContentType.m in Sources */,
@@ -765,6 +776,7 @@
 				9103C9671B1AC50E00AB48F2 /* SCLButton.m in Sources */,
 				9103C97B1B1ADBD700AB48F2 /* StringExtension.swift in Sources */,
 				911FCA751B1EE4C900A970A3 /* SloppySwiper.m in Sources */,
+				91286AD91BBA3DB800F57093 /* HttpManager.swift in Sources */,
 				9103C9641B1AC50E00AB48F2 /* SCLAlertView.m in Sources */,
 				916979CF1B7C62C900E6E25A /* CoreDataManager.swift in Sources */,
 			);

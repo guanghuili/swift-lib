@@ -35,14 +35,26 @@ class ViewController: LighBaseViewController {
 //        }
 
         
-        Alamofire.request(.GET, "http://www.weather.com.cn/data/sk/101010100.html").responseObject { (response:WeatherInfo?, error:ErrorType?) -> Void in
+//        Alamofire.request(.GET, HttpURLPath.LoginURLPath.rawValue).responseObject { (response:WeatherInfo?, error:ErrorType?) -> Void in
+//            
+//            print("=====\(response?.weatherinfo?.city)")
+//
+//            
+//        }
+        
+        
+//        
+    
+        gcde_delay(2){
             
-            print("=====\(response?.weatherinfo?.city)")
-
-            
+            print("执行了");
         }
         
+        
+        
     }
+
+   
 
 }
 
