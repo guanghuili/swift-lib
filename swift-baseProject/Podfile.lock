@@ -1,0 +1,62 @@
+PODS:
+  - Alamofire (3.2.1)
+  - AlamofireObjectMapper (3.0.0):
+    - Alamofire (~> 3.2)
+    - ObjectMapper (~> 1.0)
+  - Aspects (1.4.1)
+  - EZSwiftExtensions (1.4)
+  - IQKeyboardManagerSwift (4.0.2)
+  - NVActivityIndicatorView (2.5)
+  - ObjectMapper (1.2.0)
+  - Proposer (0.8.0)
+  - R.swift.Library (2.1.0)
+  - ReactiveCocoa (2.3.1):
+    - ReactiveCocoa/UI (= 2.3.1)
+  - ReactiveCocoa/Core (2.3.1):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.3.1)
+  - ReactiveCocoa/UI (2.3.1):
+    - ReactiveCocoa/Core
+  - SVProgressHUD (2.0.3)
+  - SwiftyJSON (2.3.2)
+
+DEPENDENCIES:
+  - Alamofire (= 3.2.1)
+  - AlamofireObjectMapper (~> 3.0)
+  - Aspects
+  - EZSwiftExtensions
+  - IQKeyboardManagerSwift
+  - NVActivityIndicatorView
+  - ObjectMapper (~> 1.2)
+  - Proposer (~> 0.7)
+  - R.swift.Library
+  - ReactiveCocoa (~> 2.3.1)
+  - SVProgressHUD
+  - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
+
+EXTERNAL SOURCES:
+  SwiftyJSON:
+    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
+
+CHECKOUT OPTIONS:
+  SwiftyJSON:
+    :commit: 2a5b70f06001316d4fb54501edc70b4084705da0
+    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
+
+SPEC CHECKSUMS:
+  Alamofire: f11d8624a05f5d39e0c99309b3e600a3ba64298a
+  AlamofireObjectMapper: 2d16585d06177be0116d76de73497e77437798af
+  Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
+  EZSwiftExtensions: db7be0022fce8e92cdfe0fadddaf835fcd9696db
+  IQKeyboardManagerSwift: 2f2c19c509f67c4c0df2826db54033d3e090ce65
+  NVActivityIndicatorView: 18e82784c9cb2d5f3df3129a3e4754eb075ebca0
+  ObjectMapper: b1e9c7c8a9f6400b72690c80072c131504caa66f
+  Proposer: 17cd7fd2509b0d8d7c9e33815d648087c7dcaa81
+  R.swift.Library: e5e077ed04f6867a95676af491650091b23518e9
+  ReactiveCocoa: 3fe9b233ca6db810e86681b5749488564c1179a1
+  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+
+PODFILE CHECKSUM: 842913dc1aca90ad88240aea59041632e6a7f3e0
+
+COCOAPODS: 1.0.0.rc.2

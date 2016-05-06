@@ -1,0 +1,41 @@
+
+# Uncomment this line to define a global platform for your project
+# platform :ios, '6.0'
+
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+use_frameworks!
+
+target 'swift-baseProject' do
+
+
+pod 'Alamofire', '3.2.1'
+pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
+pod 'ObjectMapper', '~> 1.2'
+pod 'AlamofireObjectMapper', '~> 3.0'
+
+pod 'ReactiveCocoa', '~> 2.3.1'
+
+
+#权限请求 Proposer provides a simple API to request permission for access Camera, Photos, Microphone, Contacts, Location.
+pod 'Proposer', '~> 0.7'
+
+#键盘托管     IQKeyboardManager.sharedManager().enable = true
+pod 'IQKeyboardManagerSwift'
+
+#类似Andorid 中R资源引用
+#pod 'R.swift'
+pod 'R.swift.Library'
+
+#loading动画
+#pod 'SwiftSpinner'
+pod 'NVActivityIndicatorView'
+pod 'SVProgressHUD'
+
+#Swift Standard Library, Foundation, and UIKit Extensions 
+pod 'EZSwiftExtensions'
+
+#method swizzling
+pod 'Aspects'
+
+end
