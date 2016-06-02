@@ -54,6 +54,7 @@
 		914B5FA21CDB494D0084E85C /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914B5F481CDB494D0084E85C /* ViewModel.swift */; };
 		914B5FA31CDB494D0084E85C /* XingNang.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 914B5F491CDB494D0084E85C /* XingNang.xcdatamodeld */; };
 		914B5FA51CDB4ECF0084E85C /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914B5FA41CDB4ECF0084E85C /* R.generated.swift */; };
+		91D923361CE028730045D0C0 /* SwiftNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D923351CE028730045D0C0 /* SwiftNetworking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +108,7 @@
 		914B5F4A1CDB494D0084E85C /* XingNang.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = XingNang.xcdatamodel; sourceTree = "<group>"; };
 		914B5FA41CDB4ECF0084E85C /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		91C433281CBB8E0F006396D8 /* swift-baseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swift-baseProject.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		91D923351CE028730045D0C0 /* SwiftNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftNetworking.swift; sourceTree = "<group>"; };
 		E7C434482B0EA74CEE5D0780 /* Pods-swift-baseProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift-baseProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swift-baseProject/Pods-swift-baseProject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,6 +139,7 @@
 				914B5FA41CDB4ECF0084E85C /* R.generated.swift */,
 				914B5EE01CDB494D0084E85C /* AppDelegate.swift */,
 				914B5F451CDB494D0084E85C /* ViewController.swift */,
+				91D923351CE028730045D0C0 /* SwiftNetworking.swift */,
 				914B5EE41CDB494D0084E85C /* Main.storyboard */,
 				914B5F3C1CDB494D0084E85C /* Travel.storyboard */,
 				914B5EE21CDB494D0084E85C /* LaunchScreen.storyboard */,
@@ -351,6 +354,7 @@
 				TargetAttributes = {
 					91C433271CBB8E0F006396D8 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = USB9SBRN6P;
 					};
 				};
 			};
@@ -414,7 +418,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "";
+			shellScript = "\"$SRCROOT/rswift\" \"$SRCROOT\"";
 		};
 		BCF7C91B58051E63EE50DF0D /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -474,6 +478,7 @@
 				914B5F5C1CDB494D0084E85C /* UserCell.swift in Sources */,
 				914B5F541CDB494D0084E85C /* Operator^.swift in Sources */,
 				914B5F9E1CDB494D0084E85C /* TravelCell.swift in Sources */,
+				91D923361CE028730045D0C0 /* SwiftNetworking.swift in Sources */,
 				914B5F5E1CDB494D0084E85C /* HTTPRouter.swift in Sources */,
 				914B5F961CDB494D0084E85C /* DataFetcher.swift in Sources */,
 				914B5F931CDB494D0084E85C /* WeatherInfoResponse.swift in Sources */,
@@ -607,7 +612,7 @@
 			baseConfigurationReference = E7C434482B0EA74CEE5D0780 /* Pods-swift-baseProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Hua MingYe (C6V6GJF4NM)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Hua MingYe (C6V6GJF4NM)";
 				INFOPLIST_FILE = "$(SRCROOT)/swift-baseProject/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -623,7 +628,7 @@
 			baseConfigurationReference = 2826D25E3B80D3A918519142 /* Pods-swift-baseProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Forest Wisdom Co., Ltd. (USB9SBRN6P)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Forest Wisdom Co., Ltd. (USB9SBRN6P)";
 				INFOPLIST_FILE = "$(SRCROOT)/swift-baseProject/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

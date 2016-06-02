@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import Alamofire
 import AlamofireObjectMapper
+import DeviceGuru
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         application.statusBarStyle =  .LightContent
        
+  
+        
 
         HTTPWorker.sharedInstance.responseAPIResultObject(router:.ActivityList) { (result:APIResult<APIPage<RecmdContent>>?) in
             
@@ -34,6 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         return true
     }
+    
+
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

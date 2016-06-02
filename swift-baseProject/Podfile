@@ -13,29 +13,34 @@ pod 'Alamofire', '3.2.1'
 pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 pod 'ObjectMapper', '~> 1.2'
 pod 'AlamofireObjectMapper', '~> 3.0'
-
 pod 'ReactiveCocoa', '~> 2.3.1'
-
-
 #权限请求 Proposer provides a simple API to request permission for access Camera, Photos, Microphone, Contacts, Location.
 pod 'Proposer', '~> 0.7'
-
 #键盘托管     IQKeyboardManager.sharedManager().enable = true
 pod 'IQKeyboardManagerSwift'
-
 #类似Andorid 中R资源引用
-#pod 'R.swift'
+#pod 'R.swift', '2.2'
 pod 'R.swift.Library'
-
 #loading动画
 #pod 'SwiftSpinner'
 pod 'NVActivityIndicatorView'
 pod 'SVProgressHUD'
-
 #Swift Standard Library, Foundation, and UIKit Extensions 
 pod 'EZSwiftExtensions'
-
 #method swizzling
 pod 'Aspects'
+
+#数据库
+pod 'RealmSwift'
+
+#这是一个头像（Avatar）缓存组件
+pod 'Navi', '~> 0.4.2'
+#设备识别器
+pod 'DeviceGuru'
+#方便地获取屏幕的各类尺寸信息
+pod 'Ruler', '~> 0.7.0'
+#做半透明、模糊处理
+pod 'FXBlurView', '~> 1.6.4'
+
 
 end

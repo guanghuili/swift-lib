@@ -294,9 +294,9 @@ public enum NVActivityIndicatorType: Int {
 
 /// Activity indicator view with nice animations
 public class NVActivityIndicatorView: UIView {
-    private static let DEFAULT_TYPE: NVActivityIndicatorType = .Pacman
-    private static let DEFAULT_COLOR = UIColor.whiteColor()
-    private static let DEFAULT_PADDING: CGFloat = 0
+    public static var DEFAULT_TYPE: NVActivityIndicatorType = .BallSpinFadeLoader
+    public static var DEFAULT_COLOR = UIColor.whiteColor()
+    public static var DEFAULT_PADDING: CGFloat = 0
     
     /// Animation type, value of NVActivityIndicatorType enum.
     public var type: NVActivityIndicatorType = NVActivityIndicatorView.DEFAULT_TYPE
@@ -332,7 +332,7 @@ public class NVActivityIndicatorView: UIView {
      Create a activity indicator view with default type, color and padding.
      This is used by storyboard to initiate the view.
      
-     - Default type is pacman.
+     - Default type is BallSpinFadeLoader.
      - Default color is white.
      - Default padding is 0.
      
@@ -349,16 +349,16 @@ public class NVActivityIndicatorView: UIView {
      Create a activity indicator view with specified frame, type, color and padding.
      
      - parameter frame: view's frame.
-     - parameter type: animation type, value of NVActivityIndicatorType enum. Default type is pacman.
+     - parameter type: animation type, value of NVActivityIndicatorType enum. Default type is BallSpinFadeLoader.
      - parameter color: color of activity indicator view. Default color is white.
      - parameter padding: view's padding. Default padding is 0.
      
      - returns: The activity indicator view.
      */
-    public init(frame: CGRect, type: NVActivityIndicatorType = DEFAULT_TYPE, color: UIColor = DEFAULT_COLOR, padding: CGFloat = DEFAULT_PADDING) {
-        self.type = type
-        self.color = color
-        self.padding = padding
+    public init(frame: CGRect, type: NVActivityIndicatorType? = nil, color: UIColor? = nil, padding: CGFloat? = nil) {
+        self.type = type ?? NVActivityIndicatorView.DEFAULT_TYPE
+        self.color = color ?? NVActivityIndicatorView.DEFAULT_COLOR
+        self.padding = padding ?? NVActivityIndicatorView.DEFAULT_PADDING
         super.init(frame: frame)
     }
     

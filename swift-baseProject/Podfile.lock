@@ -4,11 +4,14 @@ PODS:
     - Alamofire (~> 3.2)
     - ObjectMapper (~> 1.0)
   - Aspects (1.4.1)
+  - DeviceGuru (1.3.7)
   - EZSwiftExtensions (1.4)
-  - IQKeyboardManagerSwift (4.0.2)
-  - NVActivityIndicatorView (2.5)
-  - ObjectMapper (1.2.0)
-  - Proposer (0.8.0)
+  - FXBlurView (1.6.4)
+  - IQKeyboardManagerSwift (4.0.3)
+  - Navi (0.4.2)
+  - NVActivityIndicatorView (2.7)
+  - ObjectMapper (1.3.0)
+  - Proposer (0.9.0)
   - R.swift.Library (2.1.0)
   - ReactiveCocoa (2.3.1):
     - ReactiveCocoa/UI (= 2.3.1)
@@ -17,6 +20,12 @@ PODS:
   - ReactiveCocoa/no-arc (2.3.1)
   - ReactiveCocoa/UI (2.3.1):
     - ReactiveCocoa/Core
+  - Realm (1.0.0):
+    - Realm/Headers (= 1.0.0)
+  - Realm/Headers (1.0.0)
+  - RealmSwift (1.0.0):
+    - Realm (= 1.0.0)
+  - Ruler (0.7.0)
   - SVProgressHUD (2.0.3)
   - SwiftyJSON (2.3.2)
 
@@ -24,13 +33,18 @@ DEPENDENCIES:
   - Alamofire (= 3.2.1)
   - AlamofireObjectMapper (~> 3.0)
   - Aspects
+  - DeviceGuru
   - EZSwiftExtensions
+  - FXBlurView (~> 1.6.4)
   - IQKeyboardManagerSwift
+  - Navi (~> 0.4.2)
   - NVActivityIndicatorView
   - ObjectMapper (~> 1.2)
   - Proposer (~> 0.7)
   - R.swift.Library
   - ReactiveCocoa (~> 2.3.1)
+  - RealmSwift
+  - Ruler (~> 0.7.0)
   - SVProgressHUD
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
@@ -47,16 +61,22 @@ SPEC CHECKSUMS:
   Alamofire: f11d8624a05f5d39e0c99309b3e600a3ba64298a
   AlamofireObjectMapper: 2d16585d06177be0116d76de73497e77437798af
   Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
+  DeviceGuru: f847629dc0da0145ba48a9fc314e613ca4aa9caf
   EZSwiftExtensions: db7be0022fce8e92cdfe0fadddaf835fcd9696db
-  IQKeyboardManagerSwift: 2f2c19c509f67c4c0df2826db54033d3e090ce65
-  NVActivityIndicatorView: 18e82784c9cb2d5f3df3129a3e4754eb075ebca0
-  ObjectMapper: b1e9c7c8a9f6400b72690c80072c131504caa66f
-  Proposer: 17cd7fd2509b0d8d7c9e33815d648087c7dcaa81
+  FXBlurView: db786c2561cb49a09ae98407f52460096ab8a44f
+  IQKeyboardManagerSwift: b6883b720b0e76473692fdc80828442566e1075f
+  Navi: f743d94c9879e646ee399b404d0b53100c66a8bd
+  NVActivityIndicatorView: dc80f18fb27ac92f0aa87246cc13dc39ed3e9ee0
+  ObjectMapper: 4eb08a726e9791a93b2632049951b56a7c17e471
+  Proposer: 231565a8b6bbb1816f3670d6471e6a84e582c80c
   R.swift.Library: e5e077ed04f6867a95676af491650091b23518e9
   ReactiveCocoa: 3fe9b233ca6db810e86681b5749488564c1179a1
+  Realm: e15cd8e7c11d3e576f628ba0b7cb855269b4991c
+  RealmSwift: 3229306d020d96f83b335f87a0dcbf2cef0e6a2b
+  Ruler: 51bd16cc00638702ef71713f80073588a6c7e682
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: 842913dc1aca90ad88240aea59041632e6a7f3e0
+PODFILE CHECKSUM: 77c1522de7a3fca460e89e8b32e1b35be63ffdbb
 
-COCOAPODS: 1.0.0.rc.2
+COCOAPODS: 1.0.0
